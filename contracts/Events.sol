@@ -17,7 +17,7 @@ contract Events is IWeb3BetsEventV1{
 
     string public description;
 
-    address public marketFacoryAdress;
+    address public marketFactoryAdress;
 
     mapping (address => uint) winners;
 
