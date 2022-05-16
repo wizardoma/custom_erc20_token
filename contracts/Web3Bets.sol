@@ -4,9 +4,9 @@ pragma solidity ^0.8.4;
 
 contract Web3Bets {
     address public ecosystemAddress;
-    address public holdersAddress;
-    uint256 public holdersVig = 25;
-    uint256 public ecosystemVig = 50;
+    address public communityAddress;
+    uint256 public communityVig = 50;
+    uint256 public ecosystemVig = 25;
     uint256 public eventOwnersVig = 25;
     uint256 public vigPercentage = 10;
     address[] eventOwnerAddresses;
@@ -15,12 +15,12 @@ contract Web3Bets {
     error ExistingEventOwner(string message);
 
     constructor() {
-        holdersAddress = msg.sender;
+        devAddress = msg.sender;
     }
 
     modifier onlyUser() {
         require(
-            msg.sender == holdersAddress,
+            msg.sender == devAddress,
             "You have no privilege to run this function"
         );
         _;
@@ -36,12 +36,12 @@ contract Web3Bets {
         _;
     }
 
-    function setHoldersAddress(address holder)
+    function setCommunityAddress(address holder)
         public
         onlyUser
         returns (string memory)
     {
-        holdersAddress = holder;
+        communityAddress = holder;
 
         return "Address set successfully";
     }
@@ -70,20 +70,20 @@ contract Web3Bets {
     }
 
     function setVigPercentageShares(
-        uint256 hVig,
+        uint256 cVig,
         uint256 eVig,
         uint256 eoVig
     ) public returns (string memory) {
         require(
-            hVig <= 100 && eVig <= 100 && eoVig <= 100,
+            cVig <= 100 && eVig <= 100 && eoVig <= 100,
             "Vig percentages shares must be expressed in a  0 to 100 ratio. Example: 30"
         );
         require(
-            hVig + eVig + eoVig == 100,
+            cVig + eVig + eoVig == 100,
             "The sum of all Vig percentage shares must be equal to 100"
         );
 
-        holdersVig = hVig;
+        communityVig = cVig;
         ecosystemVig = eVig;
         eventOwnersVig = eoVig;
 
