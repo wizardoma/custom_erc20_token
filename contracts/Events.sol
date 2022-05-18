@@ -13,7 +13,7 @@ contract Events is IWeb3BetsEventV1{
 
     Market[] markets;
 
-    string public name; 
+    string public name;
 
     string public description;
 
