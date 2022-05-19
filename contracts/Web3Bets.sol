@@ -2,7 +2,9 @@
 
 pragma solidity ^0.8.4;
 
-contract Web3Bets {
+import "./interface/IWeb3Bets.sol";
+
+contract Web3Bets is IWeb3Bets{
     address public contractOwner;
     address public ecosystemAddress;
     address public holdersAddress;
@@ -27,24 +29,20 @@ contract Web3Bets {
         _;
     }
 
-    modifier uniqueEventOwner(address eventOwner) {
-        if (eventOwnersMapping[eventOwner] == 0) {
+    modifier uniqueEventOwner(address _eventOwner) {
+        if (eventOwnersMapping[_eventOwner] == 0) {
             revert ExistingEventOwner({
                 message: "This address is already an event owner"
             });
         }
-
         _;
     }
 
     function setHoldersAddress(address holder)
         public
         onlyUser
-        returns (string memory)
     {
         holdersAddress = holder;
-
-        return "Address set successfully";
     }
 
     function setEcosystemAddress(address holder) public onlyUser {
@@ -87,7 +85,7 @@ contract Web3Bets {
         eventOwnerAddresses.push(eventOwner);
     }
 
-    function shareBetEarnings() external payable {
+    function shareBetEarnings() override external payable {
         require(msg.value > 0, "bet earnings must be greater than 0");
         uint256 holdersShare = msg.value * (holdersVig / 100);
         uint256 ecosystemShare = msg.value * (ecosystemVig / 100);
@@ -105,7 +103,7 @@ contract Web3Bets {
         }("");
     }
 
-    function getVigPercentage() external view returns (uint256) {
+    function getVigPercentage() override external view returns (uint256) {
         return vigPercentage;
     }
 }
