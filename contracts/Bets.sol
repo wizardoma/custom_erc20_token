@@ -38,13 +38,14 @@ contract Bets is IWeb3BetsBetsV1 {
         _;
     }
 
-    modifier wonBet {
-        require(betStatus == BetStatus.WON, "Bet must be won to withdraw");
+    modifier withdrawable {
+        require(betStatus == BetStatus.WON || betStatus == BetStatus.CANCELLED, "Bet must be won or cancelled to withdraw");
         _;
     }
 
     enum BetStatus {
         PENDING,
+        CANCELLED,
         WON,
         LOST
     }
@@ -87,7 +88,7 @@ contract Bets is IWeb3BetsBetsV1 {
         return stake;
     }
 
-    function getBetStaker() external view returns (address) {
+    function getBetter() external view returns (address) {
         return better;
     }
 
@@ -115,10 +116,14 @@ contract Bets is IWeb3BetsBetsV1 {
         }
 
         else if (status == 1){
-            return BetStatus.WON;
+            return BetStatus.CANCELLED;
         }
 
         else if (status == 2){
+            return BetStatus.WON;
+        }
+
+        else if (status == 3){
             return BetStatus.LOST;
         }
         else {
@@ -126,7 +131,7 @@ contract Bets is IWeb3BetsBetsV1 {
         }
     }
 
-    function withdraw() external payable onlyBetter wonBet {
+    function withdraw() external payable onlyBetter withdrawable {
         require(address(this).balance > 0, "This bet has no funds");
 
         payable(msg.sender).transfer(address(this).balance);
