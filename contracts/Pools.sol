@@ -1,6 +1,7 @@
 pragma solidity ^0.8.4;
 import "./interface/IWeb3BetsPoolsV1.sol";
 import "./interface/IWeb3BetsEventsV1.sol";
+// SPDX-License-Identifier: MIT
 import "./Bets.sol";
 
 import "./BetsFactory.sol";
@@ -19,9 +20,12 @@ contract Pool is IWeb3BetsPoolsV1 {
 
     mapping(address => uint256) userStakes;
 
+    address[] betAddresses;
+
     address private eventAddress;
 
     address private marketAddress;
+
 
     modifier aboveMinimumStake() {
         IWeb3BetsEventV1 poolEvent = IWeb3BetsEventV1(eventAddress);
@@ -44,14 +48,15 @@ contract Pool is IWeb3BetsPoolsV1 {
 
     function bet() public payable override aboveMinimumStake {
         BetsFactory betsFactory = BetsFactory(betsFactoryAddress);
-        Bets bet = betsFactory.createBet(
-            msg.value,
+        address betAddress = betsFactory.createBet(
             marketAddress,
             eventAddress,
-            poolAddress
+            address(this),
+            msg.value
         );
         totalStake += msg.value;
         userStakes[msg.sender] = msg.value;
+        betAddresses.push(betAddress);
     }
 
     function getName() external view override returns (string memory) {
