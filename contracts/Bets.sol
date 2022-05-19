@@ -18,17 +18,38 @@ contract Bets is IWeb3BetsBetsV1 {
 
     address public marketAddress;
 
+    uint private statusSetCount = 0;
+
     address public poolAddress;
 
     BetStatus betStatus = BetStatus.PENDING;
 
     uint256 public stake;
 
+    modifier onlyEventOwner {
+        IWeb3BetsEventV1 betEvent = IWeb3BetsEventV1(eventAddress);
+        require(msg.sender == betEvent.getEventOwner(), "Only bet owners can apply this function");
+        
+        _;
+    }
+
+    modifier onlyBetter {
+        require(msg.sender == better, "Only event better can call this function");
+        _;
+    }
+
+    modifier wonBet {
+        require(betStatus == BetStatus.WON, "Bet must be won to withdraw");
+        _;
+    }
+
     enum BetStatus {
         PENDING,
         WON,
         LOST
     }
+
+    
 
     constructor(
         address _eventAddress,
@@ -81,4 +102,36 @@ contract Bets is IWeb3BetsBetsV1 {
     function getBetEventAddress() external view returns (address) {
         return eventAddress;
     }
+
+    function setBetStatus(uint status) external onlyEventOwner{
+        require(statusSetCount == 0, "You can not modify bet status more than once");
+        betStatus = getStatus(status);
+        statusSetCount =1;
+    }
+
+    function getStatus(uint status) private pure returns (BetStatus){
+        if (status == 0){
+            return BetStatus.PENDING;
+        }
+
+        else if (status == 1){
+            return BetStatus.WON;
+        }
+
+        else if (status == 2){
+            return BetStatus.LOST;
+        }
+        else {
+            return BetStatus.PENDING;
+        }
+    }
+
+    function withdraw() external payable onlyBetter wonBet {
+        require(address(this).balance > 0, "This bet has no funds");
+
+        payable(msg.sender).transfer(address(this).balance);
+    }
+
+
+    
 }
