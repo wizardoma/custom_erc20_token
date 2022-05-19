@@ -50,31 +50,27 @@ contract Web3Bets {
     function setEcosystemAddress(address holder)
         public
         onlyUser
-        returns (string memory)
     {
         ecosystemAddress = holder;
 
-        return "Address set successfully";
     }
 
     function setVigPercentage(uint256 percentage)
         public
         onlyUser
-        returns (string memory)
     {
         require(
             percentage < 100,
             "Vig percentage must be expressed in 0 to 100 percentage. Example: 10"
         );
         vigPercentage = percentage;
-        return "Vig percentage set successfully";
     }
 
     function setVigPercentageShares(
         uint256 hVig,
         uint256 eVig,
         uint256 eoVig
-    ) public returns (string memory) {
+    ) public {
         require(
             hVig <= 100 && eVig <= 100 && eoVig <= 100,
             "Vig percentages shares must be expressed in a  0 to 100 ratio. Example: 30"
@@ -88,18 +84,15 @@ contract Web3Bets {
         ecosystemVig = eVig;
         eventOwnersVig = eoVig;
 
-        return "Vig percentage shares set successfully";
     }
 
     function addEventOwner(address eventOwner)
         public
         onlyUser
         uniqueEventOwner(eventOwner)
-        returns (string memory)
     {
         eventOwnersMapping[eventOwner] = eventOwnerAddresses.length;
         eventOwnerAddresses.push(eventOwner);
 
-        return "EventOwner added";
     }
 }
