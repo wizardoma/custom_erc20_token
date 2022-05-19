@@ -3,6 +3,7 @@
 pragma solidity ^0.8.4;
 
 contract Web3Bets {
+    address public contractOwner;
     address public ecosystemAddress;
     address public holdersAddress;
     uint256 public holdersVig = 25;
@@ -15,12 +16,12 @@ contract Web3Bets {
     error ExistingEventOwner(string message);
 
     constructor() {
-        holdersAddress = msg.sender;
+        contractOwner = msg.sender;
     }
 
     modifier onlyUser() {
         require(
-            msg.sender == holdersAddress,
+            msg.sender == contractOwner,
             "You have no privilege to run this function"
         );
         _;
