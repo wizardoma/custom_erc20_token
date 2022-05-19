@@ -11,11 +11,15 @@ interface IWeb3BetsBetsV1 {
 
     function getBetStake() external returns(uint);
 
-    function getBetStaker() external returns(address);
+    function getBetter() external returns(address);
 
     function getBetPoolAddress() external returns (address);
 
     function getBetMarketAddress() external returns (address);
 
     function getBetEventAddress() external returns (address);
+
+    function setBetStatus(uint status) external;
+
+    function withdraw() external payable;
 }

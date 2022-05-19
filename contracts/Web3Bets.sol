@@ -47,18 +47,11 @@ contract Web3Bets {
         return "Address set successfully";
     }
 
-    function setEcosystemAddress(address holder)
-        public
-        onlyUser
-    {
+    function setEcosystemAddress(address holder) public onlyUser {
         ecosystemAddress = holder;
-
     }
 
-    function setVigPercentage(uint256 percentage)
-        public
-        onlyUser
-    {
+    function setVigPercentage(uint256 percentage) public onlyUser {
         require(
             percentage < 100,
             "Vig percentage must be expressed in 0 to 100 percentage. Example: 10"
@@ -83,7 +76,6 @@ contract Web3Bets {
         holdersVig = hVig;
         ecosystemVig = eVig;
         eventOwnersVig = eoVig;
-
     }
 
     function addEventOwner(address eventOwner)
@@ -93,6 +85,27 @@ contract Web3Bets {
     {
         eventOwnersMapping[eventOwner] = eventOwnerAddresses.length;
         eventOwnerAddresses.push(eventOwner);
+    }
 
+    function shareBetEarnings() external payable {
+        require(msg.value > 0, "bet earnings must be greater than 0");
+        uint256 holdersShare = msg.value * (holdersVig / 100);
+        uint256 ecosystemShare = msg.value * (ecosystemVig / 100);
+        uint256 eventOwnersShare = msg.value * (eventOwnersVig / 100);
+        address payable eventOwner = payable(msg.sender);
+
+        (bool isSentEventOwner, ) = eventOwner.call{value: eventOwnersShare}(
+            ""
+        );
+        (bool isSentEcosystem, ) = ecosystemAddress.call{value: ecosystemShare}(
+            ""
+        );
+        (bool isSentHoldersAddress, ) = holdersAddress.call{
+            value: holdersShare
+        }("");
+    }
+
+    function getVigPercentage() external view returns (uint256) {
+        return vigPercentage;
     }
 }
