@@ -49,7 +49,6 @@ contract Bets is IWeb3BetsBetsV1 {
         WON,
         LOST
     }
-
     
 
     constructor(
@@ -80,31 +79,31 @@ contract Bets is IWeb3BetsBetsV1 {
     //     return bet;
     // }
 
-    function getStatus() external view returns (uint256) {
+    function getStatus() override external view returns (uint256) {
         return uint256(betStatus);
     }
 
-    function getBetStake() external view returns (uint256) {
+    function getBetStake() override external view returns (uint256) {
         return stake;
     }
 
-    function getBetter() external view returns (address) {
+    function getBetter() override external view returns (address) {
         return better;
     }
 
-    function getBetPoolAddress() external view returns (address) {
+    function getBetPoolAddress() override external view returns (address) {
         return poolAddress;
     }
 
-    function getBetMarketAddress() external view returns (address) {
+    function getBetMarketAddress() override external view returns (address) {
         return marketAddress;
     }
 
-    function getBetEventAddress() external view returns (address) {
+    function getBetEventAddress() override external view returns (address) {
         return eventAddress;
     }
 
-    function setBetStatus(uint status) external onlyEventOwner{
+    function setBetStatus(uint status) override external onlyEventOwner{
         require(statusSetCount == 0, "You can not modify bet status more than once");
         betStatus = getStatus(status);
         statusSetCount =1;
@@ -131,7 +130,7 @@ contract Bets is IWeb3BetsBetsV1 {
         }
     }
 
-    function withdraw() external payable onlyBetter withdrawable {
+    function withdraw() override external payable onlyBetter withdrawable {
         require(address(this).balance > 0, "This bet has no funds");
 
         payable(msg.sender).transfer(address(this).balance);

@@ -1,0 +1,255 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "message",
+						"type": "string"
+					}
+				],
+				"name": "ExistingEventOwner",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "eventOwner",
+						"type": "address"
+					}
+				],
+				"name": "addEventOwner",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "contractOwner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ecosystemAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ecosystemVig",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "eventOwnersVig",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getVigPercentage",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "holdersAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "holdersVig",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "holder",
+						"type": "address"
+					}
+				],
+				"name": "setEcosystemAddress",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "holder",
+						"type": "address"
+					}
+				],
+				"name": "setHoldersAddress",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "percentage",
+						"type": "uint256"
+					}
+				],
+				"name": "setVigPercentage",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "hVig",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "eVig",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "eoVig",
+						"type": "uint256"
+					}
+				],
+				"name": "setVigPercentageShares",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "shareBetEarnings",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "vigPercentage",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"projects/crypto/web3bets_smartcontract/contracts/Web3Bets.sol": "Web3Bets"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"projects/crypto/web3bets_smartcontract/contracts/Web3Bets.sol": {
+			"keccak256": "0xd354a5cf6ab7c422699b89275a9b3e053b1a886fe9d93db9a1d43768b7c69a49",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://52db950c7421a3c4f97a8839d4bdee04a67bbf3428bbae77c414fa3431299e50",
+				"dweb:/ipfs/QmNsN17vP3aW8ooUvAcrA9fytNrgtX2rkykT1i4rbDWmSW"
+			]
+		},
+		"projects/crypto/web3bets_smartcontract/contracts/interface/IWeb3Bets.sol": {
+			"keccak256": "0x2c83ee5f82eb8092c7c700d65f4a99fc038df1e3c67eafbf60ef5d8a6e198d2e",
+			"urls": [
+				"bzz-raw://2127d4bc97ac6444f5dc7dc3a2862d33c0baf49766d28f8be51fadd3ee8a792c",
+				"dweb:/ipfs/QmU89wWhgzphXbDkXYfqCALm3An8dVrvTSUWomDqFLyR11"
+			]
+		}
+	},
+	"version": 1
+}

@@ -14,17 +14,17 @@ contract Events is IWeb3BetsEventV1 {
 
     uint private minimumStake;
 
-    Market[] markets;
+    EventMarket[] markets;
 
     string public name;
 
-    struct Market {
-        string name;
+    struct EventMarket {
+        string marketName;
         address marketAddress;
         MarketStatus status;
     }
 
-    function getName() public view override returns (string memory) {
+    function getName()  public view override returns (string memory) {
         return name;
     }
 
@@ -33,7 +33,7 @@ contract Events is IWeb3BetsEventV1 {
         address _marketFactoryAddress
     ) {
         name = eventName;
-        marketFactoryAddress = marketFactoryAddress;
+        marketFactoryAddress = _marketFactoryAddress;
     }
 
     enum MarketStatus {
@@ -58,8 +58,8 @@ contract Events is IWeb3BetsEventV1 {
             address(this)
         );
 
-        Market memory market = Market({
-            name: name,
+        EventMarket memory market = EventMarket({
+            marketName: name,
             status: MarketStatus.PENDING,
             marketAddress: marketAddress
         });
@@ -67,18 +67,11 @@ contract Events is IWeb3BetsEventV1 {
         markets.push(market);
     }
 
-    function cancelEvent() external override onlyOwner {}
+    function cancelEvent() external override onlyOwner {
+        
+    }
 
     function settleEvent() external override onlyOwner {}
-
-    // Allows callers to redeem their events in the case of a canceled event
-    function redeemStake(uint256 marketId, uint256 poolId) external override {}
-
-    // Allows callers to take their winnings in the case where their pool won
-    function takeBetWinnings(uint256 marketId, uint256 poolId)
-        external
-        override
-    {}
 
     function getMarkets() external view override returns (address[] memory) {
         address[] memory marketAddresses;
@@ -90,13 +83,27 @@ contract Events is IWeb3BetsEventV1 {
         return marketAddresses;
     }
 
-    function getTotalStake() external override returns (uint256) {}
+    function getTotalStake() external override returns (uint256) {
+        uint _totalStake;
 
-    function getCount() public view returns (uint256 count) {
+        for (uint i = 0; i< markets.length; i++){
+            IWeb3BetsMarketV1 _betsMarket = IWeb3BetsMarketV1(markets[i].marketAddress);
+               _totalStake += _betsMarket.getTotalStake();
+            
+        }
+
+        return _totalStake;
+    }
+
+    function getMinimumStake() external view returns (uint){
+        return minimumStake;
+    }
+
+    function getCount() internal view returns (uint256 count) {
         return markets.length;
     }
 
-    function getEventOwner() external view returns (address){
+    function getEventOwner() override external view returns (address){
         return eventOwner;
     }
 }

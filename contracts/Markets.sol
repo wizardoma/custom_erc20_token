@@ -1,9 +1,11 @@
 // SPDX-License-Identifier: MIT
+
 pragma solidity ^0.8.4;
 
 import "./interface/IWeb3BetsMarketV1.sol";
 import "./interface/IWeb3BetsEventsV1.sol";
 import "./interface/IWeb3BetsPoolsV1.sol";
+import "./interface/IWeb3Bets.sol";
 import "./PoolsFactory.sol";
 
 contract Market is IWeb3BetsMarketV1 {
@@ -24,12 +26,11 @@ contract Market is IWeb3BetsMarketV1 {
         _;
     }
 
-    modifier uniqueName(string value) {
-        value = _toLower(value);
+    modifier uniqueName(string memory value) {
         bool isNotEqual = true;
-        uint32 poolNamesLength = poolNames.length;
-        for (uint32 i = 0; i < poolNamesLength; i++) {
-            if (value == poolNames[i]) {
+        uint poolNamesLength = poolNames.length;
+        for (uint i = 0; i < poolNamesLength; i++) {
+            if (keccak256(abi.encodePacked(value)) == keccak256(abi.encodePacked(poolNames[i]))) {
                 isNotEqual = false;
                 break;
             }
@@ -42,13 +43,13 @@ contract Market is IWeb3BetsMarketV1 {
     //  verify if winning pool is valid in current market
     modifier validWinningPool(address _poolAddress) {
         bool found = false;
-        uint256 poolLength = pools.length;
+        uint256 poolLength = poolNames.length;
         require(
             poolLength > 0,
             "Cannot set winning pool on market with no pool"
         );
         for (uint256 i = 0; i < poolLength; i++) {
-            if (pools[i] == _poolAddress) {
+            if (pools[poolNames[i]] == _poolAddress) {
                 found = true;
                 break;
             }
@@ -65,11 +66,12 @@ contract Market is IWeb3BetsMarketV1 {
     }
 
     function createMarketPool(string memory _name)
+    override
         external
         onlyEventOwner
         uniqueName(_name)
     {
-        PoolsFactory poolsFactory = new PoolsFactory(poolFactoryAddress);
+        PoolsFactory poolsFactory = PoolsFactory(poolFactoryAddress);
         address poolAddress = poolsFactory.createPool(
             _name,
             eventAddress,
@@ -80,12 +82,22 @@ contract Market is IWeb3BetsMarketV1 {
     }
 
     function setWinningPool(address _poolAddress)
+    override
         external
         onlyEventOwner
-        validWinningPool(poolAddress)
+        validWinningPool(_poolAddress)
     {
-        
+        // Initialize the Web3Bets address
+        IWeb3Bets web3Bets = IWeb3Bets(web3BetsAddress);
+        uint vigPercentage = web3Bets.getVigPercentage();
 
+        // Get total stake and transfer to market
+        // TODO: discuss with client: formulate pragmatic algorithm for bet winnings
+        uint poolLength = poolNames.length;
+        for (uint i = 0; i < poolLength; i++){
+            IWeb3BetsPoolsV1 pool = IWeb3BetsPoolsV1(pools[poolNames[i]]);
+            
+        }
     }
 
     function getEventName() external override returns (string memory) {
@@ -101,18 +113,30 @@ contract Market is IWeb3BetsMarketV1 {
         return name;
     }
 
-    function _toLower(string str) internal returns (string) {
-        bytes memory bStr = bytes(str);
-        bytes memory bLower = new bytes(bStr.length);
-        for (uint256 i = 0; i < bStr.length; i++) {
-            // Uppercase character...
-            if ((bStr[i] >= 65) && (bStr[i] <= 90)) {
-                // So we add 32 to make it lowercase
-                bLower[i] = bytes1(int256(bStr[i]) + 32);
-            } else {
-                bLower[i] = bStr[i];
-            }
+    function getTotalStake() external override returns (uint) {
+
+        uint totalStake;
+
+        for (uint i = 0; i < poolNames.length; i++){
+            IWeb3BetsPoolsV1 betsPool = IWeb3BetsPoolsV1(pools[poolNames[i]]);
+            totalStake += betsPool.getTotalStake();
         }
-        return string(bLower);
+
+        return totalStake;
     }
+
+    // function _toLower(string memory str) internal returns (string memory) {
+    //     bytes memory bStr = bytes(str);
+    //     bytes memory bLower = new bytes(bStr.length);
+    //     for (uint256 i = 0; i < bStr.length; i++) {
+    //         // Uppercase character...
+    //         if ((bStr[i] >= 0x65) && (bStr[i] <= 0x90)) {
+    //             // So we add 32 to make it lowercase
+    //             bLower[i] = bytes1(int256(bStr[i]) + 32);
+    //         } else {
+    //             bLower[i] = bStr[i];
+    //         }
+    //     }
+    //     return string(bLower);
+    // }
 }

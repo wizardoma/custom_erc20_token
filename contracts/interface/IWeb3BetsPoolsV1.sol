@@ -6,4 +6,7 @@ import "./IBaseInterface.sol";
 interface IWeb3BetsPoolsV1 is IBaseInterface{
     function bet() payable external;
 
+    function getTotalStake() external returns (uint);
+
+    
 }

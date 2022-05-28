@@ -57,9 +57,20 @@ contract Pool is IWeb3BetsPoolsV1 {
         totalStake += msg.value;
         userStakes[msg.sender] = msg.value;
         betAddresses.push(betAddress);
+        (bool sentBetFundToMarket, ) = marketAddress.call{value: msg.value}(
+            ""
+        );
+
+        if (!sentBetFundToMarket){
+            revert();
+        }
     }
 
     function getName() external view override returns (string memory) {
         return name;
+    }
+
+    function getTotalStake() external returns (uint) {
+        return totalStake;
     }
 }

@@ -11,14 +11,14 @@ contract PoolsFactory {
     
     function createPool(string memory _name, address _eventAddress, address _marketAddress) external returns (address) {
         Pool pool = new Pool(_name, _eventAddress, _marketAddress);
-        marketPools[marketAddress].push(address(pool));
+        marketPools[_marketAddress].push(address(pool));
 
         emit PoolCreated(_name, _marketAddress, _eventAddress);
 
         return address(pool);
     }
 
-    function getPoolsOfMarket(address _marketAddress) external view returns(address[]){
+    function getPoolsOfMarket(address _marketAddress) external view returns(address[] memory){
         return marketPools[_marketAddress];
     }
     
