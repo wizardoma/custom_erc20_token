@@ -70,7 +70,7 @@ contract Pool is IWeb3BetsPoolsV1 {
         return name;
     }
 
-    function getTotalStake() external returns (uint) {
+    function getTotalStake() external view returns (uint) {
         return totalStake;
     }
 }

@@ -7,7 +7,7 @@ contract EventFactory {
     mapping (address => address[]) userEvents;
 
 
-    event EventCreated(address eventOwner, string name, address, eventAddress);
+    event EventCreated(address eventOwner, string name, address eventAddress);
 
     struct EventDetail {
         string name;
@@ -35,13 +35,13 @@ contract EventFactory {
         Events wEvent = new Events(_name, marketFactoryAddress);
         
         userEvents[msg.sender].push(address(wEvent));
-        _events.push[wEvent];
-
-        emit EventCreated(msg.sender, name, _name, address(wEvent));
+        _events.push(address(wEvent));
+        
+        emit EventCreated(msg.sender, _name, address(wEvent));
         return address(wEvent);
     }
 
-    function getEventDetails(address eventAddress) public returns(string , string, address) {
+    function getEventDetails(address eventAddress) public returns(string memory, string memory, address) {
 
         Events singleEvent = Events(eventAddress);
 
@@ -50,21 +50,21 @@ contract EventFactory {
     }
 
 
-    function getMarketsByEvent(bytes32 eventAddress)
+    function getMarketsByEvent(address eventAddress)
         public
         view
-        returns (Market[] memory markets)
+        returns (address[] memory markets)
     {
-        return eventMarkets[eventAddress];
+        return userEvents[eventAddress];
 
     }
 
 
-    function getEventsByAddress(address userAddress) public returns(address[]){
+    function getEventsByAddress(address userAddress) public view returns(address[] memory){
         return userEvents[userAddress];
     }
 
-    function getAllEvents() public view returns(address[]){
+    function getAllEvents() public view returns(address[] memory){
         return _events;
     }
 }

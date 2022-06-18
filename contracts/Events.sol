@@ -68,6 +68,11 @@ contract Events is IWeb3BetsEventV1 {
     }
 
     function cancelEvent() external override onlyOwner {
+        bool allMarketsAreSettled = false;
+        for (uint i = 0; i< markets.length; i ++){
+            IWeb3BetsMarketV1 marketv1 = IWeb3BetsMarketV1(markets[i].marketAddress);
+
+        }
         
     }
 

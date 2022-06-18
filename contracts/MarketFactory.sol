@@ -10,16 +10,19 @@ contract MarketFactory {
 
     address public poolFactoryAddress;
 
-    Market[] private _markets;
+    address[] private _markets;
 
     function createMarket(
         string memory _name, address _eventAddress) public returns(address) {
         
-        Market market = new Market(_name, _eventAddress);
+        Market _market = new Market(_name, _eventAddress);
 
-        eventMarkets[_eventAddress].push(address(market));
-        emit MarketCreated(address(market), _eventAddress, _name);
-        return address(market);
+        eventMarkets[_eventAddress].push(address(_market));
+
+        _markets.push(address(_market));
+
+        emit MarketCreated(address(_market), _eventAddress, _name);
+        return address(_market);
     }
 
     function getMarketsByEvent(address eventAddress)

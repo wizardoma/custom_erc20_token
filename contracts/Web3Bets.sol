@@ -4,7 +4,7 @@ pragma solidity ^0.8.4;
 
 import "./interface/IWeb3Bets.sol";
 
-contract Web3Bets is IWeb3Bets{
+contract Web3Bets is IWeb3Bets {
     address public contractOwner;
     address public ecosystemAddress;
     address public holdersAddress;
@@ -38,10 +38,7 @@ contract Web3Bets is IWeb3Bets{
         _;
     }
 
-    function setHoldersAddress(address holder)
-        public
-        onlyUser
-    {
+    function setHoldersAddress(address holder) public onlyUser {
         holdersAddress = holder;
     }
 
@@ -85,7 +82,7 @@ contract Web3Bets is IWeb3Bets{
         eventOwnerAddresses.push(eventOwner);
     }
 
-    function shareBetEarnings() override external payable {
+    function shareBetEarnings() external payable override {
         require(msg.value > 0, "bet earnings must be greater than 0");
         uint256 holdersShare = msg.value * (holdersVig / 100);
         uint256 ecosystemShare = msg.value * (ecosystemVig / 100);
@@ -95,15 +92,17 @@ contract Web3Bets is IWeb3Bets{
         (bool isSentEventOwner, ) = eventOwner.call{value: eventOwnersShare}(
             ""
         );
+
         (bool isSentEcosystem, ) = ecosystemAddress.call{value: ecosystemShare}(
             ""
         );
+
         (bool isSentHoldersAddress, ) = holdersAddress.call{
             value: holdersShare
         }("");
     }
 
-    function getVigPercentage() override external view returns (uint256) {
+    function getVigPercentage() external view override returns (uint256) {
         return vigPercentage;
     }
 }

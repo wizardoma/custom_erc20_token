@@ -16,6 +16,8 @@ contract Market is IWeb3BetsMarketV1 {
     address public web3BetsAddress;
     mapping(string => address) pools;
     string[] poolNames;
+    bool public hasSetWinningPool;
+    mapping(address => uint) winningPoolAddresses;
 
     modifier onlyEventOwner() {
         IWeb3BetsEventV1 poolEvent = IWeb3BetsEventV1(eventAddress);
@@ -123,6 +125,10 @@ contract Market is IWeb3BetsMarketV1 {
         }
 
         return totalStake;
+    }
+
+    function isWinningPoolSet() override external view returns(bool){
+        return hasSetWinningPool;
     }
 
     // function _toLower(string memory str) internal returns (string memory) {
