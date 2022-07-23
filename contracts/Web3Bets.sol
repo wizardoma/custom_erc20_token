@@ -106,4 +106,9 @@ contract Web3Bets is IWeb3Bets {
     function getVigPercentage() external view override returns (uint256) {
         return vigPercentage;
     }
+
+    function getAllEventOwners() external view returns (address[] memory)
+{
+    return eventOwnerAddresses;
+}
 }
