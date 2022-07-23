@@ -38,7 +38,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -51,7 +52,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -64,7 +66,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -77,7 +80,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -90,7 +94,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -103,7 +108,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -116,7 +122,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -129,7 +136,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -142,7 +150,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -155,7 +164,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -181,14 +191,16 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
       "name": "withdraw",
       "outputs": [],
       "stateMutability": "payable",
-      "type": "function"
+      "type": "function",
+      "payable": true
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.13+commit.abaa5c0e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_eventAddress\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_marketAddress\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_poolAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_stake\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"better\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"eventAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBetEventAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBetMarketAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBetPoolAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBetStake\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBetter\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getStatus\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"marketAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"poolAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"status\",\"type\":\"uint256\"}],\"name\":\"setBetStatus\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"stake\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"withdraw\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Ibekason Alexander Onyebuchi\",\"kind\":\"dev\",\"methods\":{},\"title\":\"Bet Contract\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"notice\":\"Contain function signatures for creating bets in a pool\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Bets.sol\":\"Bets\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Bets.sol\":{\"keccak256\":\"0x6f755e76db272986109f6e04e078fa537ab956ba3ee6b2c2342a71857022fc19\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://945ce3a3061b2dab456ddce9646bc123b7ff8ef7123079cc8529c9aaaf59a9e2\",\"dweb:/ipfs/QmeP81S5xHhK8ArvsBCgJF4RceqJCnWsKiBX1jLsfhu976\"]},\"project:/contracts/interface/IBaseInterface.sol\":{\"keccak256\":\"0x27a5c051a8db4281732c681d135c0f2bcbbcd4433d97a0544ec9f7c00ffe539f\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://69a0d84935c2a60279c5031c00211fed05762dc3b031eb58edfa8dc04c766f23\",\"dweb:/ipfs/Qme3MN8ZW4JUwZm8M8WN7RJxrB7qb1niJE5eiFM8bVXZFF\"]},\"project:/contracts/interface/IWeb3BetsBetsV1.sol\":{\"keccak256\":\"0x8b62387911ffbaca8a77a82259e7cd2e195f9896c80a00f2f94bf98557e0df71\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://fd00f9abd0323ab75a8e21f58bb6315d2dc6bc58db3183f8366dc55e23934fd5\",\"dweb:/ipfs/QmcF8JkFHiuiAsWf9xtQooRBvig72XC5ba5c4dHfhr6t8e\"]},\"project:/contracts/interface/IWeb3BetsEventsV1.sol\":{\"keccak256\":\"0x3290258bd3eb287afda47d25672b32df3706433e2da4117459fae5f90047d588\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0f8f9315a030768e66b4e367b3938a0317619f142c27f19f29ed7e24b1edfe09\",\"dweb:/ipfs/QmeW2w4wmAWY34nJyTKXEoiJsb5jD91bWMLA9q562LbbyC\"]},\"project:/contracts/interface/IWeb3BetsMarketV1.sol\":{\"keccak256\":\"0xf679ade8da7c74bd5d083f49c45f214264389e075aa644f863a29d670302b803\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://3bdcc05c66e4a0ecd62023d98de816c048d8456cf017c96637fa569a51a40a79\",\"dweb:/ipfs/QmQhc8TEEQ61aKur5PRXNDft4CzyKXbZgxJdqsCSAtS3YS\"]},\"project:/contracts/interface/IWeb3BetsPoolsV1.sol\":{\"keccak256\":\"0x827950871d30073554957baa4b6a8f8a8e957c265a0291839450fb49c158c0c7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://14b6b1de51e775ff1033f9cff2751480c1afacb3c55a5941317710c24ff8dc00\",\"dweb:/ipfs/QmUuPG1cYiqMGcCiNgSDh2V6tLTaeGysVJESEXqWNNFpsX\"]}},\"version\":1}",
@@ -7975,9 +7987,17 @@
     "name": "solc",
     "version": "0.8.13+commit.abaa5c0e.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x7E409A8731e51F7abef4FCfDFC5CCD63972A8387",
+      "transactionHash": "0x46933902338b8ae9e4007bb7956335ca94cc7c1cb54271cb0a8a54dcae1a0537"
+    }
+  },
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-07-23T13:01:44.960Z",
+  "updatedAt": "2022-07-23T21:12:01.541Z",
+  "networkType": "ethereum",
   "devdoc": {
     "author": "Ibekason Alexander Onyebuchi",
     "kind": "dev",

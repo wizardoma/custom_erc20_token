@@ -3,6 +3,10 @@ const BetsFactory = artifacts.require("BetsFactory");
 const EventFactory = artifacts.require("EventFactory");
 const PoolsFactory = artifacts.require("PoolsFactory");
 const MarketFactory = artifacts.require("MarketFactory");
+const Bet = artifacts.require("Bets");
+const Market = artifacts.require("Markets");
+const Event = artifacts.require("Events");
+const Pool = artifacts.require("Pools");
 
 module.exports = function (deployer) {
   deployer.deploy(Web3Bets).then(function () {
@@ -13,7 +17,17 @@ module.exports = function (deployer) {
           return deployer
             .deploy(MarketFactory, PoolsFactory.address, Web3Bets.address)
             .then(function () {
-              return deployer.deploy(EventFactory, MarketFactory.address);
+              return deployer
+                .deploy(EventFactory, MarketFactory.address)
+                .then(function () {
+                  return deployer.deploy(Event,"Alex", MarketFactory.address).then(function () {
+                    return deployer.deploy(Market,"Alex", Event.address,PoolsFactory.address,Web3Bets.address).then(function () {
+                      return deployer.deploy(Pool, "Alex",Event.address,Market.address,BetsFactory.address).then(function () {
+                        return deployer.deploy(Bet, Event.address,Market.address,Pool.address,20);
+                      });
+                    });
+                  });
+                });
             });
         });
     });

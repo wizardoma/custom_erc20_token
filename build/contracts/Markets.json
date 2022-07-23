@@ -38,8 +38,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -52,8 +51,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -66,8 +64,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -80,8 +77,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -94,8 +90,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -108,8 +103,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -161,8 +155,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -175,8 +168,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -202,8 +194,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.13+commit.abaa5c0e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_name\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"_eventAddress\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_poolFactoryAddress\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_web3betsAddress\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_name\",\"type\":\"string\"}],\"name\":\"createMarketPool\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"eventAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getEventAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getEventName\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getName\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTotalStake\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"hasSetWinningPool\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"isWinningPoolSet\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"poolFactoryAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_poolAddress\",\"type\":\"address\"}],\"name\":\"setWinningPool\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"web3BetsAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Markets.sol\":\"Market\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Bets.sol\":{\"keccak256\":\"0x6f755e76db272986109f6e04e078fa537ab956ba3ee6b2c2342a71857022fc19\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://945ce3a3061b2dab456ddce9646bc123b7ff8ef7123079cc8529c9aaaf59a9e2\",\"dweb:/ipfs/QmeP81S5xHhK8ArvsBCgJF4RceqJCnWsKiBX1jLsfhu976\"]},\"project:/contracts/BetsFactory.sol\":{\"keccak256\":\"0x871cb174e80cbbc685b4d701628184de40d0441b0a0bba205619e0d8a56779ec\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://84d48d98dbd0214906477a075012aa82070f8f5cadc3813caa327faa3c76fcca\",\"dweb:/ipfs/QmRTWS4Y8x7rdNbqZcqHmChoTQ8sX1o5yEXX81TGt56amz\"]},\"project:/contracts/Markets.sol\":{\"keccak256\":\"0xd90faf7608542fd611c6e313f3a43ef02ea7b6322d5c556c98ace131aa07ca69\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://95d82213a7d42eebb8dc844f06e08e07f718a30786fbe615359de7fe381e57c1\",\"dweb:/ipfs/QmcEvd5V4qy1Q6oGpfnY6UMA6hRzKeVMc4XddJ6EfJtL5f\"]},\"project:/contracts/Pools.sol\":{\"keccak256\":\"0xf41c5de4d8f25c452d0fb3dddfd92cd14026c80f630b185988c98ed9f8ab2411\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ed79c3940e26ab47597c8e460b7d7d9f1d918ab2624ceb23f1f0be1f70584377\",\"dweb:/ipfs/QmbxhgxsSo9qf8YdsyHEhhFMXFy3ZgFdmNq6hj3XKSssxA\"]},\"project:/contracts/PoolsFactory.sol\":{\"keccak256\":\"0x83723689ff21f2b675a3c9df0f49b77462ffbd28cf229a9c22505aeed0ba7cc5\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d165822169f7dfef7596c2a7e77cf364d3aed772425923d0fd15cbe52f54cdcc\",\"dweb:/ipfs/QmUZZdjDwX7Rd7JFNA7vhLbCKXNdsJL82u5wzWRu6jvBYA\"]},\"project:/contracts/interface/IBaseInterface.sol\":{\"keccak256\":\"0x27a5c051a8db4281732c681d135c0f2bcbbcd4433d97a0544ec9f7c00ffe539f\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://69a0d84935c2a60279c5031c00211fed05762dc3b031eb58edfa8dc04c766f23\",\"dweb:/ipfs/Qme3MN8ZW4JUwZm8M8WN7RJxrB7qb1niJE5eiFM8bVXZFF\"]},\"project:/contracts/interface/IWeb3Bets.sol\":{\"keccak256\":\"0x2c83ee5f82eb8092c7c700d65f4a99fc038df1e3c67eafbf60ef5d8a6e198d2e\",\"urls\":[\"bzz-raw://2127d4bc97ac6444f5dc7dc3a2862d33c0baf49766d28f8be51fadd3ee8a792c\",\"dweb:/ipfs/QmU89wWhgzphXbDkXYfqCALm3An8dVrvTSUWomDqFLyR11\"]},\"project:/contracts/interface/IWeb3BetsBetsV1.sol\":{\"keccak256\":\"0x8b62387911ffbaca8a77a82259e7cd2e195f9896c80a00f2f94bf98557e0df71\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://fd00f9abd0323ab75a8e21f58bb6315d2dc6bc58db3183f8366dc55e23934fd5\",\"dweb:/ipfs/QmcF8JkFHiuiAsWf9xtQooRBvig72XC5ba5c4dHfhr6t8e\"]},\"project:/contracts/interface/IWeb3BetsEventsV1.sol\":{\"keccak256\":\"0x3290258bd3eb287afda47d25672b32df3706433e2da4117459fae5f90047d588\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0f8f9315a030768e66b4e367b3938a0317619f142c27f19f29ed7e24b1edfe09\",\"dweb:/ipfs/QmeW2w4wmAWY34nJyTKXEoiJsb5jD91bWMLA9q562LbbyC\"]},\"project:/contracts/interface/IWeb3BetsMarketV1.sol\":{\"keccak256\":\"0xf679ade8da7c74bd5d083f49c45f214264389e075aa644f863a29d670302b803\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://3bdcc05c66e4a0ecd62023d98de816c048d8456cf017c96637fa569a51a40a79\",\"dweb:/ipfs/QmQhc8TEEQ61aKur5PRXNDft4CzyKXbZgxJdqsCSAtS3YS\"]},\"project:/contracts/interface/IWeb3BetsPoolsV1.sol\":{\"keccak256\":\"0x827950871d30073554957baa4b6a8f8a8e957c265a0291839450fb49c158c0c7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://14b6b1de51e775ff1033f9cff2751480c1afacb3c55a5941317710c24ff8dc00\",\"dweb:/ipfs/QmUuPG1cYiqMGcCiNgSDh2V6tLTaeGysVJESEXqWNNFpsX\"]}},\"version\":1}",
@@ -15155,17 +15146,9 @@
     "name": "solc",
     "version": "0.8.13+commit.abaa5c0e.Emscripten.clang"
   },
-  "networks": {
-    "5777": {
-      "events": {},
-      "links": {},
-      "address": "0x9d8b2fF43b8666D1d3C8da740343C0BBA970E38F",
-      "transactionHash": "0xc17a793492ddeafcd211ceb56d1deb2d575186ca37e65c3b17923246957da5f9"
-    }
-  },
+  "networks": {},
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-07-23T21:12:01.546Z",
-  "networkType": "ethereum",
+  "updatedAt": "2022-07-23T16:02:35.369Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

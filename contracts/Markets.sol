@@ -62,7 +62,7 @@ contract Market is IWeb3BetsMarketV1 {
     }
 
     constructor(string memory _name, address _eventAddress,address _poolFactoryAddress, address _web3betsAddress) {
-        owner = msg.sender;
+        owner = tx.origin;
         name = _name;
         eventAddress = _eventAddress;
         poolFactoryAddress = _poolFactoryAddress;

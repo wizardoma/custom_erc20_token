@@ -28,13 +28,13 @@ contract Bets is IWeb3BetsBetsV1 {
 
     modifier onlyEventOwner {
         IWeb3BetsEventV1 betEvent = IWeb3BetsEventV1(eventAddress);
-        require(msg.sender == betEvent.getEventOwner(), "Only bet owners can apply this function");
+        require(tx.origin == betEvent.getEventOwner(), "Only bet owners can apply this function");
         
         _;
     }
 
     modifier onlyBetter {
-        require(msg.sender == better, "Only event better can call this function");
+        require(tx.origin == better, "Only event better can call this function");
         _;
     }
 

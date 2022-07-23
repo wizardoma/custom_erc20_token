@@ -34,6 +34,7 @@ contract Events is IWeb3BetsEventV1 {
     ) {
         name = eventName;
         marketFactoryAddress = _marketFactoryAddress;
+        eventOwner = tx.origin;
     }
 
     enum MarketStatus {
@@ -43,7 +44,7 @@ contract Events is IWeb3BetsEventV1 {
 
     modifier onlyOwner() {
         require(
-            msg.sender == eventOwner,
+            tx.origin == eventOwner,
             "Event operations only applicable to owner"
         );
         _;
