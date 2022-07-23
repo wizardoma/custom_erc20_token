@@ -4,8 +4,7 @@ import "./Events.sol";
 
 
 contract EventFactory {
-    mapping (address => address[]) userEvents;
-
+    mapping (address => address[]) public userEvents;
 
     event EventCreated(address eventOwner, string name, address eventAddress);
 
@@ -28,6 +27,10 @@ contract EventFactory {
     address[] private _events;
 
     address public marketFactoryAddress;
+
+    constructor(address _marketFactoryAddress){
+        marketFactoryAddress = _marketFactoryAddress;
+    }
 
     function createEvent(
         string memory _name

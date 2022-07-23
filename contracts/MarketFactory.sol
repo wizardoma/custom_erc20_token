@@ -4,11 +4,9 @@ import "./Markets.sol";
 
 contract MarketFactory {
 
-    mapping (address => address[]) eventMarkets;
+    mapping (address => address[]) public eventMarkets;
 
     event MarketCreated(address marketAddress, address eventAddress, string marketName);
-
-    address public poolFactoryAddress;
 
     address[] private _markets;
 
@@ -32,6 +30,14 @@ contract MarketFactory {
     {
         return eventMarkets[eventAddress];
 
+    }
+
+    function getTotalMarkets() external view returns (uint) {
+        return _markets.length;
+    }
+
+    function getAllMarkets() external view returns (address[] memory){
+        return _markets;
     }
 
 }
