@@ -61,10 +61,12 @@ contract Market is IWeb3BetsMarketV1 {
         _;
     }
 
-    constructor(string memory _name, address _eventAddress) {
+    constructor(string memory _name, address _eventAddress,address _poolFactoryAddress, address _web3betsAddress) {
         owner = msg.sender;
         name = _name;
         eventAddress = _eventAddress;
+        poolFactoryAddress = _poolFactoryAddress;
+        web3BetsAddress = _web3betsAddress;
     }
 
     function createMarketPool(string memory _name)

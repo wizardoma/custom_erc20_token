@@ -6,12 +6,14 @@ import "./Pools.sol";
 contract PoolsFactory {
     // All market address with their list of pools
     mapping (address => address[]) public marketPools;
+
+    address public betsFactoryAddress;
     address[] _pools;
 
     event PoolCreated(string name, address marketAddress, address eventAddress);
     
     function createPool(string memory _name, address _eventAddress, address _marketAddress) external returns (address) {
-        Pool pool = new Pool(_name, _eventAddress, _marketAddress);
+        Pool pool = new Pool(_name, _eventAddress, _marketAddress, betsFactoryAddress);
         marketPools[_marketAddress].push(address(pool));
         _pools.push(address(pool));
         emit PoolCreated(_name, _marketAddress, _eventAddress);

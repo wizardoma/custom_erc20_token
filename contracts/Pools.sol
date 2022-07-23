@@ -39,11 +39,13 @@ contract Pool is IWeb3BetsPoolsV1 {
     constructor(
         string memory _name,
         address _eventAddress,
-        address _marketAddress
+        address _marketAddress,
+        address _betsFactoryAddress
     ) {
         name = _name;
         eventAddress = _eventAddress;
         marketAddress = _marketAddress;
+        betsFactoryAddress = _betsFactoryAddress;
     }
 
     function bet() public payable override aboveMinimumStake {
