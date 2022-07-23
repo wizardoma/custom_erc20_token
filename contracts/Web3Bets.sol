@@ -12,8 +12,8 @@ contract Web3Bets is IWeb3Bets {
     uint256 public ecosystemVig = 50;
     uint256 public eventOwnersVig = 25;
     uint256 public vigPercentage = 10;
-    address[] eventOwnerAddresses;
-    mapping(address => uint256) eventOwnersMapping;
+    address[] public eventOwnerAddresses;
+    mapping(address => uint256) public eventOwnersMapping;
 
     error ExistingEventOwner(string message);
 
@@ -29,8 +29,8 @@ contract Web3Bets is IWeb3Bets {
         _;
     }
 
-    modifier uniqueEventOwner(address _eventOwner) {
-        if (eventOwnersMapping[_eventOwner] == 0) {
+    modifier uniqueEventOwner(address eventOwner) {
+        if (eventOwnersMapping[eventOwner] != 0) {
             revert ExistingEventOwner({
                 message: "This address is already an event owner"
             });
@@ -58,7 +58,7 @@ contract Web3Bets is IWeb3Bets {
         uint256 hVig,
         uint256 eVig,
         uint256 eoVig
-    ) public {
+    ) public onlyUser {
         require(
             hVig <= 100 && eVig <= 100 && eoVig <= 100,
             "Vig percentages shares must be expressed in a  0 to 100 ratio. Example: 30"
@@ -78,8 +78,9 @@ contract Web3Bets is IWeb3Bets {
         onlyUser
         uniqueEventOwner(eventOwner)
     {
-        eventOwnersMapping[eventOwner] = eventOwnerAddresses.length;
         eventOwnerAddresses.push(eventOwner);
+        eventOwnersMapping[eventOwner] = eventOwnerAddresses.length;
+
     }
 
     function shareBetEarnings() external payable override {
