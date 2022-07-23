@@ -7,7 +7,6 @@ contract BetsFactory {
 
     address[] private _bets;
 
-
     event BetCreated(address better, address eventAddress, address marketAddress, address poolAddress, uint stake);
 
     function createBet(address _eventAddress, address _marketAddress, address _poolAddress, uint _stake) external returns(address) {
