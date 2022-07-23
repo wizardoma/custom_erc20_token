@@ -1,0 +1,178 @@
+{
+  "contractName": "IWeb3Bets",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "shareBetEarnings",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getVigPercentage",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.13+commit.abaa5c0e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"getVigPercentage\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"shareBetEarnings\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interface/IWeb3Bets.sol\":\"IWeb3Bets\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interface/IWeb3Bets.sol\":{\"keccak256\":\"0x2c83ee5f82eb8092c7c700d65f4a99fc038df1e3c67eafbf60ef5d8a6e198d2e\",\"urls\":[\"bzz-raw://2127d4bc97ac6444f5dc7dc3a2862d33c0baf49766d28f8be51fadd3ee8a792c\",\"dweb:/ipfs/QmU89wWhgzphXbDkXYfqCALm3An8dVrvTSUWomDqFLyR11\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.8.4;\n\ninterface IWeb3Bets{\n\n    function shareBetEarnings() payable external;\n\n    function getVigPercentage() external returns(uint);\n}",
+  "sourcePath": "/Users/wizardom/projects/crypto/web3bets_smartcontract/contracts/interface/IWeb3Bets.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/interface/IWeb3Bets.sol",
+    "exportedSymbols": {
+      "IWeb3Bets": [
+        1994
+      ]
+    },
+    "id": 1995,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1985,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".4"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:30"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IWeb3Bets",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 1994,
+        "linearizedBaseContracts": [
+          1994
+        ],
+        "name": "IWeb3Bets",
+        "nameLocation": "35:9:30",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "4d161324",
+            "id": 1988,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "shareBetEarnings",
+            "nameLocation": "60:16:30",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1986,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "76:2:30"
+            },
+            "returnParameters": {
+              "id": 1987,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "95:0:30"
+            },
+            "scope": 1994,
+            "src": "51:45:30",
+            "stateMutability": "payable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "2004b3e5",
+            "id": 1993,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getVigPercentage",
+            "nameLocation": "111:16:30",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1989,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "127:2:30"
+            },
+            "returnParameters": {
+              "id": 1992,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1991,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1993,
+                  "src": "147:4:30",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1990,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "147:4:30",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "146:6:30"
+            },
+            "scope": 1994,
+            "src": "102:51:30",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 1995,
+        "src": "25:130:30",
+        "usedErrors": []
+      }
+    ],
+    "src": "0:155:30"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.13+commit.abaa5c0e.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.7",
+  "updatedAt": "2022-07-23T13:01:44.989Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

@@ -1,0 +1,599 @@
+{
+  "contractName": "IWeb3BetsBetsV1",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "getStatus",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getBetStake",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getBetter",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getBetPoolAddress",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getBetMarketAddress",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getBetEventAddress",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "status",
+          "type": "uint256"
+        }
+      ],
+      "name": "setBetStatus",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "withdraw",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.13+commit.abaa5c0e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"getBetEventAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBetMarketAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBetPoolAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBetStake\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBetter\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getStatus\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"status\",\"type\":\"uint256\"}],\"name\":\"setBetStatus\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"withdraw\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Ibekason Alexander Onyebuchi\",\"kind\":\"dev\",\"methods\":{},\"title\":\"Web3Bets Version 1 Bet Interface\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interface/IWeb3BetsBetsV1.sol\":\"IWeb3BetsBetsV1\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interface/IWeb3BetsBetsV1.sol\":{\"keccak256\":\"0x8b62387911ffbaca8a77a82259e7cd2e195f9896c80a00f2f94bf98557e0df71\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://fd00f9abd0323ab75a8e21f58bb6315d2dc6bc58db3183f8366dc55e23934fd5\",\"dweb:/ipfs/QmcF8JkFHiuiAsWf9xtQooRBvig72XC5ba5c4dHfhr6t8e\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.4;\n\n/// @author Ibekason Alexander Onyebuchi\n/// @title Web3Bets Version 1 Bet Interface\n\n\ninterface IWeb3BetsBetsV1 {\n\n    function getStatus() external returns(uint);\n\n    function getBetStake() external returns(uint);\n\n    function getBetter() external returns(address);\n\n    function getBetPoolAddress() external returns (address);\n\n    function getBetMarketAddress() external returns (address);\n\n    function getBetEventAddress() external returns (address);\n\n    function setBetStatus(uint status) external;\n\n    function withdraw() external payable;\n}",
+  "sourcePath": "/Users/wizardom/projects/crypto/web3bets_smartcontract/contracts/interface/IWeb3BetsBetsV1.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/interface/IWeb3BetsBetsV1.sol",
+    "exportedSymbols": {
+      "IWeb3BetsBetsV1": [
+        2036
+      ]
+    },
+    "id": 2037,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1996,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".4"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:31"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IWeb3BetsBetsV1",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 1997,
+          "nodeType": "StructuredDocumentation",
+          "src": "57:85:31",
+          "text": "@author Ibekason Alexander Onyebuchi\n @title Web3Bets Version 1 Bet Interface"
+        },
+        "fullyImplemented": false,
+        "id": 2036,
+        "linearizedBaseContracts": [
+          2036
+        ],
+        "name": "IWeb3BetsBetsV1",
+        "nameLocation": "154:15:31",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "4e69d560",
+            "id": 2002,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getStatus",
+            "nameLocation": "186:9:31",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1998,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "195:2:31"
+            },
+            "returnParameters": {
+              "id": 2001,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2000,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2002,
+                  "src": "215:4:31",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1999,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "215:4:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "214:6:31"
+            },
+            "scope": 2036,
+            "src": "177:44:31",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "4d2124d4",
+            "id": 2007,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getBetStake",
+            "nameLocation": "236:11:31",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2003,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "247:2:31"
+            },
+            "returnParameters": {
+              "id": 2006,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2005,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2007,
+                  "src": "267:4:31",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2004,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "267:4:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "266:6:31"
+            },
+            "scope": 2036,
+            "src": "227:46:31",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "262007c0",
+            "id": 2012,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getBetter",
+            "nameLocation": "288:9:31",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2008,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "297:2:31"
+            },
+            "returnParameters": {
+              "id": 2011,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2010,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2012,
+                  "src": "317:7:31",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2009,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "317:7:31",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "316:9:31"
+            },
+            "scope": 2036,
+            "src": "279:47:31",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "b07a2754",
+            "id": 2017,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getBetPoolAddress",
+            "nameLocation": "341:17:31",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2013,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "358:2:31"
+            },
+            "returnParameters": {
+              "id": 2016,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2015,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2017,
+                  "src": "379:7:31",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2014,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "379:7:31",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "378:9:31"
+            },
+            "scope": 2036,
+            "src": "332:56:31",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "fda51b17",
+            "id": 2022,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getBetMarketAddress",
+            "nameLocation": "403:19:31",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2018,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "422:2:31"
+            },
+            "returnParameters": {
+              "id": 2021,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2020,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2022,
+                  "src": "443:7:31",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2019,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "443:7:31",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "442:9:31"
+            },
+            "scope": 2036,
+            "src": "394:58:31",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "51696127",
+            "id": 2027,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getBetEventAddress",
+            "nameLocation": "467:18:31",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2023,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "485:2:31"
+            },
+            "returnParameters": {
+              "id": 2026,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2025,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2027,
+                  "src": "506:7:31",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2024,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "506:7:31",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "505:9:31"
+            },
+            "scope": 2036,
+            "src": "458:57:31",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "0ca5ba05",
+            "id": 2032,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setBetStatus",
+            "nameLocation": "530:12:31",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2030,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2029,
+                  "mutability": "mutable",
+                  "name": "status",
+                  "nameLocation": "548:6:31",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2032,
+                  "src": "543:11:31",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2028,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "543:4:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "542:13:31"
+            },
+            "returnParameters": {
+              "id": 2031,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "564:0:31"
+            },
+            "scope": 2036,
+            "src": "521:44:31",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "3ccfd60b",
+            "id": 2035,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "withdraw",
+            "nameLocation": "580:8:31",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2033,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "588:2:31"
+            },
+            "returnParameters": {
+              "id": 2034,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "607:0:31"
+            },
+            "scope": 2036,
+            "src": "571:37:31",
+            "stateMutability": "payable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 2037,
+        "src": "144:466:31",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:578:31"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.13+commit.abaa5c0e.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.7",
+  "updatedAt": "2022-07-23T13:01:44.990Z",
+  "devdoc": {
+    "author": "Ibekason Alexander Onyebuchi",
+    "kind": "dev",
+    "methods": {},
+    "title": "Web3Bets Version 1 Bet Interface",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

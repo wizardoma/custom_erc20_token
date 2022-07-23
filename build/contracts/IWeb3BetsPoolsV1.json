@@ -1,0 +1,221 @@
+{
+  "contractName": "IWeb3BetsPoolsV1",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "getName",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "bet",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getTotalStake",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.13+commit.abaa5c0e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"bet\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getName\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTotalStake\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interface/IWeb3BetsPoolsV1.sol\":\"IWeb3BetsPoolsV1\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interface/IBaseInterface.sol\":{\"keccak256\":\"0x27a5c051a8db4281732c681d135c0f2bcbbcd4433d97a0544ec9f7c00ffe539f\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://69a0d84935c2a60279c5031c00211fed05762dc3b031eb58edfa8dc04c766f23\",\"dweb:/ipfs/Qme3MN8ZW4JUwZm8M8WN7RJxrB7qb1niJE5eiFM8bVXZFF\"]},\"project:/contracts/interface/IWeb3BetsPoolsV1.sol\":{\"keccak256\":\"0x827950871d30073554957baa4b6a8f8a8e957c265a0291839450fb49c158c0c7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://14b6b1de51e775ff1033f9cff2751480c1afacb3c55a5941317710c24ff8dc00\",\"dweb:/ipfs/QmUuPG1cYiqMGcCiNgSDh2V6tLTaeGysVJESEXqWNNFpsX\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\n\npragma solidity ^0.8.4;\nimport \"./IBaseInterface.sol\";\n\ninterface IWeb3BetsPoolsV1 is IBaseInterface{\n    function bet() payable external;\n\n    function getTotalStake() external returns (uint);\n\n    \n}",
+  "sourcePath": "/Users/wizardom/projects/crypto/web3bets_smartcontract/contracts/interface/IWeb3BetsPoolsV1.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/interface/IWeb3BetsPoolsV1.sol",
+    "exportedSymbols": {
+      "IBaseInterface": [
+        1983
+      ],
+      "IWeb3BetsPoolsV1": [
+        2124
+      ]
+    },
+    "id": 2125,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2112,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".4"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:23:34"
+      },
+      {
+        "absolutePath": "project:/contracts/interface/IBaseInterface.sol",
+        "file": "./IBaseInterface.sol",
+        "id": 2113,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 2125,
+        "sourceUnit": 1984,
+        "src": "57:30:34",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 2114,
+              "name": "IBaseInterface",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 1983,
+              "src": "119:14:34"
+            },
+            "id": 2115,
+            "nodeType": "InheritanceSpecifier",
+            "src": "119:14:34"
+          }
+        ],
+        "canonicalName": "IWeb3BetsPoolsV1",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 2124,
+        "linearizedBaseContracts": [
+          2124,
+          1983
+        ],
+        "name": "IWeb3BetsPoolsV1",
+        "nameLocation": "99:16:34",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "11610c25",
+            "id": 2118,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "bet",
+            "nameLocation": "148:3:34",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2116,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "151:2:34"
+            },
+            "returnParameters": {
+              "id": 2117,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "170:0:34"
+            },
+            "scope": 2124,
+            "src": "139:32:34",
+            "stateMutability": "payable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "7bc74225",
+            "id": 2123,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getTotalStake",
+            "nameLocation": "186:13:34",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2119,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "199:2:34"
+            },
+            "returnParameters": {
+              "id": 2122,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2121,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2123,
+                  "src": "220:4:34",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2120,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "220:4:34",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "219:6:34"
+            },
+            "scope": 2124,
+            "src": "177:49:34",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 2125,
+        "src": "89:145:34",
+        "usedErrors": []
+      }
+    ],
+    "src": "33:201:34"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.13+commit.abaa5c0e.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.7",
+  "updatedAt": "2022-07-23T13:01:44.993Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

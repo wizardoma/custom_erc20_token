@@ -21,6 +21,8 @@
   "homepage": "https://github.com/wizardoma/custom_erc20_token#readme",
   "dependencies": {
     "@openzeppelin/contracts": "^4.6.0",
-    "@optionality.io/clone-factory": "^0.2.1"
+    "@optionality.io/clone-factory": "^0.2.1",
+    "@truffle/hdwallet-provider": "^2.0.12",
+    "truffle-hdwallet-provider": "^1.0.17"
   }
 }
