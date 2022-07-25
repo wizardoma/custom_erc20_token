@@ -31,9 +31,7 @@ contract Web3Bets is IWeb3Bets {
 
     modifier uniqueEventOwner(address eventOwner) {
         if (eventOwnersMapping[eventOwner] != 0) {
-            revert ExistingEventOwner({
-                message: "This address is already an event owner"
-            });
+            revert("This address is already an event owner");
         }
         _;
     }
@@ -81,6 +79,25 @@ contract Web3Bets is IWeb3Bets {
         eventOwnerAddresses.push(eventOwner);
         eventOwnersMapping[eventOwner] = eventOwnerAddresses.length;
 
+    }
+
+    function deleteEventOwner(address _eventOwner)
+    public 
+    onlyUser{
+        if (eventOwnersMapping[_eventOwner] == 0){
+            revert("Invalid event owner");
+        }
+
+        else {
+            delete eventOwnersMapping[_eventOwner];
+        
+        for (uint i = 0; i< eventOwnerAddresses.length; i++){
+            if (eventOwnerAddresses[i] == _eventOwner){
+                delete eventOwnerAddresses[i];
+                break;
+            }
+        }
+        }
     }
 
     function shareBetEarnings() external payable override {

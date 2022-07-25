@@ -20,9 +20,10 @@ module.exports = function (deployer) {
               return deployer
                 .deploy(EventFactory, MarketFactory.address)
                 .then(function () {
-                  return deployer.deploy(Event,"Alex", MarketFactory.address).then(function () {
-                    return deployer.deploy(Market,"Alex", Event.address,PoolsFactory.address,Web3Bets.address).then(function () {
-                      return deployer.deploy(Pool, "Alex",Event.address,Market.address,BetsFactory.address).then(function () {
+                  let minimumStake = 1;
+                  return deployer.deploy(Event,"Alex", MarketFactory.address,1).then(function () {
+                    return deployer.deploy(Market,"Alex", Event.address,PoolsFactory.address,Web3Bets.address,1).then(function () {
+                      return deployer.deploy(Pool, "Alex",Event.address,Market.address,BetsFactory.address,1).then(function () {
                         return deployer.deploy(Bet, Event.address,Market.address,Pool.address,20);
                       });
                     });

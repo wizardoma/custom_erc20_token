@@ -36,14 +36,14 @@
     "absolutePath": "project:/contracts/interface/IWeb3Bets.sol",
     "exportedSymbols": {
       "IWeb3Bets": [
-        1994
+        2185
       ]
     },
-    "id": 1995,
+    "id": 2186,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1985,
+        "id": 2176,
         "literals": [
           "solidity",
           "^",
@@ -51,7 +51,7 @@
           ".4"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:23:30"
+        "src": "0:23:11"
       },
       {
         "abstract": false,
@@ -60,69 +60,69 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 1994,
+        "id": 2185,
         "linearizedBaseContracts": [
-          1994
+          2185
         ],
         "name": "IWeb3Bets",
-        "nameLocation": "35:9:30",
+        "nameLocation": "35:9:11",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "functionSelector": "4d161324",
-            "id": 1988,
+            "id": 2179,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "shareBetEarnings",
-            "nameLocation": "60:16:30",
+            "nameLocation": "60:16:11",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1986,
+              "id": 2177,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "76:2:30"
+              "src": "76:2:11"
             },
             "returnParameters": {
-              "id": 1987,
+              "id": 2178,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "95:0:30"
+              "src": "95:0:11"
             },
-            "scope": 1994,
-            "src": "51:45:30",
+            "scope": 2185,
+            "src": "51:45:11",
             "stateMutability": "payable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "2004b3e5",
-            "id": 1993,
+            "id": 2184,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getVigPercentage",
-            "nameLocation": "111:16:30",
+            "nameLocation": "111:16:11",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1989,
+              "id": 2180,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "127:2:30"
+              "src": "127:2:11"
             },
             "returnParameters": {
-              "id": 1992,
+              "id": 2183,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1991,
+                  "id": 2182,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1993,
-                  "src": "147:4:30",
+                  "scope": 2184,
+                  "src": "147:4:11",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -130,10 +130,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1990,
+                    "id": 2181,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "147:4:30",
+                    "src": "147:4:11",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -142,21 +142,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "146:6:30"
+              "src": "146:6:11"
             },
-            "scope": 1994,
-            "src": "102:51:30",
+            "scope": 2185,
+            "src": "102:51:11",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 1995,
-        "src": "25:130:30",
+        "scope": 2186,
+        "src": "25:130:11",
         "usedErrors": []
       }
     ],
-    "src": "0:155:30"
+    "src": "0:155:11"
   },
   "compiler": {
     "name": "solc",
@@ -164,7 +164,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-07-23T13:01:44.989Z",
+  "updatedAt": "2022-07-25T11:21:38.026Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

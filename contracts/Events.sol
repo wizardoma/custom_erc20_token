@@ -12,9 +12,13 @@ contract Events is IWeb3BetsEventV1 {
 
     address public marketFactoryAddress;
 
-    uint private minimumStake;
+    uint256 public minimumStake;
 
-    EventMarket[] markets;
+    mapping(address => string) public marketsNames;
+
+    mapping(address => MarketStatus) public marketsStatuses;
+    address[] public markets;
+
 
     string public name;
 
@@ -24,17 +28,15 @@ contract Events is IWeb3BetsEventV1 {
         MarketStatus status;
     }
 
-    function getName()  public view override returns (string memory) {
+    function getName() public view override returns (string memory) {
         return name;
     }
 
-    constructor(
-        string memory eventName,
-        address _marketFactoryAddress
-    ) {
+    constructor(string memory eventName, address _marketFactoryAddress, uint _minimumStake) {
         name = eventName;
         marketFactoryAddress = _marketFactoryAddress;
         eventOwner = tx.origin;
+        minimumStake = _minimumStake;
     }
 
     enum MarketStatus {
@@ -50,58 +52,55 @@ contract Events is IWeb3BetsEventV1 {
         _;
     }
 
-    function createMarket(string memory _name) external override onlyOwner {
+    function createMarket(string memory _name, uint _minimumStake) external override onlyOwner {
         // bytes32 marketId = keccak256(abi.encodePacked(eName,Strings.toString(block.timestamp)));
 
         MarketFactory factory = MarketFactory(marketFactoryAddress);
-        address marketAddress = factory.createMarket(
-            _name,
-            address(this)
-        );
+        address marketAddress = factory.createMarket(_name, address(this), _minimumStake);
 
-        EventMarket memory market = EventMarket({
-            marketName: name,
-            status: MarketStatus.PENDING,
-            marketAddress: marketAddress
-        });
+        markets.push(marketAddress);
+        marketsNames[marketAddress] = name;
+        marketsStatuses[marketAddress] = MarketStatus.PENDING;
 
-        markets.push(market);
     }
 
     function cancelEvent() external override onlyOwner {
         bool allMarketsAreSettled = false;
-        for (uint i = 0; i< markets.length; i ++){
-            IWeb3BetsMarketV1 marketv1 = IWeb3BetsMarketV1(markets[i].marketAddress);
-
+        for (uint256 i = 0; i < markets.length; i++) {
+            IWeb3BetsMarketV1 marketv1 = IWeb3BetsMarketV1(
+                markets[i]
+            );
+            allMarketsAreSettled = marketv1.isWinningPoolSet();
         }
-        
+
+        if (!allMarketsAreSettled){
+            revert("You must settle all markets before canceling event"); 
+        }
+        else {
+            
+        }
     }
 
     function settleEvent() external override onlyOwner {}
 
     function getMarkets() external view override returns (address[] memory) {
-        address[] memory marketAddresses;
-        for (uint256 i = 0; i < getCount(); i++) {
-            address marketAddress = markets[i].marketAddress;
-            marketAddresses[i] = marketAddress;
-        }
-
-        return marketAddresses;
+        return markets;
     }
 
     function getTotalStake() external override returns (uint256) {
-        uint _totalStake;
+        uint256 _totalStake;
 
-        for (uint i = 0; i< markets.length; i++){
-            IWeb3BetsMarketV1 _betsMarket = IWeb3BetsMarketV1(markets[i].marketAddress);
-               _totalStake += _betsMarket.getTotalStake();
-            
+        for (uint256 i = 0; i < markets.length; i++) {
+            IWeb3BetsMarketV1 _betsMarket = IWeb3BetsMarketV1(
+                markets[i]
+            );
+            _totalStake += _betsMarket.getTotalStake();
         }
 
         return _totalStake;
     }
 
-    function getMinimumStake() external view returns (uint){
+    function getMinimumStake() external view returns (uint256) {
         return minimumStake;
     }
 
@@ -109,7 +108,7 @@ contract Events is IWeb3BetsEventV1 {
         return markets.length;
     }
 
-    function getEventOwner() override external view returns (address){
+    function getEventOwner() external view override returns (address) {
         return eventOwner;
     }
 }

@@ -12,8 +12,8 @@ contract PoolsFactory {
 
     event PoolCreated(string name, address marketAddress, address eventAddress);
     
-    function createPool(string memory _name, address _eventAddress, address _marketAddress) external returns (address) {
-        Pool pool = new Pool(_name, _eventAddress, _marketAddress, betsFactoryAddress);
+    function createPool(string memory _name, address _eventAddress, address _marketAddress, uint _minimumStake) external returns (address) {
+        Pool pool = new Pool(_name, _eventAddress, _marketAddress, betsFactoryAddress, _minimumStake);
         marketPools[_marketAddress].push(address(pool));
         _pools.push(address(pool));
         emit PoolCreated(_name, _marketAddress, _eventAddress);

@@ -49,7 +49,6 @@ contract Bets is IWeb3BetsBetsV1 {
         WON,
         LOST
     }
-    
 
     constructor(
         address _eventAddress,

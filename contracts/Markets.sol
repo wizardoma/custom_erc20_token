@@ -14,10 +14,12 @@ contract Market is IWeb3BetsMarketV1 {
     address public eventAddress;
     address public poolFactoryAddress;
     address public web3BetsAddress;
-    mapping(string => address) pools;
-    string[] poolNames;
+    uint public minimumStake;
+    mapping(string => address) public pools;
+    string[] public poolNames;
+    address[] public poolAddresses;
     bool public hasSetWinningPool;
-    mapping(address => uint) winningPoolAddresses;
+    mapping(address => uint) public winningPoolAddresses;
 
     modifier onlyEventOwner() {
         IWeb3BetsEventV1 poolEvent = IWeb3BetsEventV1(eventAddress);
@@ -61,12 +63,13 @@ contract Market is IWeb3BetsMarketV1 {
         _;
     }
 
-    constructor(string memory _name, address _eventAddress,address _poolFactoryAddress, address _web3betsAddress) {
+    constructor(string memory _name, address _eventAddress,address _poolFactoryAddress, address _web3betsAddress, uint _minimumStake) {
         owner = tx.origin;
         name = _name;
         eventAddress = _eventAddress;
         poolFactoryAddress = _poolFactoryAddress;
         web3BetsAddress = _web3betsAddress;
+        minimumStake = _minimumStake;
     }
 
     function createMarketPool(string memory _name)
@@ -79,10 +82,12 @@ contract Market is IWeb3BetsMarketV1 {
         address poolAddress = poolsFactory.createPool(
             _name,
             eventAddress,
-            address(this)
+            address(this),
+            minimumStake
         );
         pools[_name] = poolAddress;
         poolNames.push(_name);
+        poolAddresses.push(poolAddress);
     }
 
     function setWinningPool(address _poolAddress)
@@ -133,6 +138,19 @@ contract Market is IWeb3BetsMarketV1 {
         return hasSetWinningPool;
     }
 
+
+    function getPoolNames() external view returns(string[] memory){
+        return poolNames;
+    }
+
+       function getPoolAddresses() external view returns(address[] memory){
+        return poolAddresses;
+    }
+
+    function getPoolAddressFromName(string memory _name) external view returns(address){
+        return pools[_name];
+    }
+ 
     // function _toLower(string memory str) internal returns (string memory) {
     //     bytes memory bStr = bytes(str);
     //     bytes memory bLower = new bytes(bStr.length);

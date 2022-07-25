@@ -49,18 +49,18 @@
     "absolutePath": "project:/contracts/interface/IWeb3BetsPoolsV1.sol",
     "exportedSymbols": {
       "IBaseInterface": [
-        1983
+        2174
       ],
       "IWeb3BetsPoolsV1": [
-        2124
+        2317
       ]
     },
-    "id": 2125,
+    "id": 2318,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2112,
+        "id": 2305,
         "literals": [
           "solidity",
           "^",
@@ -68,17 +68,17 @@
           ".4"
         ],
         "nodeType": "PragmaDirective",
-        "src": "33:23:34"
+        "src": "33:23:15"
       },
       {
         "absolutePath": "project:/contracts/interface/IBaseInterface.sol",
         "file": "./IBaseInterface.sol",
-        "id": 2113,
+        "id": 2306,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 2125,
-        "sourceUnit": 1984,
-        "src": "57:30:34",
+        "scope": 2318,
+        "sourceUnit": 2175,
+        "src": "57:30:15",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -87,85 +87,85 @@
         "baseContracts": [
           {
             "baseName": {
-              "id": 2114,
+              "id": 2307,
               "name": "IBaseInterface",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 1983,
-              "src": "119:14:34"
+              "referencedDeclaration": 2174,
+              "src": "119:14:15"
             },
-            "id": 2115,
+            "id": 2308,
             "nodeType": "InheritanceSpecifier",
-            "src": "119:14:34"
+            "src": "119:14:15"
           }
         ],
         "canonicalName": "IWeb3BetsPoolsV1",
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 2124,
+        "id": 2317,
         "linearizedBaseContracts": [
-          2124,
-          1983
+          2317,
+          2174
         ],
         "name": "IWeb3BetsPoolsV1",
-        "nameLocation": "99:16:34",
+        "nameLocation": "99:16:15",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "functionSelector": "11610c25",
-            "id": 2118,
+            "id": 2311,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "bet",
-            "nameLocation": "148:3:34",
+            "nameLocation": "148:3:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2116,
+              "id": 2309,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "151:2:34"
+              "src": "151:2:15"
             },
             "returnParameters": {
-              "id": 2117,
+              "id": 2310,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "170:0:34"
+              "src": "170:0:15"
             },
-            "scope": 2124,
-            "src": "139:32:34",
+            "scope": 2317,
+            "src": "139:32:15",
             "stateMutability": "payable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "7bc74225",
-            "id": 2123,
+            "id": 2316,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getTotalStake",
-            "nameLocation": "186:13:34",
+            "nameLocation": "186:13:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2119,
+              "id": 2312,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "199:2:34"
+              "src": "199:2:15"
             },
             "returnParameters": {
-              "id": 2122,
+              "id": 2315,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2121,
+                  "id": 2314,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2123,
-                  "src": "220:4:34",
+                  "scope": 2316,
+                  "src": "220:4:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -173,10 +173,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2120,
+                    "id": 2313,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "220:4:34",
+                    "src": "220:4:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -185,21 +185,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "219:6:34"
+              "src": "219:6:15"
             },
-            "scope": 2124,
-            "src": "177:49:34",
+            "scope": 2317,
+            "src": "177:49:15",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 2125,
-        "src": "89:145:34",
+        "scope": 2318,
+        "src": "89:145:15",
         "usedErrors": []
       }
     ],
-    "src": "33:201:34"
+    "src": "33:201:15"
   },
   "compiler": {
     "name": "solc",
@@ -207,7 +207,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-07-23T13:01:44.993Z",
+  "updatedAt": "2022-07-25T11:21:38.027Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

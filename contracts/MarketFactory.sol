@@ -24,9 +24,9 @@ contract MarketFactory {
 
 
     function createMarket(
-        string memory _name, address _eventAddress) public returns(address) {
+        string memory _name, address _eventAddress, uint _minimumStake) public returns(address) {
         
-        Market _market = new Market(_name, _eventAddress, poolsFactoryAddress, web3betsAddress);
+        Market _market = new Market(_name, _eventAddress, poolsFactoryAddress, web3betsAddress, _minimumStake);
 
         eventMarkets[_eventAddress].push(address(_market));
 
