@@ -18,7 +18,7 @@ contract Pool is IWeb3BetsPoolsV1 {
 
     address public betsFactoryAddress;
 
-    mapping(address => uint256) userStakes;
+    mapping(address => uint256) public userStakes;
 
     address[] public betAddresses;
 
@@ -26,12 +26,11 @@ contract Pool is IWeb3BetsPoolsV1 {
 
     address private marketAddress;
 
-    uint public minimumStake;
-
+    uint256 public minimumStake;
 
     modifier aboveMinimumStake() {
         require(
-            msg.value >= minimumStake,
+            msg.value >= 1 ether * minimumStake,
             "You can not bet below the minimum stake of event"
         );
         _;
@@ -42,7 +41,7 @@ contract Pool is IWeb3BetsPoolsV1 {
         address _eventAddress,
         address _marketAddress,
         address _betsFactoryAddress,
-        uint _minimumStake
+        uint256 _minimumStake
     ) {
         name = _name;
         eventAddress = _eventAddress;
@@ -57,25 +56,42 @@ contract Pool is IWeb3BetsPoolsV1 {
             marketAddress,
             eventAddress,
             address(this),
-            msg.value
+            msg.value,
+            msg.sender
         );
         totalStake += msg.value;
         userStakes[msg.sender] = msg.value;
         betAddresses.push(betAddress);
-        (bool sentBetFundToMarket, ) = marketAddress.call{value: msg.value}(
-            ""
-        );
+        (bool sentBetFundToMarket, ) = marketAddress.call{value: msg.value}("");
 
-        if (!sentBetFundToMarket){
-            revert();
+        if (!sentBetFundToMarket) {
+            revert("An Error occurred in transaction");
         }
+    }
+
+    fallback() external payable {
+        totalStake += msg.value;
+
+        userStakes[msg.sender] += msg.value;
     }
 
     function getName() external view override returns (string memory) {
         return name;
     }
 
-    function getTotalStake() external view returns (uint) {
+    function getBalance() external view returns (uint256) {
+        return address(this).balance;
+    }
+
+    function getTotalStake() external view returns (uint256) {
         return totalStake;
+    }
+
+    function getBets() external view override returns (address[] memory) {
+        return betAddresses;
+    }
+
+    function getUserStake(address user) external view returns (uint256) {
+        return userStakes[user];
     }
 }

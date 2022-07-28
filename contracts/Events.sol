@@ -17,8 +17,8 @@ contract Events is IWeb3BetsEventV1 {
     mapping(address => string) public marketsNames;
 
     mapping(address => MarketStatus) public marketsStatuses;
-    address[] public markets;
 
+    address[] public markets;
 
     string public name;
 
@@ -46,7 +46,7 @@ contract Events is IWeb3BetsEventV1 {
 
     modifier onlyOwner() {
         require(
-            tx.origin == eventOwner,
+            msg.sender == eventOwner,
             "Event operations only applicable to owner"
         );
         _;
@@ -57,8 +57,8 @@ contract Events is IWeb3BetsEventV1 {
 
         MarketFactory factory = MarketFactory(marketFactoryAddress);
         address marketAddress = factory.createMarket(_name, address(this), _minimumStake);
-
         markets.push(marketAddress);
+
         marketsNames[marketAddress] = name;
         marketsStatuses[marketAddress] = MarketStatus.PENDING;
 
@@ -70,7 +70,14 @@ contract Events is IWeb3BetsEventV1 {
             IWeb3BetsMarketV1 marketv1 = IWeb3BetsMarketV1(
                 markets[i]
             );
-            allMarketsAreSettled = marketv1.isWinningPoolSet();
+            if(!marketv1.isWinningPoolSet()){
+                allMarketsAreSettled = false;
+                break;
+            }
+            else {
+                allMarketsAreSettled = true;
+                break;
+            }
         }
 
         if (!allMarketsAreSettled){
@@ -80,8 +87,6 @@ contract Events is IWeb3BetsEventV1 {
             
         }
     }
-
-    function settleEvent() external override onlyOwner {}
 
     function getMarkets() external view override returns (address[] memory) {
         return markets;
@@ -96,7 +101,6 @@ contract Events is IWeb3BetsEventV1 {
             );
             _totalStake += _betsMarket.getTotalStake();
         }
-
         return _totalStake;
     }
 

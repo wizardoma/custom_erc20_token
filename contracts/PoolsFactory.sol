@@ -12,6 +12,9 @@ contract PoolsFactory {
 
     event PoolCreated(string name, address marketAddress, address eventAddress);
     
+    constructor(address _betsFactoryAddress){
+        betsFactoryAddress = _betsFactoryAddress;
+    }
     function createPool(string memory _name, address _eventAddress, address _marketAddress, uint _minimumStake) external returns (address) {
         Pool pool = new Pool(_name, _eventAddress, _marketAddress, betsFactoryAddress, _minimumStake);
         marketPools[_marketAddress].push(address(pool));
@@ -28,5 +31,6 @@ contract PoolsFactory {
     function getTotalPools() external view returns (uint){
         return _pools.length;
     }
+
     
 }

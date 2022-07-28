@@ -54,12 +54,13 @@ contract Bets is IWeb3BetsBetsV1 {
         address _eventAddress,
         address _marketAddress,
         address _poolAddress,
-        uint256 _stake
+        uint256 _stake,
+        address _better
     ) {
         eventAddress = _eventAddress;
         marketAddress = _marketAddress;
         stake = _stake;
-        better = msg.sender;
+        better = _better;
         poolAddress = _poolAddress;
     }
 

@@ -6,7 +6,8 @@ let eventFactory;
 let web3bets;
 let wAddress;
 
-beforeEach(async () => {
+before(async () => {
+
   web3bets = Web3Bets.deployed();
 
   wAddress = await web3bets.address;
@@ -27,8 +28,6 @@ contract("EventFactory", (accounts) => {
       from: eventOwner,
     });
 
-    console.log(event);
-
     // check length of eventFactory
     let newEvents = await eventFactory.getAllEvents({ from: eventOwner });
     assert.equal(newEvents.length - allEvents.length === 1, true);
@@ -43,22 +42,19 @@ contract("EventFactory", (accounts) => {
     let ownerEvents = await eventFactory.getEventsByAddress(eventOwner);
     let otherEvents = await eventFactory.getEventsByAddress(accounts[0]);
 
-
-    var event1Created = await eventFactory.createEvent( eventName1,1, {
+    await eventFactory.createEvent( eventName1,1, {
       from: eventOwner,
     });
 
-
-    var event2Created = await eventFactory.createEvent(eventName2, 1, {
+    await eventFactory.createEvent(eventName2, 1, {
       from: accounts[0],
     });
-
 
     let newOwnerEvents = await eventFactory.getEventsByAddress(eventOwner);
     let newOtherEvents = await eventFactory.getEventsByAddress(accounts[0]);
 
-    assert.equal(newOtherEvents - otherEvents ===1 && newOwnerEvents - ownerEvents === 1, true)
-    
+
+    assert.equal(newOtherEvents.length - otherEvents.length ===1 && newOwnerEvents.length - ownerEvents.length === 1, true)
 
   });
 });

@@ -9,8 +9,8 @@ contract BetsFactory {
 
     event BetCreated(address better, address eventAddress, address marketAddress, address poolAddress, uint stake);
 
-    function createBet(address _eventAddress, address _marketAddress, address _poolAddress, uint _stake) external returns(address) {
-        Bets bet =new Bets(_eventAddress, _marketAddress,_poolAddress, _stake);
+    function createBet(address _eventAddress, address _marketAddress, address _poolAddress, uint _stake,address _better) external returns(address) {
+        Bets bet =new Bets(_eventAddress, _marketAddress,_poolAddress, _stake,_better);
         _bets.push(msg.sender);
         userBets[msg.sender].push(address(bet));
         emit BetCreated(msg.sender, _eventAddress, _marketAddress, _poolAddress, _stake);

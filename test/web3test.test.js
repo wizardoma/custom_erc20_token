@@ -1,33 +1,12 @@
 const Web3Bets = artifacts.require("Web3Bets");
-const BetsFactory = artifacts.require("BetsFactory");
-const EventFactory = artifacts.require("EventFactory");
-const PoolsFactory = artifacts.require("PoolsFactory");
-const MarketFactory = artifacts.require("MarketFactory");
-const Bet = artifacts.require("Bets");
-const Market = artifacts.require("Markets");
-const Event = artifacts.require("Events");
-const Pool = artifacts.require("Pools");
 const truffleAssert = require("truffle-assertions");
 
-let accounts;
 let web3bets;
-let eventFactory;
-let narketFactory;
-let poolsFactory;
-let betsFactory;
 
 beforeEach(async () => {
+
   web3bets = await Web3Bets.deployed();
 
-  accounts = await web3.eth.getAccounts();
-
-  eventFactory = await EventFactory.deployed();
-
-  marketFactory = await MarketFactory.deployed();
-
-  poolsFactory = await PoolsFactory.deployed();
-
-  betsFactory = await BetsFactory.deployed();
 });
 
 contract("Web3Bets", (accounts) => {

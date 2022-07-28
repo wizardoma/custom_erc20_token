@@ -9,8 +9,6 @@ interface IWeb3BetsEventV1 is IBaseInterface{
 
     function cancelEvent() external;
 
-    function settleEvent() external;
-
     function getMarkets() external returns (address[] memory);
 
     function getTotalStake() external returns (uint256);

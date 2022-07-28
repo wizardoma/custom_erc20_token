@@ -41,13 +41,6 @@
     },
     {
       "inputs": [],
-      "name": "settleEvent",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [],
       "name": "getMarkets",
       "outputs": [
         {
@@ -99,7 +92,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.13+commit.abaa5c0e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"cancelEvent\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"minimumStake\",\"type\":\"uint256\"}],\"name\":\"createMarket\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getEventOwner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getMarkets\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getMinimumStake\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getName\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTotalStake\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"settleEvent\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interface/IWeb3BetsEventsV1.sol\":\"IWeb3BetsEventV1\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interface/IBaseInterface.sol\":{\"keccak256\":\"0x27a5c051a8db4281732c681d135c0f2bcbbcd4433d97a0544ec9f7c00ffe539f\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://69a0d84935c2a60279c5031c00211fed05762dc3b031eb58edfa8dc04c766f23\",\"dweb:/ipfs/Qme3MN8ZW4JUwZm8M8WN7RJxrB7qb1niJE5eiFM8bVXZFF\"]},\"project:/contracts/interface/IWeb3BetsEventsV1.sol\":{\"keccak256\":\"0xdb5f0e8094d50d2bc47cc23221d52091f33418948330aa840c95ad01996032f8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://dd8711c58bbbafebfc152e7a3735632ca82daabe25c9b9ed4812f43288679846\",\"dweb:/ipfs/QmNyBGuEv9WBM9CT1d7Gt2SYjA6Tqa6Tx9sXdv8TFja5ZA\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.13+commit.abaa5c0e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"cancelEvent\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"minimumStake\",\"type\":\"uint256\"}],\"name\":\"createMarket\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getEventOwner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getMarkets\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getMinimumStake\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getName\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTotalStake\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interface/IWeb3BetsEventsV1.sol\":\"IWeb3BetsEventV1\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interface/IBaseInterface.sol\":{\"keccak256\":\"0x27a5c051a8db4281732c681d135c0f2bcbbcd4433d97a0544ec9f7c00ffe539f\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://69a0d84935c2a60279c5031c00211fed05762dc3b031eb58edfa8dc04c766f23\",\"dweb:/ipfs/Qme3MN8ZW4JUwZm8M8WN7RJxrB7qb1niJE5eiFM8bVXZFF\"]},\"project:/contracts/interface/IWeb3BetsEventsV1.sol\":{\"keccak256\":\"0x42d71a0ad68fce7c0f1973599e4a8326065d3fbbd933f5d6ba6f4caedfa93511\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4577d9f87ff65a6bc0a9ee2cafd0258c19cad580e2a53867541ffc225d650fbc\",\"dweb:/ipfs/QmatbG5MnkLoA2im74YPiMihTJtsU2b4CsCHtamvmKZhQ1\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -107,24 +100,24 @@
   "deployedGeneratedSources": [],
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "// SPDX-License-Identifier: MIT\n\npragma solidity ^0.8.0;\n\nimport \"./IBaseInterface.sol\";\n\ninterface IWeb3BetsEventV1 is IBaseInterface{\n    function createMarket(string memory name, uint minimumStake) external;\n\n    function cancelEvent() external;\n\n    function settleEvent() external;\n\n    function getMarkets() external returns (address[] memory);\n\n    function getTotalStake() external returns (uint256);\n\n    function getMinimumStake() external returns (uint256);\n\n    function getEventOwner() external returns (address);\n\n}\n",
+  "source": "// SPDX-License-Identifier: MIT\n\npragma solidity ^0.8.0;\n\nimport \"./IBaseInterface.sol\";\n\ninterface IWeb3BetsEventV1 is IBaseInterface{\n    function createMarket(string memory name, uint minimumStake) external;\n\n    function cancelEvent() external;\n\n    function getMarkets() external returns (address[] memory);\n\n    function getTotalStake() external returns (uint256);\n\n    function getMinimumStake() external returns (uint256);\n\n    function getEventOwner() external returns (address);\n\n}\n",
   "sourcePath": "/Users/wizardom/projects/crypto/web3bets_smartcontract/contracts/interface/IWeb3BetsEventsV1.sol",
   "ast": {
     "absolutePath": "project:/contracts/interface/IWeb3BetsEventsV1.sol",
     "exportedSymbols": {
       "IBaseInterface": [
-        2174
+        2302
       ],
       "IWeb3BetsEventV1": [
-        2267
+        2392
       ]
     },
-    "id": 2268,
+    "id": 2393,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2229,
+        "id": 2357,
         "literals": [
           "solidity",
           "^",
@@ -137,11 +130,11 @@
       {
         "absolutePath": "project:/contracts/interface/IBaseInterface.sol",
         "file": "./IBaseInterface.sol",
-        "id": 2230,
+        "id": 2358,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 2268,
-        "sourceUnit": 2175,
+        "scope": 2393,
+        "sourceUnit": 2303,
         "src": "58:30:13",
         "symbolAliases": [],
         "unitAlias": ""
@@ -151,13 +144,13 @@
         "baseContracts": [
           {
             "baseName": {
-              "id": 2231,
+              "id": 2359,
               "name": "IBaseInterface",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 2174,
+              "referencedDeclaration": 2302,
               "src": "120:14:13"
             },
-            "id": 2232,
+            "id": 2360,
             "nodeType": "InheritanceSpecifier",
             "src": "120:14:13"
           }
@@ -166,10 +159,10 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 2267,
+        "id": 2392,
         "linearizedBaseContracts": [
-          2267,
-          2174
+          2392,
+          2302
         ],
         "name": "IWeb3BetsEventV1",
         "nameLocation": "100:16:13",
@@ -177,7 +170,7 @@
         "nodes": [
           {
             "functionSelector": "883c84c1",
-            "id": 2239,
+            "id": 2367,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -185,17 +178,17 @@
             "nameLocation": "149:12:13",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2237,
+              "id": 2365,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2234,
+                  "id": 2362,
                   "mutability": "mutable",
                   "name": "name",
                   "nameLocation": "176:4:13",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2239,
+                  "scope": 2367,
                   "src": "162:18:13",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -204,7 +197,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 2233,
+                    "id": 2361,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "162:6:13",
@@ -217,12 +210,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2236,
+                  "id": 2364,
                   "mutability": "mutable",
                   "name": "minimumStake",
                   "nameLocation": "187:12:13",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2239,
+                  "scope": 2367,
                   "src": "182:17:13",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -231,7 +224,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2235,
+                    "id": 2363,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "182:4:13",
@@ -246,12 +239,12 @@
               "src": "161:39:13"
             },
             "returnParameters": {
-              "id": 2238,
+              "id": 2366,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "209:0:13"
             },
-            "scope": 2267,
+            "scope": 2392,
             "src": "140:70:13",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -259,7 +252,7 @@
           },
           {
             "functionSelector": "fb6c9537",
-            "id": 2242,
+            "id": 2370,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -267,78 +260,51 @@
             "nameLocation": "225:11:13",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2240,
+              "id": 2368,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "236:2:13"
             },
             "returnParameters": {
-              "id": 2241,
+              "id": 2369,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "247:0:13"
             },
-            "scope": 2267,
+            "scope": 2392,
             "src": "216:32:13",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "functionSelector": "9ad5c7d4",
-            "id": 2245,
-            "implemented": false,
-            "kind": "function",
-            "modifiers": [],
-            "name": "settleEvent",
-            "nameLocation": "263:11:13",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 2243,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "274:2:13"
-            },
-            "returnParameters": {
-              "id": 2244,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "285:0:13"
-            },
-            "scope": 2267,
-            "src": "254:32:13",
-            "stateMutability": "nonpayable",
-            "virtual": false,
-            "visibility": "external"
-          },
-          {
             "functionSelector": "ec2c9016",
-            "id": 2251,
+            "id": 2376,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getMarkets",
-            "nameLocation": "301:10:13",
+            "nameLocation": "263:10:13",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2246,
+              "id": 2371,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "311:2:13"
+              "src": "273:2:13"
             },
             "returnParameters": {
-              "id": 2250,
+              "id": 2375,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2249,
+                  "id": 2374,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2251,
-                  "src": "332:16:13",
+                  "scope": 2376,
+                  "src": "294:16:13",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -347,19 +313,19 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2247,
+                      "id": 2372,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
-                      "src": "332:7:13",
+                      "src": "294:7:13",
                       "stateMutability": "nonpayable",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "id": 2248,
+                    "id": 2373,
                     "nodeType": "ArrayTypeName",
-                    "src": "332:9:13",
+                    "src": "294:9:13",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
                       "typeString": "address[]"
@@ -368,42 +334,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "331:18:13"
+              "src": "293:18:13"
             },
-            "scope": 2267,
-            "src": "292:58:13",
+            "scope": 2392,
+            "src": "254:58:13",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "7bc74225",
-            "id": 2256,
+            "id": 2381,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getTotalStake",
-            "nameLocation": "365:13:13",
+            "nameLocation": "327:13:13",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2252,
+              "id": 2377,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "378:2:13"
+              "src": "340:2:13"
             },
             "returnParameters": {
-              "id": 2255,
+              "id": 2380,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2254,
+                  "id": 2379,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2256,
-                  "src": "399:7:13",
+                  "scope": 2381,
+                  "src": "361:7:13",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -411,10 +377,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2253,
+                    "id": 2378,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "399:7:13",
+                    "src": "361:7:13",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -423,42 +389,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "398:9:13"
+              "src": "360:9:13"
             },
-            "scope": 2267,
-            "src": "356:52:13",
+            "scope": 2392,
+            "src": "318:52:13",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "d9bbd278",
-            "id": 2261,
+            "id": 2386,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getMinimumStake",
-            "nameLocation": "423:15:13",
+            "nameLocation": "385:15:13",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2257,
+              "id": 2382,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "438:2:13"
+              "src": "400:2:13"
             },
             "returnParameters": {
-              "id": 2260,
+              "id": 2385,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2259,
+                  "id": 2384,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2261,
-                  "src": "459:7:13",
+                  "scope": 2386,
+                  "src": "421:7:13",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -466,10 +432,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2258,
+                    "id": 2383,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "459:7:13",
+                    "src": "421:7:13",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -478,42 +444,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "458:9:13"
+              "src": "420:9:13"
             },
-            "scope": 2267,
-            "src": "414:54:13",
+            "scope": 2392,
+            "src": "376:54:13",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "179f907d",
-            "id": 2266,
+            "id": 2391,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getEventOwner",
-            "nameLocation": "483:13:13",
+            "nameLocation": "445:13:13",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2262,
+              "id": 2387,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "496:2:13"
+              "src": "458:2:13"
             },
             "returnParameters": {
-              "id": 2265,
+              "id": 2390,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2264,
+                  "id": 2389,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2266,
-                  "src": "517:7:13",
+                  "scope": 2391,
+                  "src": "479:7:13",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -521,10 +487,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2263,
+                    "id": 2388,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "517:7:13",
+                    "src": "479:7:13",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -534,21 +500,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "516:9:13"
+              "src": "478:9:13"
             },
-            "scope": 2267,
-            "src": "474:52:13",
+            "scope": 2392,
+            "src": "436:52:13",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 2268,
-        "src": "90:439:13",
+        "scope": 2393,
+        "src": "90:401:13",
         "usedErrors": []
       }
     ],
-    "src": "33:497:13"
+    "src": "33:459:13"
   },
   "compiler": {
     "name": "solc",
@@ -556,7 +522,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-07-25T11:21:38.027Z",
+  "updatedAt": "2022-07-28T11:45:08.012Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

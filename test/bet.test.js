@@ -7,6 +7,7 @@ const BetsFactory = artifacts.require("BetsFactory");
 const Events = artifacts.require("Events");
 const Market = artifacts.require("Markets");
 const Pools = artifacts.require("Pools");
+const Bets = artifacts.require("Bets");
 
 const truffleAssert = require("truffle-assertions");
 
@@ -22,6 +23,8 @@ let demoMarket;
 let demoMarketAddress;
 let marketName;
 let demoPoolAddress;
+let demoBetAddress;
+let demoBet;
 
 before(async function () {
     this.timeout(20000)
@@ -46,22 +49,30 @@ before(async function () {
     await poolFactory.createPool("12", demoEventAddress, demoMarketAddress, 2);
     let newMarketPools = await poolFactory.getPoolsOfMarket(demoMarketAddress);
     demoPoolAddress = newMarketPools[newMarketPools.length - 1]
-});
-
-it("Can create a bet", async () => {
-    let poolBets = await betFactory.getAllBetsByAddress(accounts[0]);
     await betFactory.createBet(demoEventAddress,demoMarketAddress,demoPoolAddress,2,eventOwner);
     let newPoolBets = await betFactory.getAllBetsByAddress(accounts[0]);
-
-    assert.equal(newPoolBets.length - poolBets.length === 1, true)
+    demoBetAddress = newPoolBets[newPoolBets.length - 1];
+    demoBet = await Bets.at(demoBetAddress);
+    
 });
 
-it("Can fetch all bets", async () => {
-    await truffleAssert.passes(betFactory.getAllBets());
+it("Confirm bets created owner is the current user", async () => {
+    let better = await demoBet.getBetter();
+    assert.equal(better === eventOwner, true)
+});
 
-})
 
-it("Can get count of all bets", async () => {
-    await truffleAssert.passes(betFactory.getTotalBets());
+it("Confirm bets pooladdress is the current pool", async () => {
+    let better = await demoBet.getBetPoolAddress();
+    assert.equal(better === demoPoolAddress, true)
+});
 
-})
+it("Confirm bets market address is the current market", async () => {
+    let better = await demoBet.getBetMarketAddress();
+    assert.equal(better === demoMarketAddress, true)
+});
+
+it("Confirm bets event address is the current event", async () => {
+    let better = await demoBet.getBetEventAddress();
+    assert.equal(better === demoEventAddress, true)
+});

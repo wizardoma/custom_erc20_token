@@ -14,12 +14,12 @@ contract Market is IWeb3BetsMarketV1 {
     address public eventAddress;
     address public poolFactoryAddress;
     address public web3BetsAddress;
-    uint public minimumStake;
+    uint256 public minimumStake;
     mapping(string => address) public pools;
     string[] public poolNames;
     address[] public poolAddresses;
     bool public hasSetWinningPool;
-    mapping(address => uint) public winningPoolAddresses;
+    mapping(address => uint256) public winningPoolAddresses;
 
     modifier onlyEventOwner() {
         IWeb3BetsEventV1 poolEvent = IWeb3BetsEventV1(eventAddress);
@@ -32,9 +32,12 @@ contract Market is IWeb3BetsMarketV1 {
 
     modifier uniqueName(string memory value) {
         bool isNotEqual = true;
-        uint poolNamesLength = poolNames.length;
-        for (uint i = 0; i < poolNamesLength; i++) {
-            if (keccak256(abi.encodePacked(value)) == keccak256(abi.encodePacked(poolNames[i]))) {
+        uint256 poolNamesLength = poolNames.length;
+        for (uint256 i = 0; i < poolNamesLength; i++) {
+            if (
+                keccak256(abi.encodePacked(value)) ==
+                keccak256(abi.encodePacked(poolNames[i]))
+            ) {
                 isNotEqual = false;
                 break;
             }
@@ -63,7 +66,13 @@ contract Market is IWeb3BetsMarketV1 {
         _;
     }
 
-    constructor(string memory _name, address _eventAddress,address _poolFactoryAddress, address _web3betsAddress, uint _minimumStake) {
+    constructor(
+        string memory _name,
+        address _eventAddress,
+        address _poolFactoryAddress,
+        address _web3betsAddress,
+        uint256 _minimumStake
+    ) {
         owner = tx.origin;
         name = _name;
         eventAddress = _eventAddress;
@@ -73,8 +82,8 @@ contract Market is IWeb3BetsMarketV1 {
     }
 
     function createMarketPool(string memory _name)
-    override
         external
+        override
         onlyEventOwner
         uniqueName(_name)
     {
@@ -91,21 +100,35 @@ contract Market is IWeb3BetsMarketV1 {
     }
 
     function setWinningPool(address _poolAddress)
-    override
         external
+        override
         onlyEventOwner
-        validWinningPool(_poolAddress)
-    {
+        validWinningPool(_poolAddress){
         // Initialize the Web3Bets address
         IWeb3Bets web3Bets = IWeb3Bets(web3BetsAddress);
-        uint vigPercentage = web3Bets.getVigPercentage();
+        uint256 vigPercentage = web3Bets.getVigPercentage();
 
         // Get total stake and transfer to market
         // TODO: discuss with client: formulate pragmatic algorithm for bet winnings
-        uint poolLength = poolNames.length;
-        for (uint i = 0; i < poolLength; i++){
-            IWeb3BetsPoolsV1 pool = IWeb3BetsPoolsV1(pools[poolNames[i]]);
-            
+
+        uint256 vigShare = address(this).balance * (vigPercentage / 100);
+
+        // send money to vig holders
+        web3Bets.shareBetEarnings{value: vigShare}();
+        uint256 poolLength = poolAddresses.length;
+        for (uint256 i = 0; i < poolLength; i++) {
+            if (poolAddresses[i] == _poolAddress) {
+                IWeb3BetsPoolsV1 pool = IWeb3BetsPoolsV1(poolAddresses[i]);
+                address[] memory winners = pool.getBets();
+                for (uint256 j = 0; j < winners.length; j++) {
+                    uint256 userStake = pool.getUserStake(winners[j]);
+                    payable(winners[i]).transfer(
+                        (((userStake / pool.getTotalStake()) * 100) / 100) *
+                            address(this).balance
+                    );
+                }
+                break;
+            }
         }
     }
 
@@ -122,11 +145,10 @@ contract Market is IWeb3BetsMarketV1 {
         return name;
     }
 
-    function getTotalStake() external override returns (uint) {
+    function getTotalStake() external override returns (uint256) {
+        uint256 totalStake;
 
-        uint totalStake;
-
-        for (uint i = 0; i < poolNames.length; i++){
+        for (uint256 i = 0; i < poolNames.length; i++) {
             IWeb3BetsPoolsV1 betsPool = IWeb3BetsPoolsV1(pools[poolNames[i]]);
             totalStake += betsPool.getTotalStake();
         }
@@ -134,23 +156,38 @@ contract Market is IWeb3BetsMarketV1 {
         return totalStake;
     }
 
-    function isWinningPoolSet() override external view returns(bool){
+    function isWinningPoolSet() external view override returns (bool) {
         return hasSetWinningPool;
     }
 
-
-    function getPoolNames() external view returns(string[] memory){
+    function getPoolNames() external view returns (string[] memory) {
         return poolNames;
     }
 
-       function getPoolAddresses() external view returns(address[] memory){
+    function getPoolAddresses() external view returns (address[] memory) {
         return poolAddresses;
     }
 
-    function getPoolAddressFromName(string memory _name) external view returns(address){
+    function getPoolAddressFromName(string memory _name)
+        external
+        view
+        returns (address)
+    {
         return pools[_name];
     }
- 
+
+    function getBalance() external view returns(uint) {
+        return address(this).balance;
+    }
+    
+    // Function to receive Ether. msg.data must be empty
+    receive() external payable {}
+
+    // Fallback function is called when msg.data is not empty
+    fallback() external payable {
+
+    }
+
     // function _toLower(string memory str) internal returns (string memory) {
     //     bytes memory bStr = bytes(str);
     //     bytes memory bLower = new bytes(bStr.length);

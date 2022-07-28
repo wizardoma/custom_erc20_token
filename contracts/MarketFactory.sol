@@ -13,15 +13,12 @@ contract MarketFactory {
 
     address public poolsFactoryAddress;
 
-
     constructor(
         address _poolsFactoryAddress, address _web3betsAddress
     ){
         web3betsAddress = _web3betsAddress;
         poolsFactoryAddress = _poolsFactoryAddress;
     }
-
-
 
     function createMarket(
         string memory _name, address _eventAddress, uint _minimumStake) public returns(address) {
