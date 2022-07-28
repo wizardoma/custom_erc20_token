@@ -43,6 +43,7 @@ before(async function () {
   demoPool = await Pools.at(marketPools[marketPools.length - 1]);
 });
 
+contract("Pools", (accounts) => {
 it("Newly initialized have correct minimum stake", async () => {
   let minimumStake = await demoPool.minimumStake();
   assert.equal(minimumStake.toNumber() === defaultStake, true);
@@ -85,3 +86,4 @@ it("Bet stake must be higher or equal to minimum stake of the event", async () =
     "You can not bet below the minimum stake of event"
   );
 });
+})

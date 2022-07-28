@@ -27,6 +27,7 @@ before(async () => {
   marketFactory = await MarketFactory.deployed();
 });
 
+contract("Events", (accounts) => {
 it("Initialized Event is a valid event", async () => {
   assert.equal(web3.utils.isAddress(testEvent2), true);
 });
@@ -59,4 +60,5 @@ it("can retrieve address that created event", async () => {
   let address = await demoEvent.getEventOwner();
   assert.equal(web3.utils.isAddress(address), true);
   assert.equal(address === eventOwner, true);
+});
 });

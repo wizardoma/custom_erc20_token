@@ -3,7 +3,7 @@ const EventFactory = artifacts.require("EventFactory");
 const MarketFactory = artifacts.require("MarketFactory");
 const Events = artifacts.require("Events");
 const Market = artifacts.require("Markets");
-const Pools = artifacts.require("Pools")
+const Pools = artifacts.require("Pools");
 const truffleAssert = require("truffle-assertions");
 
 let eventFactory;
@@ -30,19 +30,19 @@ before(async () => {
   marketName = "Paribet";
 });
 
-it("Confirm validity of initialized market", async () => {
-  await marketEvent.createMarket(marketName, 2, { from: eventOwner });
-  let markets = await marketEvent.getMarkets();
-  let demoMarketAddress = markets[markets.length - 1];
-  let demoMarket = await Market.at(demoMarketAddress);
-  assert.equal(web3.utils.isAddress(demoMarket.address), true);
-  let dMarketName = await demoMarket.getName();
-  assert.equal(dMarketName === marketName, true);
-});
+contract("Market", (accounts) => {
+  it("Confirm validity of initialized market", async () => {
+    await marketEvent.createMarket(marketName, 2, { from: eventOwner });
+    let markets = await marketEvent.getMarkets();
+    let demoMarketAddress = markets[markets.length - 1];
+    let demoMarket = await Market.at(demoMarketAddress);
+    assert.equal(web3.utils.isAddress(demoMarket.address), true);
+    let dMarketName = await demoMarket.getName();
+    assert.equal(dMarketName === marketName, true);
+  });
 
-
-it("Can create a pool",  async function () {
-  this.timeout(20000);
+  it("Can create a pool", async function () {
+    this.timeout(20000);
 
     await marketEvent.createMarket(marketName, 2, { from: eventOwner });
     let markets = await marketEvent.getMarkets();
@@ -53,19 +53,19 @@ it("Can create a pool",  async function () {
     let newMarketPools = await demoMarket.getPoolAddresses();
 
     assert.equal(newMarketPools.length - marketPools.length === 1, true);
+  });
 
-  })
-
-it("Winning pool cannot be true on newCreated pool", async function () {
-  this.timeout(20000);
+  it("Winning pool cannot be true on newCreated pool", async function () {
+    this.timeout(20000);
     await marketEvent.createMarket(marketName, 2, { from: eventOwner });
     let markets = await marketEvent.getMarkets();
     let demoMarketAddress = markets[markets.length - 1];
     let demoMarket = await Market.at(demoMarketAddress);
     await demoMarket.createMarketPool("1X", { from: eventOwner });
     let newMarketPools = await demoMarket.getPoolAddresses();
-    console.log(newMarketPools)
+    console.log(newMarketPools);
     let isWinningPool = await demoMarket.isWinningPoolSet();
 
     assert.equal(isWinningPool, false);
-  })
+  });
+});

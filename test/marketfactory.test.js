@@ -9,7 +9,6 @@ let marketFactory;
 let testEvent1;
 
 before(async () => {
-
   web3bets = await Web3Bets.deployed();
 
   accounts = await web3.eth.getAccounts();
@@ -22,13 +21,15 @@ before(async () => {
   marketFactory = await MarketFactory.deployed();
 });
 
-it("Should be able to create a market", async () => {
-  let allMarkets = await marketFactory.getAllMarkets();
-  await marketFactory.createMarket("Paribet", testEvent1, 2);
-  let markets = await marketFactory.getAllMarkets();
-  assert.equal(markets.length - allMarkets.length === 1, true);
-});
+contract("MarketFactory", (accounts) => {
+  it("Should be able to create a market", async () => {
+    let allMarkets = await marketFactory.getAllMarkets();
+    await marketFactory.createMarket("Paribet", testEvent1, 2);
+    let markets = await marketFactory.getAllMarkets();
+    assert.equal(markets.length - allMarkets.length === 1, true);
+  });
 
-it("Should get markets of an event", async () => {
-  await truffleAssert.passes(marketFactory.getMarketsByEvent(testEvent1));
+  it("Should get markets of an event", async () => {
+    await truffleAssert.passes(marketFactory.getMarketsByEvent(testEvent1));
+  });
 });
