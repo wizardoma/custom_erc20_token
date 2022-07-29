@@ -63,18 +63,15 @@ it("Valid pool address on initialization", async () => {
 it("any user can create a bet", async () => {
   let bets = await demoPool.getBets();
   let marketBalance = await demoMarket.getBalance();
-  console.log("Market balance",marketBalance);
   let value = web3.utils.toWei("2", "ether");
   await demoPool.bet({ from: accounts[4], value: value });
   let newBets = await demoPool.getBets();
   let marketBalance1 = await demoMarket.getBalance();
-  console.log("Market Balance 1 ", marketBalance1);
-  let diff = web3.utils.fromWei(marketBalance1.toString(),"ether")- web3.utils.fromWei(marketBalance.toString(),"ether");
-  console.log("Difference ", diff);
-  console.log("Value ", value);
-  // assert.equal(diff === value, true);
+  let diff = web3.utils.fromWei(marketBalance1.toString(),"wei")- web3.utils.fromWei(marketBalance.toString(),"wei");
+  assert.equal(Number(diff) === Number(value), true);
   assert.equal(newBets.length - bets.length === 1, true);
 });
+
 
 it("Bet stake must be higher or equal to minimum stake of the event", async () => {
   let minimumStake = await demoPool.minimumStake();

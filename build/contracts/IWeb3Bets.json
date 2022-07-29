@@ -36,14 +36,14 @@
     "absolutePath": "project:/contracts/interface/IWeb3Bets.sol",
     "exportedSymbols": {
       "IWeb3Bets": [
-        2313
+        2584
       ]
     },
-    "id": 2314,
+    "id": 2585,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2304,
+        "id": 2575,
         "literals": [
           "solidity",
           "^",
@@ -60,9 +60,9 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 2313,
+        "id": 2584,
         "linearizedBaseContracts": [
-          2313
+          2584
         ],
         "name": "IWeb3Bets",
         "nameLocation": "35:9:11",
@@ -70,7 +70,7 @@
         "nodes": [
           {
             "functionSelector": "4d161324",
-            "id": 2307,
+            "id": 2578,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -78,18 +78,18 @@
             "nameLocation": "60:16:11",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2305,
+              "id": 2576,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "76:2:11"
             },
             "returnParameters": {
-              "id": 2306,
+              "id": 2577,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "95:0:11"
             },
-            "scope": 2313,
+            "scope": 2584,
             "src": "51:45:11",
             "stateMutability": "payable",
             "virtual": false,
@@ -97,7 +97,7 @@
           },
           {
             "functionSelector": "2004b3e5",
-            "id": 2312,
+            "id": 2583,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -105,23 +105,23 @@
             "nameLocation": "111:16:11",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2308,
+              "id": 2579,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "127:2:11"
             },
             "returnParameters": {
-              "id": 2311,
+              "id": 2582,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2310,
+                  "id": 2581,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2312,
+                  "scope": 2583,
                   "src": "147:4:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -130,7 +130,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2309,
+                    "id": 2580,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "147:4:11",
@@ -144,14 +144,14 @@
               ],
               "src": "146:6:11"
             },
-            "scope": 2313,
+            "scope": 2584,
             "src": "102:51:11",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 2314,
+        "scope": 2585,
         "src": "25:130:11",
         "usedErrors": []
       }
@@ -164,7 +164,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-07-28T11:45:08.010Z",
+  "updatedAt": "2022-07-29T20:35:26.645Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

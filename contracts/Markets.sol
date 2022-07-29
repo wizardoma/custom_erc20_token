@@ -173,17 +173,6 @@ contract Market is IWeb3BetsMarketV1 {
         return name;
     }
 
-    function getTotalStake() external override returns (uint256) {
-        uint256 totalStake;
-
-        for (uint256 i = 0; i < poolNames.length; i++) {
-            IWeb3BetsPoolsV1 betsPool = IWeb3BetsPoolsV1(pools[poolNames[i]]);
-            totalStake += betsPool.getTotalStake();
-        }
-
-        return totalStake;
-    }
-
     function isWinningPoolSet() external view override returns (bool) {
         return hasSetWinningPool;
     }
@@ -206,6 +195,10 @@ contract Market is IWeb3BetsMarketV1 {
 
     function getBalance() external view returns (uint256) {
         return address(this).balance;
+    }
+
+    function isWinningPool(address pool) external view returns(bool){
+        return hasSetWinningPool ? winningPoolAddress == pool : false;
     }
 
     // Function to receive Ether. msg.data must be empty

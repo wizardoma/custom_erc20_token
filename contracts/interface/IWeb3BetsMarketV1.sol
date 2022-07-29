@@ -14,8 +14,8 @@ interface IWeb3BetsMarketV1 is IBaseInterface{
 
     function getEventName() external returns (string memory);
 
-    function getTotalStake() external returns (uint);
-
     function isWinningPoolSet() external returns (bool);
+
+    function isWinningPool(address pool) external returns (bool);
 
 }

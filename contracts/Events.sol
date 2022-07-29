@@ -109,18 +109,6 @@ contract Events is IWeb3BetsEventV1 {
         return markets;
     }
 
-    function getTotalStake() external override returns (uint256) {
-        uint256 _totalStake;
-        address[] memory _markets = markets;
-        for (uint256 i = 0; i < _markets.length; i++) {
-            IWeb3BetsMarketV1 _betsMarket = IWeb3BetsMarketV1(
-                _markets[i]
-            );
-            _totalStake += _betsMarket.getTotalStake();
-        }
-        return _totalStake;
-    }
-
     function getMinimumStake() external view returns (uint256) {
         return minimumStake;
     }
