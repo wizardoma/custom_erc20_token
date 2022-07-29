@@ -111,10 +111,10 @@ contract Events is IWeb3BetsEventV1 {
 
     function getTotalStake() external override returns (uint256) {
         uint256 _totalStake;
-
-        for (uint256 i = 0; i < markets.length; i++) {
+        address[] memory _markets = markets;
+        for (uint256 i = 0; i < _markets.length; i++) {
             IWeb3BetsMarketV1 _betsMarket = IWeb3BetsMarketV1(
-                markets[i]
+                _markets[i]
             );
             _totalStake += _betsMarket.getTotalStake();
         }
@@ -166,6 +166,10 @@ contract Events is IWeb3BetsEventV1 {
             revert("An error occurred starting event");
         }
         
+    }
+
+    function getEventStatus() external override view returns (uint){
+        return uint(status);
     }
 
 }

@@ -110,6 +110,7 @@ contract Bets is IWeb3BetsBetsV1 {
     }
 
     function getStatus(uint status) private pure returns (BetStatus){
+        
         if (status == 0){
             return BetStatus.PENDING;
         }

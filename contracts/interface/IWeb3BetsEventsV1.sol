@@ -17,4 +17,6 @@ interface IWeb3BetsEventV1 is IBaseInterface{
 
     function getEventOwner() external returns (address);
 
+    function getEventStatus() external returns (uint);
+
 }

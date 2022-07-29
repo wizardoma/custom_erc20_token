@@ -54,8 +54,11 @@ contract Market is IWeb3BetsMarketV1 {
             poolLength > 0,
             "Cannot set winning pool on market with no pool"
         );
+
+        mapping(string => address) storage _pools = pools;
+
         for (uint256 i = 0; i < poolLength; i++) {
-            if (pools[poolNames[i]] == _poolAddress) {
+            if (_pools[poolNames[i]] == _poolAddress) {
                 found = true;
                 break;
             }
@@ -93,6 +96,7 @@ contract Market is IWeb3BetsMarketV1 {
             address(this),
             minimumStake
         );
+        
         pools[_name] = poolAddress;
         poolNames.push(_name);
         poolAddresses.push(poolAddress);
@@ -104,12 +108,15 @@ contract Market is IWeb3BetsMarketV1 {
         onlyEventOwner
         validWinningPool(_poolAddress)
     {
+    
         if (hasSetWinningPool == true && winningPoolAddress != address(0)) {
             revert("Winning Pool already set");
         }
+
+        address[] memory _poolAddresses = poolAddresses;
         if (address(this).balance == 0) {
-            for (uint256 i = 0; i < poolAddresses.length; i++) {
-                if (poolAddresses[i] == _poolAddress) {
+            for (uint256 i = 0; i < _poolAddresses.length; i++) {
+                if (_poolAddresses[i] == _poolAddress) {
                     winningPoolAddress = _poolAddress;
                     hasSetWinningPool = true;
                     break;
@@ -117,8 +124,7 @@ contract Market is IWeb3BetsMarketV1 {
             }
             if (!hasSetWinningPool) {
                 revert("No Pool Address was found");
-            }
-            else {
+            } else {
                 return;
             }
         }
@@ -132,14 +138,15 @@ contract Market is IWeb3BetsMarketV1 {
 
         // send money to vig holders
         web3Bets.shareBetEarnings{value: vigShare}();
-        uint256 poolLength = poolAddresses.length;
+        
+        uint256 poolLength = _poolAddresses.length;
         for (uint256 i = 0; i < poolLength; i++) {
-            if (poolAddresses[i] == _poolAddress) {
+            if (_poolAddresses[i] == _poolAddress) {
                 if (!hasSetWinningPool) {
                     winningPoolAddress = _poolAddress;
                     hasSetWinningPool = true;
                 }
-                IWeb3BetsPoolsV1 pool = IWeb3BetsPoolsV1(poolAddresses[i]);
+                IWeb3BetsPoolsV1 pool = IWeb3BetsPoolsV1(_poolAddresses[i]);
                 address[] memory winners = pool.getBets();
                 for (uint256 j = 0; j < winners.length; j++) {
                     uint256 userStake = pool.getUserStake(winners[j]);

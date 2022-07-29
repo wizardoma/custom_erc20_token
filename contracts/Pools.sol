@@ -20,6 +20,8 @@ contract Pool is IWeb3BetsPoolsV1 {
 
     mapping(address => uint256) public userStakes;
 
+    mapping(address => address[]) bettersBets;
+
     address[] public betAddresses;
 
     address private eventAddress;
@@ -51,6 +53,12 @@ contract Pool is IWeb3BetsPoolsV1 {
     }
 
     function bet() public payable override aboveMinimumStake {
+        IWeb3BetsEventV1 eventV1 = IWeb3BetsEventV1(eventAddress);
+        uint256 eventStatus = eventV1.getEventStatus();
+        if (eventStatus != 0) {
+            revert("You can not bet on a started or concluded event");
+        }
+
         BetsFactory betsFactory = BetsFactory(betsFactoryAddress);
         address betAddress = betsFactory.createBet(
             marketAddress,
@@ -59,8 +67,9 @@ contract Pool is IWeb3BetsPoolsV1 {
             msg.value,
             msg.sender
         );
+        bettersBets[msg.sender].push(betAddress);
         totalStake += msg.value;
-        userStakes[msg.sender] = msg.value;
+        userStakes[msg.sender] = userStakes[msg.sender] + msg.value;
         betAddresses.push(betAddress);
         (bool sentBetFundToMarket, ) = marketAddress.call{value: msg.value}("");
 
@@ -93,5 +102,9 @@ contract Pool is IWeb3BetsPoolsV1 {
 
     function getUserStake(address user) external view returns (uint256) {
         return userStakes[user];
+    }
+
+    function getBettersBets(address better) external view returns (address[] memory) {
+        return bettersBets[better];
     }
 }
