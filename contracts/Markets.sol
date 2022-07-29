@@ -19,6 +19,7 @@ contract Market is IWeb3BetsMarketV1 {
     string[] public poolNames;
     address[] public poolAddresses;
     bool public hasSetWinningPool;
+    address public winningPoolAddress;
     mapping(address => uint256) public winningPoolAddresses;
 
     modifier onlyEventOwner() {
@@ -103,13 +104,28 @@ contract Market is IWeb3BetsMarketV1 {
         external
         override
         onlyEventOwner
-        validWinningPool(_poolAddress){
+        validWinningPool(_poolAddress)
+    {
+        if (hasSetWinningPool == true && winningPoolAddress != address(0)) {
+            revert("Winning Pool already set");
+        }
+        if (address(this).balance == 0) {
+            for (uint256 i = 0; i < poolAddresses.length; i++) {
+                if (poolAddresses[i] == _poolAddress) {
+                    winningPoolAddress = _poolAddress;
+                    hasSetWinningPool = true;
+                    break;
+                }
+            }
+
+            revert("No Pool Address was found");
+        }
+
         // Initialize the Web3Bets address
         IWeb3Bets web3Bets = IWeb3Bets(web3BetsAddress);
         uint256 vigPercentage = web3Bets.getVigPercentage();
 
         // Get total stake and transfer to market
-        // TODO: discuss with client: formulate pragmatic algorithm for bet winnings
 
         uint256 vigShare = address(this).balance * (vigPercentage / 100);
 
@@ -118,6 +134,10 @@ contract Market is IWeb3BetsMarketV1 {
         uint256 poolLength = poolAddresses.length;
         for (uint256 i = 0; i < poolLength; i++) {
             if (poolAddresses[i] == _poolAddress) {
+                if (!hasSetWinningPool) {
+                    winningPoolAddress = _poolAddress;
+                    hasSetWinningPool = true;
+                }
                 IWeb3BetsPoolsV1 pool = IWeb3BetsPoolsV1(poolAddresses[i]);
                 address[] memory winners = pool.getBets();
                 for (uint256 j = 0; j < winners.length; j++) {
@@ -176,17 +196,15 @@ contract Market is IWeb3BetsMarketV1 {
         return pools[_name];
     }
 
-    function getBalance() external view returns(uint) {
+    function getBalance() external view returns (uint256) {
         return address(this).balance;
     }
-    
+
     // Function to receive Ether. msg.data must be empty
     receive() external payable {}
 
     // Fallback function is called when msg.data is not empty
-    fallback() external payable {
-
-    }
+    fallback() external payable {}
 
     // function _toLower(string memory str) internal returns (string memory) {
     //     bytes memory bStr = bytes(str);
