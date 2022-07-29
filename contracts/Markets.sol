@@ -24,10 +24,8 @@ contract Market is IWeb3BetsMarketV1 {
 
     modifier onlyEventOwner() {
         IWeb3BetsEventV1 poolEvent = IWeb3BetsEventV1(eventAddress);
-        require(
-            msg.sender == poolEvent.getEventOwner(),
-            "Only event owners set winning pool"
-        );
+        address eventOwner = poolEvent.getEventOwner();
+        require(msg.sender == eventOwner, "Only event owners set winning pool");
         _;
     }
 
@@ -117,8 +115,12 @@ contract Market is IWeb3BetsMarketV1 {
                     break;
                 }
             }
-
-            revert("No Pool Address was found");
+            if (!hasSetWinningPool) {
+                revert("No Pool Address was found");
+            }
+            else {
+                return;
+            }
         }
 
         // Initialize the Web3Bets address
@@ -126,7 +128,6 @@ contract Market is IWeb3BetsMarketV1 {
         uint256 vigPercentage = web3Bets.getVigPercentage();
 
         // Get total stake and transfer to market
-
         uint256 vigShare = address(this).balance * (vigPercentage / 100);
 
         // send money to vig holders

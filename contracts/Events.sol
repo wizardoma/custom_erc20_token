@@ -22,6 +22,8 @@ contract Events is IWeb3BetsEventV1 {
 
     string public name;
 
+    EventStatus public status = EventStatus.PENDING; 
+
     struct EventMarket {
         string marketName;
         address marketAddress;
@@ -37,6 +39,13 @@ contract Events is IWeb3BetsEventV1 {
         marketFactoryAddress = _marketFactoryAddress;
         eventOwner = tx.origin;
         minimumStake = _minimumStake;
+    }
+
+    enum EventStatus {
+        PENDING,
+        STARTED,
+        ENDED,
+        CANCELED
     }
 
     enum MarketStatus {
@@ -65,6 +74,14 @@ contract Events is IWeb3BetsEventV1 {
     }
 
     function cancelEvent() external override onlyOwner {
+        if (status == EventStatus.CANCELED){
+            revert("Event already canceled");
+        }
+
+        else if (status == EventStatus.ENDED){
+            revert("Event already ended");
+        }
+
         bool allMarketsAreSettled = false;
         for (uint256 i = 0; i < markets.length; i++) {
             IWeb3BetsMarketV1 marketv1 = IWeb3BetsMarketV1(
@@ -115,4 +132,40 @@ contract Events is IWeb3BetsEventV1 {
     function getEventOwner() external view override returns (address) {
         return eventOwner;
     }
+
+    function endEvent() external {
+        if (status == EventStatus.CANCELED){
+            revert("Canceled event can not be ended");
+        }
+
+        else if (status == EventStatus.ENDED){
+            revert("Event already canceled");
+        
+    }
+    }
+
+    function startEvent() external {
+        if (status == EventStatus.CANCELED){
+            revert("Canceled event can not be started");
+        }
+
+        else if (status == EventStatus.ENDED){
+            revert("Ended event can not be started");
+            
+        }
+
+        else if (status == EventStatus.STARTED){
+            revert("Event already started");
+        }
+
+        else if (status == EventStatus.PENDING){
+            status = EventStatus.STARTED;
+        }
+
+        else {
+            revert("An error occurred starting event");
+        }
+        
+    }
+
 }
