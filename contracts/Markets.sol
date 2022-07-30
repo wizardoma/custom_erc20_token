@@ -15,11 +15,12 @@ contract Market is IWeb3BetsMarketV1 {
     address public poolFactoryAddress;
     address public web3BetsAddress;
     uint256 public minimumStake;
-    mapping(string => address) public pools;
     string[] public poolNames;
     address[] public poolAddresses;
     bool public hasSetWinningPool;
     address public winningPoolAddress;
+    bool public isSettled = false;
+    
     mapping(address => uint256) public winningPoolAddresses;
 
     modifier onlyEventOwner() {
@@ -55,10 +56,9 @@ contract Market is IWeb3BetsMarketV1 {
             "Cannot set winning pool on market with no pool"
         );
 
-        mapping(string => address) storage _pools = pools;
-
-        for (uint256 i = 0; i < poolLength; i++) {
-            if (_pools[poolNames[i]] == _poolAddress) {
+        address[] memory _poolAddresses = poolAddresses;
+        for (uint256 i = 0; i < _poolAddresses.length; i++) {
+            if (_poolAddresses[i] == _poolAddress) {
                 found = true;
                 break;
             }
@@ -97,7 +97,6 @@ contract Market is IWeb3BetsMarketV1 {
             minimumStake
         );
         
-        pools[_name] = poolAddress;
         poolNames.push(_name);
         poolAddresses.push(poolAddress);
     }
@@ -174,6 +173,10 @@ contract Market is IWeb3BetsMarketV1 {
     }
 
     function isWinningPoolSet() external view override returns (bool) {
+        if (poolAddresses.length == 0){
+            return true;
+        }
+        
         return hasSetWinningPool;
     }
 
@@ -185,14 +188,6 @@ contract Market is IWeb3BetsMarketV1 {
         return poolAddresses;
     }
 
-    function getPoolAddressFromName(string memory _name)
-        external
-        view
-        returns (address)
-    {
-        return pools[_name];
-    }
-
     function getBalance() external view returns (uint256) {
         return address(this).balance;
     }
@@ -201,24 +196,38 @@ contract Market is IWeb3BetsMarketV1 {
         return hasSetWinningPool ? winningPoolAddress == pool : false;
     }
 
+    function cancelMarket() external {
+        if (isSettled){
+            return;
+        }
+        if (!hasSetWinningPool){
+            for (uint i = 0; i<poolAddresses.length; i++){
+                IWeb3BetsPoolsV1 poolsV1 = IWeb3BetsPoolsV1(poolAddresses[i]);
+                address[] memory betAddresses =poolsV1.getBets();
+                for (uint j; j<betAddresses.length;j++){
+                    IWeb3BetsBetsV1 betV1 = IWeb3BetsBetsV1(betAddresses[j]);
+                    payable(betAddresses[j]).transfer(betV1.getBetStake());
+                }
+                
+            }
+
+            isSettled = true;
+
+        }
+        else {
+            isSettled = true;
+        }
+    }
+
     // Function to receive Ether. msg.data must be empty
     receive() external payable {}
 
     // Fallback function is called when msg.data is not empty
     fallback() external payable {}
 
-    // function _toLower(string memory str) internal returns (string memory) {
-    //     bytes memory bStr = bytes(str);
-    //     bytes memory bLower = new bytes(bStr.length);
-    //     for (uint256 i = 0; i < bStr.length; i++) {
-    //         // Uppercase character...
-    //         if ((bStr[i] >= 0x65) && (bStr[i] <= 0x90)) {
-    //             // So we add 32 to make it lowercase
-    //             bLower[i] = bytes1(int256(bStr[i]) + 32);
-    //         } else {
-    //             bLower[i] = bStr[i];
-    //         }
-    //     }
-    //     return string(bLower);
-    // }
+    function settleWinningPool() private {
+
+    }
 }
+
+

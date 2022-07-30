@@ -16,25 +16,26 @@ contract Events is IWeb3BetsEventV1 {
 
     mapping(address => string) public marketsNames;
 
-    mapping(address => MarketStatus) public marketsStatuses;
-
     address[] public markets;
 
     string public name;
 
-    EventStatus public status = EventStatus.PENDING; 
+    EventStatus public status = EventStatus.PENDING;
 
     struct EventMarket {
         string marketName;
         address marketAddress;
-        MarketStatus status;
     }
 
     function getName() public view override returns (string memory) {
         return name;
     }
 
-    constructor(string memory eventName, address _marketFactoryAddress, uint _minimumStake) {
+    constructor(
+        string memory eventName,
+        address _marketFactoryAddress,
+        uint256 _minimumStake
+    ) {
         name = eventName;
         marketFactoryAddress = _marketFactoryAddress;
         eventOwner = tx.origin;
@@ -48,11 +49,6 @@ contract Events is IWeb3BetsEventV1 {
         CANCELED
     }
 
-    enum MarketStatus {
-        PENDING,
-        FINISHED
-    }
-
     modifier onlyOwner() {
         require(
             msg.sender == eventOwner,
@@ -61,48 +57,36 @@ contract Events is IWeb3BetsEventV1 {
         _;
     }
 
-    function createMarket(string memory _name, uint _minimumStake) external override onlyOwner {
+    function createMarket(string memory _name, uint256 _minimumStake)
+        external
+        override
+        onlyOwner
+    {
         // bytes32 marketId = keccak256(abi.encodePacked(eName,Strings.toString(block.timestamp)));
 
         MarketFactory factory = MarketFactory(marketFactoryAddress);
-        address marketAddress = factory.createMarket(_name, address(this), _minimumStake);
+        address marketAddress = factory.createMarket(
+            _name,
+            address(this),
+            _minimumStake
+        );
         markets.push(marketAddress);
-
         marketsNames[marketAddress] = name;
-        marketsStatuses[marketAddress] = MarketStatus.PENDING;
-
     }
 
     function cancelEvent() external override onlyOwner {
-        if (status == EventStatus.CANCELED){
+        if (status == EventStatus.CANCELED) {
             revert("Event already canceled");
-        }
-
-        else if (status == EventStatus.ENDED){
+        } else if (status == EventStatus.ENDED) {
             revert("Event already ended");
         }
 
-        bool allMarketsAreSettled = false;
         for (uint256 i = 0; i < markets.length; i++) {
-            IWeb3BetsMarketV1 marketv1 = IWeb3BetsMarketV1(
-                markets[i]
-            );
-            if(!marketv1.isWinningPoolSet()){
-                allMarketsAreSettled = false;
-                break;
-            }
-            else {
-                allMarketsAreSettled = true;
-                break;
-            }
+            IWeb3BetsMarketV1 marketv1 = IWeb3BetsMarketV1(markets[i]);
+            marketv1.cancelMarket();
         }
-
-        if (!allMarketsAreSettled){
-            revert("You must settle all markets before canceling event"); 
-        }
-        else {
-            
-        }
+        
+        status = EventStatus.CANCELED;
     }
 
     function getMarkets() external view override returns (address[] memory) {
@@ -122,42 +106,48 @@ contract Events is IWeb3BetsEventV1 {
     }
 
     function endEvent() external {
-        if (status == EventStatus.CANCELED){
+        if (status == EventStatus.CANCELED) {
             revert("Canceled event can not be ended");
+        } else if (status == EventStatus.ENDED) {
+            revert("Event already ended");
         }
 
-        else if (status == EventStatus.ENDED){
-            revert("Event already canceled");
-        
-    }
+        bool allMarketsAreSettled = false;
+        for (uint256 i = 0; i < markets.length; i++) {
+            IWeb3BetsMarketV1 marketv1 = IWeb3BetsMarketV1(markets[i]);
+            if (!marketv1.isWinningPoolSet()) {
+                allMarketsAreSettled = false;
+                break;
+            } else {
+                allMarketsAreSettled = true;
+                break;
+            }
+        }
+
+        if (!allMarketsAreSettled) {
+            revert(
+                "You must set winning pools in all markets before ending event"
+            );
+        } else {
+            status = EventStatus.ENDED;
+        }
     }
 
     function startEvent() external {
-        if (status == EventStatus.CANCELED){
+        if (status == EventStatus.CANCELED) {
             revert("Canceled event can not be started");
-        }
-
-        else if (status == EventStatus.ENDED){
+        } else if (status == EventStatus.ENDED) {
             revert("Ended event can not be started");
-            
-        }
-
-        else if (status == EventStatus.STARTED){
+        } else if (status == EventStatus.STARTED) {
             revert("Event already started");
-        }
-
-        else if (status == EventStatus.PENDING){
+        } else if (status == EventStatus.PENDING) {
             status = EventStatus.STARTED;
-        }
-
-        else {
+        } else {
             revert("An error occurred starting event");
         }
-        
     }
 
-    function getEventStatus() external override view returns (uint){
-        return uint(status);
+    function getEventStatus() external view override returns (uint256) {
+        return uint256(status);
     }
-
 }

@@ -69,7 +69,7 @@ contract Pool is IWeb3BetsPoolsV1 {
         );
         bettersBets[msg.sender].push(betAddress);
         totalStake += msg.value;
-        userStakes[msg.sender] = userStakes[msg.sender] + msg.value;
+        userStakes[msg.sender] += msg.value;
         betAddresses.push(betAddress);
         (bool sentBetFundToMarket, ) = marketAddress.call{value: msg.value}("");
 

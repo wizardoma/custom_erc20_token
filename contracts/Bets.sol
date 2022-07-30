@@ -48,22 +48,6 @@ contract Bets is IWeb3BetsBetsV1 {
         poolAddress = _poolAddress;
     }
 
-    // function getBetDetails() public returns (string memory, string memory, string memory, uint) {
-    //     IWeb3BetsEventV1 betEvent= IWeb3BetsEventV1(eventAddress);
-    //     IWeb3BetsMarketV1 betMarket= IWeb3BetsMarketV1(marketAddress);
-    //     IWeb3BetsPoolsV1 pool = IWeb3BetsPoolsV1(poolAddress);
-
-    //     Bet memory bet = Bet({
-    //         eventName:  betEvent.getName(),
-    //         marketName: betMarket.getName(),
-    //         stake: stake,
-    //         poolName: pool.getName()
-    //     });
-
-    //     return bet;
-    // }
-
-
     function getBetStake() override external view returns (uint256) {
         return stake;
     }

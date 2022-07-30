@@ -18,4 +18,6 @@ interface IWeb3BetsMarketV1 is IBaseInterface{
 
     function isWinningPool(address pool) external returns (bool);
 
+    function cancelMarket() external;
+
 }
