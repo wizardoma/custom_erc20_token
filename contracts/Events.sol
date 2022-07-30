@@ -85,7 +85,7 @@ contract Events is IWeb3BetsEventV1 {
             IWeb3BetsMarketV1 marketv1 = IWeb3BetsMarketV1(markets[i]);
             marketv1.cancelMarket();
         }
-        
+
         status = EventStatus.CANCELED;
     }
 
@@ -105,7 +105,7 @@ contract Events is IWeb3BetsEventV1 {
         return eventOwner;
     }
 
-    function endEvent() external {
+    function endEvent() external onlyOwner{
         if (status == EventStatus.CANCELED) {
             revert("Canceled event can not be ended");
         } else if (status == EventStatus.ENDED) {
@@ -133,7 +133,7 @@ contract Events is IWeb3BetsEventV1 {
         }
     }
 
-    function startEvent() external {
+    function startEvent() external onlyOwner{
         if (status == EventStatus.CANCELED) {
             revert("Canceled event can not be started");
         } else if (status == EventStatus.ENDED) {

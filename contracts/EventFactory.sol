@@ -12,14 +12,21 @@ contract EventFactory {
 
     address public marketFactoryAddress;
 
-    constructor(address _marketFactoryAddress){
+    address public web3betsAddress;
+
+    constructor(address _marketFactoryAddress, address _web3betsAddress){
         marketFactoryAddress = _marketFactoryAddress;
+        web3betsAddress = _web3betsAddress;
+
     }
 
     function createEvent(
         string memory _name,
         uint _minimumStake
     ) public returns(address) {
+        IWeb3Bets web3bets = IWeb3Bets(web3betsAddress);
+        bool isEventOwner = web3bets.isEventOwner(msg.sender);
+        require(isEventOwner, "Only event owners can ceeate events");
         Events wEvent = new Events(_name, marketFactoryAddress, _minimumStake);
         
         userEvents[msg.sender].push(address(wEvent));

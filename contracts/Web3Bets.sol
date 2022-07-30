@@ -13,9 +13,10 @@ contract Web3Bets is IWeb3Bets {
     uint256 public eventOwnersVig = 25;
     uint256 public vigPercentage = 10;
     address[] public eventOwnerAddresses;
-    mapping(address => uint256) public eventOwnersMapping;
+    mapping(address => address) public eventOwnersMapping;
 
     error ExistingEventOwner(string message);
+
 
     constructor() {
         contractOwner = msg.sender;
@@ -29,8 +30,8 @@ contract Web3Bets is IWeb3Bets {
         _;
     }
 
-    modifier uniqueEventOwner(address eventOwner) {
-        if (eventOwnersMapping[eventOwner] != 0) {
+    modifier uniqueEventOwner(address _eventOwner) {
+        if (eventOwnersMapping[_eventOwner] != address(0)) {
             revert("This address is already an event owner");
         }
         _;
@@ -71,20 +72,20 @@ contract Web3Bets is IWeb3Bets {
         eventOwnersVig = eoVig;
     }
 
-    function addEventOwner(address eventOwner)
+    function addEventOwner(address _eventOwner)
         public
         onlyUser
-        uniqueEventOwner(eventOwner)
+        uniqueEventOwner(_eventOwner)
     {
-        eventOwnerAddresses.push(eventOwner);
-        eventOwnersMapping[eventOwner] = eventOwnerAddresses.length;
+        eventOwnerAddresses.push(_eventOwner);
+        eventOwnersMapping[_eventOwner] = _eventOwner;
 
     }
 
     function deleteEventOwner(address _eventOwner)
     public 
     onlyUser{
-        if (eventOwnersMapping[_eventOwner] == 0){
+        if (eventOwnersMapping[_eventOwner] == address(0)){
             revert("Invalid event owner");
         }
 
@@ -122,6 +123,10 @@ contract Web3Bets is IWeb3Bets {
 
     function getVigPercentage() external view override returns (uint256) {
         return vigPercentage;
+    }
+
+    function isEventOwner(address _owner) external view returns (bool) {
+        return eventOwnersMapping[_owner] != address(0);
     }
 
     function getAllEventOwners() external view returns (address[] memory)
