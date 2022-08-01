@@ -33,17 +33,20 @@ before(async function () {
   marketFactory = await MarketFactory.deployed();
   poolFactory = await PoolsFactory.deployed();
   betFactory = await BetsFactory.deployed();
+  let minimumStake = web3.utils.toWei("1","microether")
 
-  await eventFactory.createEvent("Man U v Villa", 2, { from: eventOwner });
+  // await web3bets.addEventOwner(eventOwner);
+  
+  await eventFactory.createEvent("Man U v Villa", minimumStake, { from: eventOwner });
   let events = await eventFactory.getAllEvents();
   demoEventAddress = events[events.length - 1];
   demoEvent = await Events.at(demoEventAddress);
   marketName = "Paribet";
-  await demoEvent.createMarket(marketName, 1, { from: eventOwner });
+  await demoEvent.createMarket(marketName, { from: eventOwner });
   let newEventsMarkets = await demoEvent.getMarkets();
   demoMarketAddress = newEventsMarkets[newEventsMarkets.length - 1];
   demoMarket = await Market.at(demoMarketAddress);
-  await poolFactory.createPool("12", demoEventAddress, demoMarketAddress, 2);
+  await poolFactory.createPool("12", demoEventAddress, demoMarketAddress);
   let newMarketPools = await poolFactory.getPoolsOfMarket(demoMarketAddress);
   demoPoolAddress = newMarketPools[newMarketPools.length - 1];
 });

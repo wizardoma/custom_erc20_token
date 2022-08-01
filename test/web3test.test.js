@@ -3,14 +3,13 @@ const truffleAssert = require("truffle-assertions");
 
 let web3bets;
 
-beforeEach(async () => {
+before(async function () {
+  this.timeout(20000);
 
   web3bets = await Web3Bets.deployed();
-
 });
 
 contract("Web3Bets", (accounts) => {
-
   it("It should have a valid contract address", async () => {
     let dAddress = await web3bets.address;
 
@@ -46,44 +45,50 @@ contract("Web3Bets", (accounts) => {
     await truffleAssert.reverts(web3bets.setVigPercentageShares(79, 32, 22));
   });
 
-  it("Only owner can update vig shares",async () => {
-    await truffleAssert.reverts(web3bets.setVigPercentageShares(40,30,20, {from: accounts[2]}));
+  it("Only owner can update vig shares", async () => {
+    await truffleAssert.reverts(
+      web3bets.setVigPercentageShares(40, 30, 20, { from: accounts[2] })
+    );
   });
 
-  it("Only owner can add event owners",async () => {
-    await truffleAssert.reverts(web3bets.addEventOwner(accounts[1], {from: accounts[2]}));
+  it("Only owner can add event owners", async () => {
+    await truffleAssert.reverts(
+      web3bets.addEventOwner(accounts[1], { from: accounts[2] })
+    );
   });
 
-  it("Can add event owners",async () => {
+  it("Can add event owners", async () => {
     let initialLength = await web3bets.getAllEventOwners();
-    await web3bets.addEventOwner(accounts[1]); 
+    await web3bets.addEventOwner(accounts[2]);
     let newLength = await web3bets.getAllEventOwners();
-    
+
+    // Can add event accounts
+    assert.equal(newLength.length - initialLength.length === 1, true);
+
+    await web3bets.addEventOwner(accounts[2]);
+
+    newLength = await web3bets.getAllEventOwners();
+
     // Cannot add duplicate accounts
-    await truffleAssert.reverts(web3bets.addEventOwner(accounts[1], ));
-
-    assert.equal(newLength.length - initialLength.length === 1, true)
-
+    assert.equal(newLength.length - initialLength.length === 1, true);
   });
 
-  it("Can delete event owners",async () => {
+  it("Can delete event owners", async () => {
     let initialLength = await web3bets.getAllEventOwners();
-    await web3bets.addEventOwner(accounts[3]); 
+    await web3bets.addEventOwner(accounts[3]);
 
     // throw error on invalid deletion
-    await truffleAssert.reverts(web3bets.deleteEventOwner(accounts[2]));
-
+    await truffleAssert.reverts(web3bets.deleteEventOwner(accounts[7]));
 
     // only event owners can delete
-    await truffleAssert.reverts(web3bets.deleteEventOwner(accounts[1], {from: accounts[2]}));
+    await truffleAssert.reverts(
+      web3bets.deleteEventOwner(accounts[1], { from: accounts[2] })
+    );
 
-    await web3bets.deleteEventOwner(accounts[3])
+    await web3bets.deleteEventOwner(accounts[3]);
 
     let newLength = await web3bets.getAllEventOwners();
     // confirm new event owner was deleted
-    assert.equal(newLength.includes(accounts[3]), false)
-
+    assert.equal(newLength.includes(accounts[3]), false);
   });
-
 });
-

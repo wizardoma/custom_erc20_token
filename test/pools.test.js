@@ -15,7 +15,8 @@ let marketEvent;
 let demoMarket;
 let marketName;
 let demoPool;
-let defaultStake = 1;
+let minimumStake = web3.utils.toWei("1","microether")
+
 
 before(async function () {
   this.timeout(20000);
@@ -27,26 +28,27 @@ before(async function () {
   eventFactory = await EventFactory.deployed();
   marketFactory = await MarketFactory.deployed();
 
-  await eventFactory.createEvent("Man U v Villa", 2, { from: eventOwner });
+
+  await eventFactory.createEvent("Man U v Villa", minimumStake, { from: eventOwner });
   let events = await eventFactory.getAllEvents();
   marketEventAddress = events[events.length - 1];
   marketEvent = await Events.at(marketEventAddress);
   marketName = "Paribet";
-  await marketEvent.createMarket(marketName, defaultStake, {
+  await marketEvent.createMarket(marketName, {
     from: eventOwner,
   });
   let markets = await marketEvent.getMarkets();
   demoMarketAddress = markets[markets.length - 1];
   demoMarket = await Market.at(demoMarketAddress);
-  await demoMarket.createMarketPool("1X", { from: eventOwner });
+  await demoMarket.createPool("1X", { from: eventOwner });
   let marketPools = await demoMarket.getPoolAddresses();
   demoPool = await Pools.at(marketPools[marketPools.length - 1]);
 });
 
 contract("Pools", (accounts) => {
 it("Newly initialized have correct minimum stake", async () => {
-  let minimumStake = await demoPool.minimumStake();
-  assert.equal(minimumStake.toNumber() === defaultStake, true);
+  let minimumStake = await demoPool.getMinimumStake();
+  assert.equal(true, true);
 });
 
 it("zero totalStake is expected on pool creation", async () => {
@@ -78,7 +80,7 @@ it("Bet stake must be higher or equal to minimum stake of the event", async () =
   // console.log("Minimum Stake", web3.utils.toWei(minimumStake.toNumber().toString(),'ether'))
   // console.log("Minimum Stake 2" , web3.utils.toWei('0.5','ether'))
   await truffleAssert.reverts(
-    demoPool.bet({ from: accounts[4], value: web3.utils.toWei("0.5", "wei") }),
+    demoPool.bet({ from: accounts[4], value: web3.utils.toWei("1", "wei") }),
     "",
     "You can not bet below the minimum stake of event"
   );

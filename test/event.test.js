@@ -12,13 +12,16 @@ let testEvent2;
 let eventOwner;
 let demoEvent;
 
-before(async () => {
+before(async function() {
+  this.timeout(20000)
   web3bets = await Web3Bets.deployed();
   accounts = await web3.eth.getAccounts();
   eventOwner = accounts[1];
+  let minimumStake = web3.utils.toWei("1","microether")
+
 
   eventFactory = await EventFactory.deployed();
-  await eventFactory.createEvent("Man U v Villa", 2, { from: eventOwner });
+  await eventFactory.createEvent("Man U v Villa", minimumStake, { from: eventOwner });
   let events = await eventFactory.getAllEvents();
 
   testEvent2 = events[events.length - 1];
@@ -36,7 +39,7 @@ it("Can be able to create market", async () => {
   let eventMarkets = await demoEvent.getMarkets();
   let marketName = "Paribet";
 
-  await demoEvent.createMarket(marketName, 1, { from: eventOwner });
+  await demoEvent.createMarket(marketName,{ from: eventOwner });
   let newEventsMarkets = await demoEvent.getMarkets();
   assert.equal(newEventsMarkets.length - eventMarkets.length === 1, true);
 });
@@ -52,7 +55,7 @@ it("Only event owner can cancel event", async () => {
 
 it("Only event owner can create market", async () => {
   await truffleAssert.reverts(
-    demoEvent.createMarket("market", 1, { from: accounts[2] })
+    demoEvent.createMarket("market", { from: accounts[2] })
   );
 });
 

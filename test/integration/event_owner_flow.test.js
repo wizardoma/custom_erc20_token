@@ -7,12 +7,19 @@ const Pools = artifacts.require("Pools");
 const truffleAssert = require("truffle-assertions");
 
 contract("Event Owner Flow", (accounts) => {
-  let minimumStake = web3.utils.toWei("2", "ether");
+  let eventOwner = accounts[1];
+  
   it("Confirm event owner user flow", async function () {
+    let minimumStake = web3.utils.toWei("1","microether")
+
     this.timeout(100000);
     let accounts = await web3.eth.getAccounts();
-    let eventFactory = await EventFactory.deployed();
+
     let eventOwner = accounts[8];
+    
+    await web3bets.addEventOwner(eventOwner);
+
+    let eventFactory = await EventFactory.deployed();
 
     // confirm event owner
     assert.equal(web3.utils.isAddress(eventOwner), true);
@@ -32,7 +39,7 @@ contract("Event Owner Flow", (accounts) => {
 
     // add aditional events
     for (let i = 0; i < 3; i++) {
-      await eventFactory.createEvent(`Event ${i}`, 2, { from: eventOwner });
+      await eventFactory.createEvent(`Event ${i}`, minimumStake, { from: eventOwner });
     }
 
     ownerEvents = await eventFactory.getEventsByAddress(eventOwner);
@@ -57,7 +64,7 @@ contract("Event Owner Flow", (accounts) => {
     //confirm that new event has no market
     assert.equal(eventMarkets.length === 0, true);
 
-    await event1.createMarket("Paribet", minimumStake, {
+    await event1.createMarket("Paribet", {
       from: eventOwner,
     });
 
@@ -68,7 +75,7 @@ contract("Event Owner Flow", (accounts) => {
 
     // add aditional markets
     for (let i = 0; i < 3; i++) {
-      await event1.createMarket(`Market ${i}`, minimumStake, {
+      await event1.createMarket(`Market ${i}`, {
         from: eventOwner,
       });
     }
@@ -95,7 +102,7 @@ contract("Event Owner Flow", (accounts) => {
     //confirm that new market has no pools
     assert.equal(marketPools.length === 0, true);
 
-    await market1.createMarketPool("1x", {
+    await market1.createPool("1x", {
       from: eventOwner,
     });
 
@@ -106,7 +113,7 @@ contract("Event Owner Flow", (accounts) => {
 
     // add aditional markets
     for (let i = 0; i < 3; i++) {
-      await market1.createMarketPool(`Pool ${i}`, {
+      await market1.createPool(`Pool ${i}`, {
         from: eventOwner,
       });
     }
@@ -142,10 +149,10 @@ contract("Event Owner Flow", (accounts) => {
     );
 
     // owners can start event
-    await truffleAssert.passes(event1.startEvent());
+    await truffleAssert.passes(event1.startEvent({from: eventOwner}));
 
     // cannot start service again
-    await truffleAssert.reverts(event1.startEvent());
+    await truffleAssert.reverts(event1.startEvent({from: eventOwner}));
 
     let eventStarted = await event1.status();
 
