@@ -22,15 +22,21 @@ contract Bets is IWeb3BetsBetsV1 {
 
     uint256 public stake;
 
-    modifier onlyEventOwner {
+    modifier onlyEventOwner() {
         IWeb3BetsEventV1 betEvent = IWeb3BetsEventV1(eventAddress);
-        require(tx.origin == betEvent.getEventOwner(), "Only bet owners can apply this function");
-        
+        require(
+            tx.origin == betEvent.getEventOwner(),
+            "Only bet owners can apply this function"
+        );
+
         _;
     }
 
-    modifier onlyBetter {
-        require(tx.origin == better, "Only event better can call this function");
+    modifier onlyBetter() {
+        require(
+            tx.origin == better,
+            "Only event better can call this function"
+        );
         _;
     }
 
@@ -48,50 +54,49 @@ contract Bets is IWeb3BetsBetsV1 {
         poolAddress = _poolAddress;
     }
 
-    function getBetStake() override external view returns (uint256) {
+    function getBetStake() external view override returns (uint256) {
         return stake;
     }
 
-    function getBetter() override external view returns (address) {
+    function getBetter() external view override returns (address) {
         return better;
     }
 
-    function getBetPoolAddress() override external view returns (address) {
+    function getBetPoolAddress() external view override returns (address) {
         return poolAddress;
     }
 
-    function getBetMarketAddress() override external view returns (address) {
+    function getBetMarketAddress() external view override returns (address) {
         return marketAddress;
     }
 
-    function getBetEventAddress() override external view returns (address) {
+    function getBetEventAddress() external view override returns (address) {
         return eventAddress;
     }
 
-
-    function withdraw() override external payable onlyBetter {
+    function withdraw() external payable override onlyBetter {
         require(address(this).balance > 0, "This bet has no funds");
 
-        IWeb3BetsEventV1 eventV1 = IWeb3BetsEventV1(eventAddress);
-        uint status = eventV1.getEventStatus();
+        // IWeb3BetsEventV1 eventV1 = IWeb3BetsEventV1(eventAddress);
+        // uint256 status = eventV1.getEventStatus();
 
-        // its not equal to pending or started
-        if (status== 0 && status ==1){
-            revert("An event must be cancelled or ended to withdraw funds and earnings");
-
-        }
+        // // its not equal to pending or started
+        // if (status == 0 && status == 1) {
+        //     revert(
+        //         "An event must be cancelled or ended to withdraw funds and earnings"
+        //     );
+        // }
 
         IWeb3BetsMarketV1 marketV1 = IWeb3BetsMarketV1(marketAddress);
         bool isWinningPool = marketV1.isWinningPool(poolAddress);
-        if (!isWinningPool){
+        if (!isWinningPool) {
             revert("You lost this bet");
         }
-        
+
         payable(msg.sender).transfer(address(this).balance);
     }
 
-    fallback() payable external {}
+    fallback() external payable {}
 
-    receive() payable external {}
-    
+    receive() external payable {}
 }
