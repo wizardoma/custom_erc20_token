@@ -20,6 +20,8 @@ contract Events is IWeb3BetsEventV1 {
 
     string public name;
 
+    uint constant MINIMUM_STAKE = 10000000000;
+
     EventStatus public status = EventStatus.PENDING;
 
     struct EventMarket {
@@ -36,6 +38,7 @@ contract Events is IWeb3BetsEventV1 {
         address _marketFactoryAddress,
         uint256 _minimumStake
     ) {
+        require(_minimumStake >= MINIMUM_STAKE, "Minimum stake for creating an event must be greater than 10000000000 wei");
         name = eventName;
         marketFactoryAddress = _marketFactoryAddress;
         eventOwner = tx.origin;
@@ -57,7 +60,7 @@ contract Events is IWeb3BetsEventV1 {
         _;
     }
 
-    function createMarket(string memory _name, uint256 _minimumStake)
+    function createMarket(string memory _name)
         external
         override
         onlyOwner
@@ -67,8 +70,7 @@ contract Events is IWeb3BetsEventV1 {
         MarketFactory factory = MarketFactory(marketFactoryAddress);
         address marketAddress = factory.createMarket(
             _name,
-            address(this),
-            _minimumStake
+            address(this)
         );
         markets.push(marketAddress);
         marketsNames[marketAddress] = name;
