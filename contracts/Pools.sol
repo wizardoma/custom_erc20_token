@@ -28,11 +28,11 @@ contract Pool is IWeb3BetsPoolsV1 {
 
     address private marketAddress;
 
-    uint256 public minimumStake;
+    uint256 public minimumStake; 
 
     modifier aboveMinimumStake() {
         require(
-            msg.value >= 1 ether * minimumStake,
+            msg.value >= getMinimumStake(),
             "You can not bet below the minimum stake of event"
         );
         _;
@@ -42,14 +42,12 @@ contract Pool is IWeb3BetsPoolsV1 {
         string memory _name,
         address _eventAddress,
         address _marketAddress,
-        address _betsFactoryAddress,
-        uint256 _minimumStake
+        address _betsFactoryAddress
     ) {
         name = _name;
         eventAddress = _eventAddress;
         marketAddress = _marketAddress;
         betsFactoryAddress = _betsFactoryAddress;
-        minimumStake = _minimumStake;
     }
 
     function bet() public payable override aboveMinimumStake {
@@ -84,6 +82,9 @@ contract Pool is IWeb3BetsPoolsV1 {
         userStakes[msg.sender] += msg.value;
     }
 
+    receive() external payable {
+
+    }
     function getName() external view override returns (string memory) {
         return name;
     }
@@ -106,5 +107,10 @@ contract Pool is IWeb3BetsPoolsV1 {
 
     function getBettersBets(address better) external view returns (address[] memory) {
         return bettersBets[better];
+    }
+
+    function getMinimumStake() public returns (uint){
+        IWeb3BetsEventV1 event1 = IWeb3BetsEventV1(eventAddress);
+        return event1.getMinimumStake();
     }
 }
