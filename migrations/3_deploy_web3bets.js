@@ -18,12 +18,12 @@ module.exports = function (deployer) {
             .deploy(MarketFactory, PoolsFactory.address, Web3Bets.address)
             .then(function () {
               return deployer
-                .deploy(EventFactory, MarketFactory.address)
+                .deploy(EventFactory, MarketFactory.address, Web3Bets.address)
                 .then(function () {
-                  let minimumStake = 2000;
+                  let minimumStake = web3.utils.toWei("1","microether");
                   return deployer.deploy(Event,"Alex", MarketFactory.address,minimumStake).then(function () {
-                    return deployer.deploy(Market,"Alex", Event.address,PoolsFactory.address,Web3Bets.address,minimumStake).then(function () {
-                      return deployer.deploy(Pool, "Alex",Event.address,Market.address,BetsFactory.address,minimumStake).then(function () {
+                    return deployer.deploy(Market,"Alex", Event.address,PoolsFactory.address,Web3Bets.address).then(function () {
+                      return deployer.deploy(Pool, "Alex",Event.address,Market.address,BetsFactory.address).then(function () {
                         return deployer.deploy(Bet, Event.address,Market.address,Pool.address,minimumStake,Pool.address);
                       });
                     });

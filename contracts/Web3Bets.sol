@@ -17,7 +17,6 @@ contract Web3Bets is IWeb3Bets {
 
     error ExistingEventOwner(string message);
 
-
     constructor() {
         contractOwner = msg.sender;
     }
@@ -32,7 +31,7 @@ contract Web3Bets is IWeb3Bets {
 
     modifier uniqueEventOwner(address _eventOwner) {
         if (eventOwnersMapping[_eventOwner] != address(0)) {
-            revert("This address is already an event owner");
+            return;
         }
         _;
     }
@@ -79,25 +78,20 @@ contract Web3Bets is IWeb3Bets {
     {
         eventOwnerAddresses.push(_eventOwner);
         eventOwnersMapping[_eventOwner] = _eventOwner;
-
     }
 
-    function deleteEventOwner(address _eventOwner)
-    public 
-    onlyUser{
-        if (eventOwnersMapping[_eventOwner] == address(0)){
+    function deleteEventOwner(address _eventOwner) public onlyUser {
+        if (eventOwnersMapping[_eventOwner] == address(0)) {
             revert("Invalid event owner");
-        }
-
-        else {
+        } else {
             delete eventOwnersMapping[_eventOwner];
-        
-        for (uint i = 0; i< eventOwnerAddresses.length; i++){
-            if (eventOwnerAddresses[i] == _eventOwner){
-                delete eventOwnerAddresses[i];
-                break;
+
+            for (uint256 i = 0; i < eventOwnerAddresses.length; i++) {
+                if (eventOwnerAddresses[i] == _eventOwner) {
+                    delete eventOwnerAddresses[i];
+                    break;
+                }
             }
-        }
         }
     }
 
@@ -129,8 +123,14 @@ contract Web3Bets is IWeb3Bets {
         return eventOwnersMapping[_owner] != address(0);
     }
 
-    function getAllEventOwners() external view returns (address[] memory)
-{
-    return eventOwnerAddresses;
-}
+    function getAllEventOwners() external view returns (address[] memory) {
+        return eventOwnerAddresses;
+    }
+
+    // Function to receive Ether. msg.data must be empty
+    receive() external payable {}
+
+    // Fallback function is called when msg.data is not empty
+    fallback() external payable {
+    }
 }
