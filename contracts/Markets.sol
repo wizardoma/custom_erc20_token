@@ -8,6 +8,8 @@ import "./interface/IWeb3BetsPoolsV1.sol";
 import "./interface/IWeb3Bets.sol";
 import "./PoolsFactory.sol";
 
+// import "@openzeppelin/contracts/utils/Strings.sol";
+
 contract Market is IWeb3BetsMarketV1 {
     address public owner;
     string public name;
@@ -20,7 +22,8 @@ contract Market is IWeb3BetsMarketV1 {
     bool public hasSetWinningPool;
     address public winningPoolAddress;
     bool public isSettled = false;
-    
+    string public allAmounts = "";
+
     mapping(address => uint256) public winningPoolAddresses;
 
     modifier onlyEventOwner() {
@@ -72,18 +75,16 @@ contract Market is IWeb3BetsMarketV1 {
         string memory _name,
         address _eventAddress,
         address _poolFactoryAddress,
-        address _web3betsAddress,
-        uint256 _minimumStake
+        address _web3betsAddress
     ) {
         owner = tx.origin;
         name = _name;
         eventAddress = _eventAddress;
         poolFactoryAddress = _poolFactoryAddress;
         web3BetsAddress = _web3betsAddress;
-        minimumStake = _minimumStake;
     }
 
-    function createMarketPool(string memory _name)
+    function createPool(string memory _name)
         external
         override
         onlyEventOwner
@@ -93,10 +94,9 @@ contract Market is IWeb3BetsMarketV1 {
         address poolAddress = poolsFactory.createPool(
             _name,
             eventAddress,
-            address(this),
-            minimumStake
+            address(this)
         );
-        
+
         poolNames.push(_name);
         poolAddresses.push(poolAddress);
     }
@@ -107,7 +107,6 @@ contract Market is IWeb3BetsMarketV1 {
         onlyEventOwner
         validWinningPool(_poolAddress)
     {
-    
         if (hasSetWinningPool == true && winningPoolAddress != address(0)) {
             revert("Winning Pool already set");
         }
@@ -127,36 +126,62 @@ contract Market is IWeb3BetsMarketV1 {
                 return;
             }
         }
-
-        // Initialize the Web3Bets address
+               // Initialize the Web3Bets address
         IWeb3Bets web3Bets = IWeb3Bets(web3BetsAddress);
         uint256 vigPercentage = web3Bets.getVigPercentage();
-
+        uint marketBalance = address(this).balance;
         // Get total stake and transfer to market
-        uint256 vigShare = address(this).balance * (vigPercentage / 100);
+        uint256 vigShare = (marketBalance * vigPercentage) / 100;
 
-        // send money to vig holders
+        IWeb3BetsPoolsV1 pool = IWeb3BetsPoolsV1(_poolAddress);
+        uint256 poolTotalStake = pool.getTotalStake();
+         marketBalance = marketBalance - vigShare;
+
+ 
         web3Bets.shareBetEarnings{value: vigShare}();
-        
-        uint256 poolLength = _poolAddresses.length;
-        for (uint256 i = 0; i < poolLength; i++) {
-            if (_poolAddresses[i] == _poolAddress) {
-                if (!hasSetWinningPool) {
-                    winningPoolAddress = _poolAddress;
-                    hasSetWinningPool = true;
-                }
-                IWeb3BetsPoolsV1 pool = IWeb3BetsPoolsV1(_poolAddresses[i]);
-                address[] memory winners = pool.getBets();
-                for (uint256 j = 0; j < winners.length; j++) {
-                    uint256 userStake = pool.getUserStake(winners[j]);
-                    payable(winners[i]).transfer(
-                        (((userStake / pool.getTotalStake()) * 100) / 100) *
-                            address(this).balance
-                    );
-                }
-                break;
-            }
+
+        allAmounts = string.concat(allAmounts, "Vig share");
+
+        allAmounts = string.concat(allAmounts, toString(vigShare));
+
+        // // send money to vig holders
+        // payable(web3BetsAddress).transfer(vigShare);
+        // // web3Bets.shareBetEarnings{value: vigShare}();
+
+        winningPoolAddress = _poolAddress;
+        hasSetWinningPool = true;
+
+        address[] memory winners = pool.getBets();
+
+        for (uint256 j = 0; j < winners.length; j++) {
+            IWeb3BetsBetsV1 betV1 = IWeb3BetsBetsV1(winners[j]);
+            uint256 betStake = betV1.getBetStake();
+            allAmounts = string.concat(allAmounts, "Betstake:");
+
+            allAmounts = string.concat(allAmounts, toString(betStake));
+            uint256 multiplier = 1000000;
+
+            uint256 amount = ((((betStake * multiplier) / poolTotalStake) *
+               marketBalance) / multiplier);
+
+            allAmounts = string.concat(allAmounts, "Total Stake");
+
+            allAmounts = string.concat(allAmounts, toString(poolTotalStake));
+
+            allAmounts = string.concat(allAmounts, "Balance");
+            allAmounts = string.concat(
+                allAmounts,
+                toString(address(this).balance)
+            );
+
+            allAmounts = string.concat(allAmounts, "Amount to send:");
+
+            allAmounts = string.concat(allAmounts, toString(amount));
+            payable(winners[j]).transfer(amount);
         }
+
+        allAmounts = string.concat(allAmounts, "Final Market Balance: ");
+        allAmounts = string.concat(allAmounts, toString(address(this).balance));
     }
 
     function getEventName() external override returns (string memory) {
@@ -168,15 +193,19 @@ contract Market is IWeb3BetsMarketV1 {
         return eventAddress;
     }
 
+    function getVigShare() external view returns (uint256) {
+        return ((address(this).balance * 10) / 100);
+    }
+
     function getName() external view override returns (string memory) {
         return name;
     }
 
     function isWinningPoolSet() external view override returns (bool) {
-        if (poolAddresses.length == 0){
+        if (poolAddresses.length == 0) {
             return true;
         }
-        
+
         return hasSetWinningPool;
     }
 
@@ -192,29 +221,26 @@ contract Market is IWeb3BetsMarketV1 {
         return address(this).balance;
     }
 
-    function isWinningPool(address pool) external view returns(bool){
+    function isWinningPool(address pool) external view returns (bool) {
         return hasSetWinningPool ? winningPoolAddress == pool : false;
     }
 
     function cancelMarket() external {
-        if (isSettled){
+        if (isSettled) {
             return;
         }
-        if (!hasSetWinningPool){
-            for (uint i = 0; i<poolAddresses.length; i++){
+        if (!hasSetWinningPool) {
+            for (uint256 i = 0; i < poolAddresses.length; i++) {
                 IWeb3BetsPoolsV1 poolsV1 = IWeb3BetsPoolsV1(poolAddresses[i]);
-                address[] memory betAddresses =poolsV1.getBets();
-                for (uint j; j<betAddresses.length;j++){
+                address[] memory betAddresses = poolsV1.getBets();
+                for (uint256 j; j < betAddresses.length; j++) {
                     IWeb3BetsBetsV1 betV1 = IWeb3BetsBetsV1(betAddresses[j]);
                     payable(betAddresses[j]).transfer(betV1.getBetStake());
                 }
-                
             }
 
             isSettled = true;
-
-        }
-        else {
+        } else {
             isSettled = true;
         }
     }
@@ -225,9 +251,28 @@ contract Market is IWeb3BetsMarketV1 {
     // Fallback function is called when msg.data is not empty
     fallback() external payable {}
 
-    function settleWinningPool() private {
+    function getMinimumStake() public returns (uint256) {
+        IWeb3BetsEventV1 event1 = IWeb3BetsEventV1(eventAddress);
+        return event1.getMinimumStake();
+    }
 
+    function toString(uint256 _i) internal pure returns (string memory str) {
+        if (_i == 0) {
+            return "0";
+        }
+        uint256 j = _i;
+        uint256 length;
+        while (j != 0) {
+            length++;
+            j /= 10;
+        }
+        bytes memory bstr = new bytes(length);
+        uint256 k = length;
+        j = _i;
+        while (j != 0) {
+            bstr[--k] = bytes1(uint8(48 + (j % 10)));
+            j /= 10;
+        }
+        str = string(bstr);
     }
 }
-
-
