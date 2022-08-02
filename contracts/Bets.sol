@@ -73,8 +73,8 @@ contract Bets is IWeb3BetsBetsV1 {
     function getBetEventAddress() external view override returns (address) {
         return eventAddress;
     }
-
-    function withdraw() external payable override onlyBetter {
+ 
+    function withdraw() external override onlyBetter {
         require(address(this).balance > 0, "This bet has no funds");
 
         // IWeb3BetsEventV1 eventV1 = IWeb3BetsEventV1(eventAddress);
@@ -87,11 +87,11 @@ contract Bets is IWeb3BetsBetsV1 {
         //     );
         // }
 
-        IWeb3BetsMarketV1 marketV1 = IWeb3BetsMarketV1(marketAddress);
-        bool isWinningPool = marketV1.isWinningPool(poolAddress);
-        if (!isWinningPool) {
-            revert("You lost this bet");
-        }
+        // IWeb3BetsMarketV1 marketV1 = IWeb3BetsMarketV1(marketAddress);
+        // bool isWinningPool = marketV1.isWinningPool(poolAddress);
+        // if (!isWinningPool) {
+        //     revert("You lost this bet");
+        // }
 
         payable(msg.sender).transfer(address(this).balance);
     }

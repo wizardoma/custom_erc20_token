@@ -17,5 +17,5 @@ interface IWeb3BetsBetsV1 {
 
     function getBetEventAddress() external returns (address);
 
-    function withdraw() external payable;
+    function withdraw() external;
 }

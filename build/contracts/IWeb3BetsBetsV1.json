@@ -3,19 +3,6 @@
   "abi": [
     {
       "inputs": [],
-      "name": "getStatus",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [],
       "name": "getBetStake",
       "outputs": [
         {
@@ -80,27 +67,14 @@
       "type": "function"
     },
     {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "status",
-          "type": "uint256"
-        }
-      ],
-      "name": "setBetStatus",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
       "inputs": [],
       "name": "withdraw",
       "outputs": [],
-      "stateMutability": "payable",
+      "stateMutability": "nonpayable",
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.13+commit.abaa5c0e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"getBetEventAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBetMarketAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBetPoolAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBetStake\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBetter\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getStatus\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"status\",\"type\":\"uint256\"}],\"name\":\"setBetStatus\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"withdraw\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Ibekason Alexander Onyebuchi\",\"kind\":\"dev\",\"methods\":{},\"title\":\"Web3Bets Version 1 Bet Interface\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interface/IWeb3BetsBetsV1.sol\":\"IWeb3BetsBetsV1\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interface/IWeb3BetsBetsV1.sol\":{\"keccak256\":\"0x8b62387911ffbaca8a77a82259e7cd2e195f9896c80a00f2f94bf98557e0df71\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://fd00f9abd0323ab75a8e21f58bb6315d2dc6bc58db3183f8366dc55e23934fd5\",\"dweb:/ipfs/QmcF8JkFHiuiAsWf9xtQooRBvig72XC5ba5c4dHfhr6t8e\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.13+commit.abaa5c0e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"getBetEventAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBetMarketAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBetPoolAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBetStake\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBetter\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"withdraw\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Ibekason Alexander Onyebuchi\",\"kind\":\"dev\",\"methods\":{},\"title\":\"Web3Bets Version 1 Bet Interface\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interface/IWeb3BetsBetsV1.sol\":\"IWeb3BetsBetsV1\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interface/IWeb3BetsBetsV1.sol\":{\"keccak256\":\"0xa05ebd0a97547db2022b83fc4cf8a8d3e3f57b4ea0d0a1964d96e3050635c855\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5be914ad6d857eb82348d2a471c6957b4ffbcfb90a818483cb79f4ba85c60f36\",\"dweb:/ipfs/QmdzLJfWd3RbHpaNMvxCpkrzJYTxjet9xmdaanqnkTTK2C\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -108,21 +82,21 @@
   "deployedGeneratedSources": [],
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.4;\n\n/// @author Ibekason Alexander Onyebuchi\n/// @title Web3Bets Version 1 Bet Interface\n\n\ninterface IWeb3BetsBetsV1 {\n\n    function getStatus() external returns(uint);\n\n    function getBetStake() external returns(uint);\n\n    function getBetter() external returns(address);\n\n    function getBetPoolAddress() external returns (address);\n\n    function getBetMarketAddress() external returns (address);\n\n    function getBetEventAddress() external returns (address);\n\n    function setBetStatus(uint status) external;\n\n    function withdraw() external payable;\n}",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.4;\n\n/// @author Ibekason Alexander Onyebuchi\n/// @title Web3Bets Version 1 Bet Interface\n\n\ninterface IWeb3BetsBetsV1 {\n\n    function getBetStake() external returns(uint);\n\n    function getBetter() external returns(address);\n\n    function getBetPoolAddress() external returns (address);\n\n    function getBetMarketAddress() external returns (address);\n\n    function getBetEventAddress() external returns (address);\n\n    function withdraw() external;\n}",
   "sourcePath": "/Users/wizardom/projects/crypto/web3bets_smartcontract/contracts/interface/IWeb3BetsBetsV1.sol",
   "ast": {
     "absolutePath": "project:/contracts/interface/IWeb3BetsBetsV1.sol",
     "exportedSymbols": {
       "IWeb3BetsBetsV1": [
-        2626
+        2840
       ]
     },
-    "id": 2627,
+    "id": 2841,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2586,
+        "id": 2810,
         "literals": [
           "solidity",
           "^",
@@ -139,103 +113,48 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 2587,
+          "id": 2811,
           "nodeType": "StructuredDocumentation",
           "src": "57:85:12",
           "text": "@author Ibekason Alexander Onyebuchi\n @title Web3Bets Version 1 Bet Interface"
         },
         "fullyImplemented": false,
-        "id": 2626,
+        "id": 2840,
         "linearizedBaseContracts": [
-          2626
+          2840
         ],
         "name": "IWeb3BetsBetsV1",
         "nameLocation": "154:15:12",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
-            "functionSelector": "4e69d560",
-            "id": 2592,
-            "implemented": false,
-            "kind": "function",
-            "modifiers": [],
-            "name": "getStatus",
-            "nameLocation": "186:9:12",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 2588,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "195:2:12"
-            },
-            "returnParameters": {
-              "id": 2591,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 2590,
-                  "mutability": "mutable",
-                  "name": "",
-                  "nameLocation": "-1:-1:-1",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 2592,
-                  "src": "215:4:12",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 2589,
-                    "name": "uint",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "215:4:12",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "214:6:12"
-            },
-            "scope": 2626,
-            "src": "177:44:12",
-            "stateMutability": "nonpayable",
-            "virtual": false,
-            "visibility": "external"
-          },
-          {
             "functionSelector": "4d2124d4",
-            "id": 2597,
+            "id": 2816,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getBetStake",
-            "nameLocation": "236:11:12",
+            "nameLocation": "186:11:12",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2593,
+              "id": 2812,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "247:2:12"
+              "src": "197:2:12"
             },
             "returnParameters": {
-              "id": 2596,
+              "id": 2815,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2595,
+                  "id": 2814,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2597,
-                  "src": "267:4:12",
+                  "scope": 2816,
+                  "src": "217:4:12",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -243,10 +162,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2594,
+                    "id": 2813,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "267:4:12",
+                    "src": "217:4:12",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -255,42 +174,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "266:6:12"
+              "src": "216:6:12"
             },
-            "scope": 2626,
-            "src": "227:46:12",
+            "scope": 2840,
+            "src": "177:46:12",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "262007c0",
-            "id": 2602,
+            "id": 2821,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getBetter",
-            "nameLocation": "288:9:12",
+            "nameLocation": "238:9:12",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2598,
+              "id": 2817,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "297:2:12"
+              "src": "247:2:12"
             },
             "returnParameters": {
-              "id": 2601,
+              "id": 2820,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2600,
+                  "id": 2819,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2602,
-                  "src": "317:7:12",
+                  "scope": 2821,
+                  "src": "267:7:12",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -298,10 +217,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2599,
+                    "id": 2818,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "317:7:12",
+                    "src": "267:7:12",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -311,42 +230,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "316:9:12"
+              "src": "266:9:12"
             },
-            "scope": 2626,
-            "src": "279:47:12",
+            "scope": 2840,
+            "src": "229:47:12",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "b07a2754",
-            "id": 2607,
+            "id": 2826,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getBetPoolAddress",
-            "nameLocation": "341:17:12",
+            "nameLocation": "291:17:12",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2603,
+              "id": 2822,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "358:2:12"
+              "src": "308:2:12"
             },
             "returnParameters": {
-              "id": 2606,
+              "id": 2825,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2605,
+                  "id": 2824,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2607,
-                  "src": "379:7:12",
+                  "scope": 2826,
+                  "src": "329:7:12",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -354,10 +273,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2604,
+                    "id": 2823,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "379:7:12",
+                    "src": "329:7:12",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -367,42 +286,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "378:9:12"
+              "src": "328:9:12"
             },
-            "scope": 2626,
-            "src": "332:56:12",
+            "scope": 2840,
+            "src": "282:56:12",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "fda51b17",
-            "id": 2612,
+            "id": 2831,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getBetMarketAddress",
-            "nameLocation": "403:19:12",
+            "nameLocation": "353:19:12",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2608,
+              "id": 2827,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "422:2:12"
+              "src": "372:2:12"
             },
             "returnParameters": {
-              "id": 2611,
+              "id": 2830,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2610,
+                  "id": 2829,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2612,
-                  "src": "443:7:12",
+                  "scope": 2831,
+                  "src": "393:7:12",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -410,10 +329,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2609,
+                    "id": 2828,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "443:7:12",
+                    "src": "393:7:12",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -423,42 +342,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "442:9:12"
+              "src": "392:9:12"
             },
-            "scope": 2626,
-            "src": "394:58:12",
+            "scope": 2840,
+            "src": "344:58:12",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "51696127",
-            "id": 2617,
+            "id": 2836,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getBetEventAddress",
-            "nameLocation": "467:18:12",
+            "nameLocation": "417:18:12",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2613,
+              "id": 2832,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "485:2:12"
+              "src": "435:2:12"
             },
             "returnParameters": {
-              "id": 2616,
+              "id": 2835,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2615,
+                  "id": 2834,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2617,
-                  "src": "506:7:12",
+                  "scope": 2836,
+                  "src": "456:7:12",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -466,10 +385,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2614,
+                    "id": 2833,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "506:7:12",
+                    "src": "456:7:12",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -479,103 +398,48 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "505:9:12"
+              "src": "455:9:12"
             },
-            "scope": 2626,
-            "src": "458:57:12",
-            "stateMutability": "nonpayable",
-            "virtual": false,
-            "visibility": "external"
-          },
-          {
-            "functionSelector": "0ca5ba05",
-            "id": 2622,
-            "implemented": false,
-            "kind": "function",
-            "modifiers": [],
-            "name": "setBetStatus",
-            "nameLocation": "530:12:12",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 2620,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 2619,
-                  "mutability": "mutable",
-                  "name": "status",
-                  "nameLocation": "548:6:12",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 2622,
-                  "src": "543:11:12",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 2618,
-                    "name": "uint",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "543:4:12",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "542:13:12"
-            },
-            "returnParameters": {
-              "id": 2621,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "564:0:12"
-            },
-            "scope": 2626,
-            "src": "521:44:12",
+            "scope": 2840,
+            "src": "408:57:12",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "3ccfd60b",
-            "id": 2625,
+            "id": 2839,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "withdraw",
-            "nameLocation": "580:8:12",
+            "nameLocation": "480:8:12",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2623,
+              "id": 2837,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "588:2:12"
+              "src": "488:2:12"
             },
             "returnParameters": {
-              "id": 2624,
+              "id": 2838,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "607:0:12"
+              "src": "499:0:12"
             },
-            "scope": 2626,
-            "src": "571:37:12",
-            "stateMutability": "payable",
+            "scope": 2840,
+            "src": "471:29:12",
+            "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 2627,
-        "src": "144:466:12",
+        "scope": 2841,
+        "src": "144:358:12",
         "usedErrors": []
       }
     ],
-    "src": "32:578:12"
+    "src": "32:470:12"
   },
   "compiler": {
     "name": "solc",
@@ -583,7 +447,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-07-29T20:35:26.646Z",
+  "updatedAt": "2022-08-01T19:23:43.593Z",
   "devdoc": {
     "author": "Ibekason Alexander Onyebuchi",
     "kind": "dev",

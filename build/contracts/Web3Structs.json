@@ -15,14 +15,14 @@
     "absolutePath": "project:/contracts/library/Structs.sol",
     "exportedSymbols": {
       "Web3Structs": [
-        2805
+        3017
       ]
     },
-    "id": 2806,
+    "id": 3018,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2751,
+        "id": 2963,
         "literals": [
           "solidity",
           "^",
@@ -39,9 +39,9 @@
         "contractDependencies": [],
         "contractKind": "library",
         "fullyImplemented": true,
-        "id": 2805,
+        "id": 3017,
         "linearizedBaseContracts": [
-          2805
+          3017
         ],
         "name": "Web3Structs",
         "nameLocation": "33:11:25",
@@ -49,24 +49,24 @@
         "nodes": [
           {
             "canonicalName": "Web3Structs.EventStatus",
-            "id": 2755,
+            "id": 2967,
             "members": [
               {
-                "id": 2752,
+                "id": 2964,
                 "name": "STARTED",
                 "nameLocation": "78:7:25",
                 "nodeType": "EnumValue",
                 "src": "78:7:25"
               },
               {
-                "id": 2753,
+                "id": 2965,
                 "name": "ENDED",
                 "nameLocation": "95:5:25",
                 "nodeType": "EnumValue",
                 "src": "95:5:25"
               },
               {
-                "id": 2754,
+                "id": 2966,
                 "name": "CANCELED",
                 "nameLocation": "110:8:25",
                 "nodeType": "EnumValue",
@@ -80,17 +80,17 @@
           },
           {
             "canonicalName": "Web3Structs.MarketStatus",
-            "id": 2758,
+            "id": 2970,
             "members": [
               {
-                "id": 2756,
+                "id": 2968,
                 "name": "PENDING",
                 "nameLocation": "158:7:25",
                 "nodeType": "EnumValue",
                 "src": "158:7:25"
               },
               {
-                "id": 2757,
+                "id": 2969,
                 "name": "FINISHED",
                 "nameLocation": "175:8:25",
                 "nodeType": "EnumValue",
@@ -104,16 +104,16 @@
           },
           {
             "canonicalName": "Web3Structs.Bet",
-            "id": 2769,
+            "id": 2981,
             "members": [
               {
                 "constant": false,
-                "id": 2760,
+                "id": 2972,
                 "mutability": "mutable",
                 "name": "betId",
                 "nameLocation": "224:5:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2769,
+                "scope": 2981,
                 "src": "216:13:25",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -122,7 +122,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2759,
+                  "id": 2971,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "216:7:25",
@@ -135,12 +135,12 @@
               },
               {
                 "constant": false,
-                "id": 2762,
+                "id": 2974,
                 "mutability": "mutable",
                 "name": "owner",
                 "nameLocation": "247:5:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2769,
+                "scope": 2981,
                 "src": "239:13:25",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -149,7 +149,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 2761,
+                  "id": 2973,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "239:7:25",
@@ -163,12 +163,12 @@
               },
               {
                 "constant": false,
-                "id": 2764,
+                "id": 2976,
                 "mutability": "mutable",
                 "name": "eventAddress",
                 "nameLocation": "270:12:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2769,
+                "scope": 2981,
                 "src": "262:20:25",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -177,7 +177,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 2763,
+                  "id": 2975,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "262:7:25",
@@ -191,12 +191,12 @@
               },
               {
                 "constant": false,
-                "id": 2766,
+                "id": 2978,
                 "mutability": "mutable",
                 "name": "market",
                 "nameLocation": "300:6:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2769,
+                "scope": 2981,
                 "src": "292:14:25",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -205,7 +205,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 2765,
+                  "id": 2977,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "292:7:25",
@@ -219,12 +219,12 @@
               },
               {
                 "constant": false,
-                "id": 2768,
+                "id": 2980,
                 "mutability": "mutable",
                 "name": "pool",
                 "nameLocation": "324:4:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2769,
+                "scope": 2981,
                 "src": "316:12:25",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -233,7 +233,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 2767,
+                  "id": 2979,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "316:7:25",
@@ -249,22 +249,22 @@
             "name": "Bet",
             "nameLocation": "202:3:25",
             "nodeType": "StructDefinition",
-            "scope": 2805,
+            "scope": 3017,
             "src": "195:140:25",
             "visibility": "public"
           },
           {
             "canonicalName": "Web3Structs.Event",
-            "id": 2787,
+            "id": 2999,
             "members": [
               {
                 "constant": false,
-                "id": 2771,
+                "id": 2983,
                 "mutability": "mutable",
                 "name": "id",
                 "nameLocation": "372:2:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2787,
+                "scope": 2999,
                 "src": "364:10:25",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -273,7 +273,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2770,
+                  "id": 2982,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "364:7:25",
@@ -286,12 +286,12 @@
               },
               {
                 "constant": false,
-                "id": 2773,
+                "id": 2985,
                 "mutability": "mutable",
                 "name": "title",
                 "nameLocation": "391:5:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2787,
+                "scope": 2999,
                 "src": "384:12:25",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -300,7 +300,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 2772,
+                  "id": 2984,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "384:6:25",
@@ -313,12 +313,12 @@
               },
               {
                 "constant": false,
-                "id": 2775,
+                "id": 2987,
                 "mutability": "mutable",
                 "name": "description",
                 "nameLocation": "413:11:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2787,
+                "scope": 2999,
                 "src": "406:18:25",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -327,7 +327,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 2774,
+                  "id": 2986,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "406:6:25",
@@ -340,12 +340,12 @@
               },
               {
                 "constant": false,
-                "id": 2777,
+                "id": 2989,
                 "mutability": "mutable",
                 "name": "canceledTime",
                 "nameLocation": "442:12:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2787,
+                "scope": 2999,
                 "src": "434:20:25",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -354,7 +354,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2776,
+                  "id": 2988,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "434:7:25",
@@ -367,12 +367,12 @@
               },
               {
                 "constant": false,
-                "id": 2779,
+                "id": 2991,
                 "mutability": "mutable",
                 "name": "createdTime",
                 "nameLocation": "472:11:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2787,
+                "scope": 2999,
                 "src": "464:19:25",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -381,7 +381,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2778,
+                  "id": 2990,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "464:7:25",
@@ -394,12 +394,12 @@
               },
               {
                 "constant": false,
-                "id": 2781,
+                "id": 2993,
                 "mutability": "mutable",
                 "name": "endedTime",
                 "nameLocation": "501:9:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2787,
+                "scope": 2999,
                 "src": "493:17:25",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -408,7 +408,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2780,
+                  "id": 2992,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "493:7:25",
@@ -421,12 +421,12 @@
               },
               {
                 "constant": false,
-                "id": 2783,
+                "id": 2995,
                 "mutability": "mutable",
                 "name": "minimumStake",
                 "nameLocation": "528:12:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2787,
+                "scope": 2999,
                 "src": "520:20:25",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -435,7 +435,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2782,
+                  "id": 2994,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "520:7:25",
@@ -448,33 +448,33 @@
               },
               {
                 "constant": false,
-                "id": 2786,
+                "id": 2998,
                 "mutability": "mutable",
                 "name": "status",
                 "nameLocation": "562:6:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2787,
+                "scope": 2999,
                 "src": "550:18:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_enum$_EventStatus_$2755",
+                  "typeIdentifier": "t_enum$_EventStatus_$2967",
                   "typeString": "enum Web3Structs.EventStatus"
                 },
                 "typeName": {
-                  "id": 2785,
+                  "id": 2997,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 2784,
+                    "id": 2996,
                     "name": "EventStatus",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 2755,
+                    "referencedDeclaration": 2967,
                     "src": "550:11:25"
                   },
-                  "referencedDeclaration": 2755,
+                  "referencedDeclaration": 2967,
                   "src": "550:11:25",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_EventStatus_$2755",
+                    "typeIdentifier": "t_enum$_EventStatus_$2967",
                     "typeString": "enum Web3Structs.EventStatus"
                   }
                 },
@@ -484,22 +484,22 @@
             "name": "Event",
             "nameLocation": "348:5:25",
             "nodeType": "StructDefinition",
-            "scope": 2805,
+            "scope": 3017,
             "src": "341:234:25",
             "visibility": "public"
           },
           {
             "canonicalName": "Web3Structs.Pool",
-            "id": 2794,
+            "id": 3006,
             "members": [
               {
                 "constant": false,
-                "id": 2789,
+                "id": 3001,
                 "mutability": "mutable",
                 "name": "id",
                 "nameLocation": "611:2:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2794,
+                "scope": 3006,
                 "src": "603:10:25",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -508,7 +508,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2788,
+                  "id": 3000,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "603:7:25",
@@ -521,12 +521,12 @@
               },
               {
                 "constant": false,
-                "id": 2791,
+                "id": 3003,
                 "mutability": "mutable",
                 "name": "name",
                 "nameLocation": "630:4:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2794,
+                "scope": 3006,
                 "src": "623:11:25",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -535,7 +535,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 2790,
+                  "id": 3002,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "623:6:25",
@@ -548,12 +548,12 @@
               },
               {
                 "constant": false,
-                "id": 2793,
+                "id": 3005,
                 "mutability": "mutable",
                 "name": "description",
                 "nameLocation": "651:11:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2794,
+                "scope": 3006,
                 "src": "644:18:25",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -562,7 +562,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 2792,
+                  "id": 3004,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "644:6:25",
@@ -577,22 +577,22 @@
             "name": "Pool",
             "nameLocation": "588:4:25",
             "nodeType": "StructDefinition",
-            "scope": 2805,
+            "scope": 3017,
             "src": "581:88:25",
             "visibility": "public"
           },
           {
             "canonicalName": "Web3Structs.Market",
-            "id": 2804,
+            "id": 3016,
             "members": [
               {
                 "constant": false,
-                "id": 2796,
+                "id": 3008,
                 "mutability": "mutable",
                 "name": "id",
                 "nameLocation": "707:2:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2804,
+                "scope": 3016,
                 "src": "699:10:25",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -601,7 +601,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2795,
+                  "id": 3007,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "699:7:25",
@@ -614,12 +614,12 @@
               },
               {
                 "constant": false,
-                "id": 2798,
+                "id": 3010,
                 "mutability": "mutable",
                 "name": "name",
                 "nameLocation": "726:4:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2804,
+                "scope": 3016,
                 "src": "719:11:25",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -628,7 +628,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 2797,
+                  "id": 3009,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "719:6:25",
@@ -641,12 +641,12 @@
               },
               {
                 "constant": false,
-                "id": 2800,
+                "id": 3012,
                 "mutability": "mutable",
                 "name": "description",
                 "nameLocation": "747:11:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2804,
+                "scope": 3016,
                 "src": "740:18:25",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -655,7 +655,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 2799,
+                  "id": 3011,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "740:6:25",
@@ -668,33 +668,33 @@
               },
               {
                 "constant": false,
-                "id": 2803,
+                "id": 3015,
                 "mutability": "mutable",
                 "name": "status",
                 "nameLocation": "781:6:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2804,
+                "scope": 3016,
                 "src": "768:19:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_enum$_MarketStatus_$2758",
+                  "typeIdentifier": "t_enum$_MarketStatus_$2970",
                   "typeString": "enum Web3Structs.MarketStatus"
                 },
                 "typeName": {
-                  "id": 2802,
+                  "id": 3014,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 2801,
+                    "id": 3013,
                     "name": "MarketStatus",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 2758,
+                    "referencedDeclaration": 2970,
                     "src": "768:12:25"
                   },
-                  "referencedDeclaration": 2758,
+                  "referencedDeclaration": 2970,
                   "src": "768:12:25",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_MarketStatus_$2758",
+                    "typeIdentifier": "t_enum$_MarketStatus_$2970",
                     "typeString": "enum Web3Structs.MarketStatus"
                   }
                 },
@@ -704,12 +704,12 @@
             "name": "Market",
             "nameLocation": "682:6:25",
             "nodeType": "StructDefinition",
-            "scope": 2805,
+            "scope": 3017,
             "src": "675:119:25",
             "visibility": "public"
           }
         ],
-        "scope": 2806,
+        "scope": 3018,
         "src": "25:771:25",
         "usedErrors": []
       }
@@ -722,7 +722,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-07-29T20:35:26.648Z",
+  "updatedAt": "2022-08-01T19:23:43.596Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
