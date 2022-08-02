@@ -37,6 +37,8 @@ before(async function () {
   marketFactory = await MarketFactory.deployed();
   poolFactory = await PoolsFactory.deployed();
   betFactory = await BetsFactory.deployed();
+  await web3bets.setEcosystemAddress(accounts[30])
+  await web3bets.setHoldersAddress(accounts[29])
 
   await web3bets.addEventOwner(eventOwner);
 
@@ -60,7 +62,7 @@ before(async function () {
     2,
     eventOwner
   );
-  let newPoolBets = await betFactory.getAllBetsByAddress(accounts[0]);
+  let newPoolBets = await betFactory.getAllBetsByAddress(eventOwner);
   demoBetAddress = newPoolBets[newPoolBets.length - 1];
   demoBet = await Bets.at(demoBetAddress);
 });

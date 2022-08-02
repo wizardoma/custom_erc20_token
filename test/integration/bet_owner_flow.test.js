@@ -23,6 +23,9 @@ contract("Bet Owner Flow", (accounts) => {
 
   beforeEach(async () => {
     web3bets = await Web3Bets.deployed();
+    await web3bets.setEcosystemAddress(accounts[30])
+    await web3bets.setHoldersAddress(accounts[29])
+  
     eventFactory = await EventFactory.deployed();
     betFactory = await BetsFactory.deployed();
   });
@@ -223,10 +226,33 @@ contract("Bet Owner Flow", (accounts) => {
 
     console.log("Expected bet earnings", firstBetEarnings);
 
+    let holdersAddress = await web3bets.holdersAddress();
+
+    let ecoSystemAddress = await web3bets.holdersAddress();
+
+    let currHoldAddressBalance = await web3.eth.getBalance(holdersAddress);
+    let currEcoAddressBalance = await web3.eth.getBalance(ecoSystemAddress);
+
+    let currEventOwnerBalance = await web3.eth.getBalance(eventOwner);
+    console.log("old holder Address Balamce", currHoldAddressBalance);
+    console.log("old ecosysm Address Balamce", currEcoAddressBalance);
+    console.log("old event owner Address Balamce", currEventOwnerBalance);
+
     await truffleAssert.passes(
       market.setWinningPool(pools[0], { from: eventOwner })
     );
 
+
+    let newHoldAddressBalance = await web3.eth.getBalance(holdersAddress);
+    let newEcoAddressBalance = await web3.eth.getBalance(ecoSystemAddress);
+
+    let newEventOwnerBalance = await web3.eth.getBalance(eventOwner);
+
+    console.log("new holder Address Balamce", newHoldAddressBalance);
+    console.log("new ecosysm Address Balamce", newEcoAddressBalance);
+    console.log("new event owner Address Balamce", newEventOwnerBalance);
+
+    assert.equal(newEcoAddressBalance > currEcoAddressBalance && newEventOwnerBalance > currEventOwnerBalance && newHoldAddressBalance > currHoldAddressBalance, true)
     firstbetBalance = await web3.eth.getBalance(bettersBets[0]);
     firstbetBalance = BigInt(firstbetBalance);
 
@@ -255,6 +281,8 @@ contract("Bet Owner Flow", (accounts) => {
     // await firstBet.withdraw();
     let tx = await firstBet.withdraw({ from: firstBetBetter });
 
+    
+
     let newBettersBalance = await web3.eth.getBalance(firstBetBetter);
     newBettersBalance =
       Number(newBettersBalance) +
@@ -268,5 +296,6 @@ contract("Bet Owner Flow", (accounts) => {
     console.log("Betters Address", bettersBets)
 
     assert.equal(betFactoryAddresses.length === bettersBets.length, true);
+
   });
 });

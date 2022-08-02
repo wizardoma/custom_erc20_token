@@ -53,7 +53,7 @@ before(async function () {
 
 contract("BetFactory", (accounts) => {
   it("Can create a bet", async () => {
-    let poolBets = await betFactory.getAllBetsByAddress(accounts[0]);
+    let poolBets = await betFactory.getAllBetsByAddress(eventOwner);
     await betFactory.createBet(
       demoEventAddress,
       demoMarketAddress,
@@ -61,7 +61,7 @@ contract("BetFactory", (accounts) => {
       2,
       eventOwner
     );
-    let newPoolBets = await betFactory.getAllBetsByAddress(accounts[0]);
+    let newPoolBets = await betFactory.getAllBetsByAddress(eventOwner);
 
     assert.equal(newPoolBets.length - poolBets.length === 1, true);
   });

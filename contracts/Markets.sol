@@ -138,7 +138,7 @@ contract Market is IWeb3BetsMarketV1 {
          marketBalance = marketBalance - vigShare;
 
  
-        web3Bets.shareBetEarnings{value: vigShare}();
+        web3Bets.shareBetEarnings{value: vigShare}(owner);
 
         allAmounts = string.concat(allAmounts, "Vig share");
 

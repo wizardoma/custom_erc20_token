@@ -76,6 +76,12 @@ contract Web3Bets is IWeb3Bets {
         onlyUser
         uniqueEventOwner(_eventOwner)
     {
+        if (holdersAddress == address(0) || ecosystemAddress == address(0)) {
+            revert(
+                "you must set holders and ecosystmeAddress addresses before adding event owners"
+            );
+        }
+
         eventOwnerAddresses.push(_eventOwner);
         eventOwnersMapping[_eventOwner] = _eventOwner;
     }
@@ -95,14 +101,13 @@ contract Web3Bets is IWeb3Bets {
         }
     }
 
-    function shareBetEarnings() external payable override {
+    function shareBetEarnings(address _eventOwner) external payable override {
         require(msg.value > 0, "bet earnings must be greater than 0");
-        uint256 holdersShare = msg.value * (holdersVig / 100);
-        uint256 ecosystemShare = msg.value * (ecosystemVig / 100);
-        uint256 eventOwnersShare = msg.value * (eventOwnersVig / 100);
-        address payable eventOwner = payable(msg.sender);
+        uint256 holdersShare = (msg.value * holdersVig )/ 100;
+        uint256 ecosystemShare = (msg.value * ecosystemVig) / 100;
+        uint256 eventOwnersShare = (msg.value * eventOwnersVig) / 100;
 
-        (bool isSentEventOwner, ) = eventOwner.call{value: eventOwnersShare}(
+        (bool isSentEventOwner, ) = _eventOwner.call{value: eventOwnersShare}(
             ""
         );
 
@@ -131,6 +136,5 @@ contract Web3Bets is IWeb3Bets {
     receive() external payable {}
 
     // Fallback function is called when msg.data is not empty
-    fallback() external payable {
-    }
+    fallback() external payable {}
 }
