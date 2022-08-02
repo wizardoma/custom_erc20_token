@@ -238,9 +238,9 @@ contract("Bet Owner Flow", (accounts) => {
     console.log("old ecosysm Address Balamce", currEcoAddressBalance);
     console.log("old event owner Address Balamce", currEventOwnerBalance);
 
-    await truffleAssert.passes(
-      market.setWinningPool(pools[0], { from: eventOwner })
-    );
+    let mTx = await market.setWinningPool(pools[0], { from: eventOwner });
+
+    console.log("setting pool cost", mTx.receipt.gasUsed);
 
 
     let newHoldAddressBalance = await web3.eth.getBalance(holdersAddress);
@@ -252,7 +252,7 @@ contract("Bet Owner Flow", (accounts) => {
     console.log("new ecosysm Address Balamce", newEcoAddressBalance);
     console.log("new event owner Address Balamce", newEventOwnerBalance);
 
-    assert.equal(newEcoAddressBalance > currEcoAddressBalance && newEventOwnerBalance > currEventOwnerBalance && newHoldAddressBalance > currHoldAddressBalance, true)
+    assert.equal(newEcoAddressBalance > currEcoAddressBalance && newHoldAddressBalance > currHoldAddressBalance, true)
     firstbetBalance = await web3.eth.getBalance(bettersBets[0]);
     firstbetBalance = BigInt(firstbetBalance);
 

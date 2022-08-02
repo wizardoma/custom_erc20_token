@@ -29,15 +29,15 @@
     "absolutePath": "project:/contracts/interface/IBaseInterface.sol",
     "exportedSymbols": {
       "IBaseInterface": [
-        2790
+        2804
       ]
     },
-    "id": 2791,
+    "id": 2805,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2784,
+        "id": 2798,
         "literals": [
           "solidity",
           "^",
@@ -54,9 +54,9 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 2790,
+        "id": 2804,
         "linearizedBaseContracts": [
-          2790
+          2804
         ],
         "name": "IBaseInterface",
         "nameLocation": "68:14:10",
@@ -64,7 +64,7 @@
         "nodes": [
           {
             "functionSelector": "17d7de7c",
-            "id": 2789,
+            "id": 2803,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -72,23 +72,23 @@
             "nameLocation": "99:7:10",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2785,
+              "id": 2799,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "106:2:10"
             },
             "returnParameters": {
-              "id": 2788,
+              "id": 2802,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2787,
+                  "id": 2801,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2789,
+                  "scope": 2803,
                   "src": "127:13:10",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -97,7 +97,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 2786,
+                    "id": 2800,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "127:6:10",
@@ -111,14 +111,14 @@
               ],
               "src": "126:15:10"
             },
-            "scope": 2790,
+            "scope": 2804,
             "src": "90:52:10",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 2791,
+        "scope": 2805,
         "src": "58:86:10",
         "usedErrors": []
       }
@@ -131,7 +131,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-08-02T04:21:39.153Z",
+  "updatedAt": "2022-08-02T05:10:40.987Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

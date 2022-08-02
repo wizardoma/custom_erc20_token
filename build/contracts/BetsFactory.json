@@ -3620,19 +3620,19 @@
         489
       ],
       "IBaseInterface": [
-        2790
+        2804
       ],
       "IWeb3BetsBetsV1": [
-        2840
+        2856
       ],
       "IWeb3BetsEventV1": [
-        2875
+        2891
       ],
       "IWeb3BetsMarketV1": [
-        2916
+        2932
       ],
       "IWeb3BetsPoolsV1": [
-        2943
+        2959
       ]
     },
     "id": 490,
@@ -5080,12 +5080,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0xD6EEa02D79c56B7E3BC1c7a6D385B3F25Cc17c31",
-      "transactionHash": "0xa90a4dffb9195c81a6c841c773dfe1175ae0d32daa2a6cefc6d1d420a1913c65"
+      "address": "0x4bCa46cA18A5DC2E8445F826420AE22b1ae4a119",
+      "transactionHash": "0x7df426629901a25173aa045703fa3aa39eb2b8803672bb9cc549294624670b70"
     }
   },
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-08-02T04:22:07.841Z",
+  "updatedAt": "2022-08-02T05:11:13.278Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

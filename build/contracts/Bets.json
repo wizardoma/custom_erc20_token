@@ -2658,19 +2658,19 @@
         373
       ],
       "IBaseInterface": [
-        2790
+        2804
       ],
       "IWeb3BetsBetsV1": [
-        2840
+        2856
       ],
       "IWeb3BetsEventV1": [
-        2875
+        2891
       ],
       "IWeb3BetsMarketV1": [
-        2916
+        2932
       ],
       "IWeb3BetsPoolsV1": [
-        2943
+        2959
       ]
     },
     "id": 374,
@@ -2695,7 +2695,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 374,
-        "sourceUnit": 2841,
+        "sourceUnit": 2857,
         "src": "57:41:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2707,7 +2707,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 374,
-        "sourceUnit": 2917,
+        "sourceUnit": 2933,
         "src": "99:43:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2719,7 +2719,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 374,
-        "sourceUnit": 2876,
+        "sourceUnit": 2892,
         "src": "143:43:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2731,7 +2731,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 374,
-        "sourceUnit": 2944,
+        "sourceUnit": 2960,
         "src": "187:42:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2744,7 +2744,7 @@
               "id": 210,
               "name": "IWeb3BetsBetsV1",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 2840,
+              "referencedDeclaration": 2856,
               "src": "386:15:1"
             },
             "id": 211,
@@ -2765,7 +2765,7 @@
         "id": 373,
         "linearizedBaseContracts": [
           373,
-          2840
+          2856
         ],
         "name": "Bets",
         "nameLocation": "378:4:1",
@@ -2938,7 +2938,7 @@
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_IWeb3BetsEventV1_$2875",
+                        "typeIdentifier": "t_contract$_IWeb3BetsEventV1_$2891",
                         "typeString": "contract IWeb3BetsEventV1"
                       },
                       "typeName": {
@@ -2948,13 +2948,13 @@
                           "id": 223,
                           "name": "IWeb3BetsEventV1",
                           "nodeType": "IdentifierPath",
-                          "referencedDeclaration": 2875,
+                          "referencedDeclaration": 2891,
                           "src": "601:16:1"
                         },
-                        "referencedDeclaration": 2875,
+                        "referencedDeclaration": 2891,
                         "src": "601:16:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_IWeb3BetsEventV1_$2875",
+                          "typeIdentifier": "t_contract$_IWeb3BetsEventV1_$2891",
                           "typeString": "contract IWeb3BetsEventV1"
                         }
                       },
@@ -2988,10 +2988,10 @@
                       "name": "IWeb3BetsEventV1",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2875,
+                      "referencedDeclaration": 2891,
                       "src": "629:16:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_type$_t_contract$_IWeb3BetsEventV1_$2875_$",
+                        "typeIdentifier": "t_type$_t_contract$_IWeb3BetsEventV1_$2891_$",
                         "typeString": "type(contract IWeb3BetsEventV1)"
                       }
                     },
@@ -3006,7 +3006,7 @@
                     "src": "629:30:1",
                     "tryCall": false,
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IWeb3BetsEventV1_$2875",
+                      "typeIdentifier": "t_contract$_IWeb3BetsEventV1_$2891",
                       "typeString": "contract IWeb3BetsEventV1"
                     }
                   },
@@ -3066,7 +3066,7 @@
                               "referencedDeclaration": 225,
                               "src": "703:8:1",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_contract$_IWeb3BetsEventV1_$2875",
+                                "typeIdentifier": "t_contract$_IWeb3BetsEventV1_$2891",
                                 "typeString": "contract IWeb3BetsEventV1"
                               }
                             },
@@ -3077,7 +3077,7 @@
                             "lValueRequested": false,
                             "memberName": "getEventOwner",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 2869,
+                            "referencedDeclaration": 2885,
                             "src": "703:22:1",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_external_nonpayable$__$returns$_t_address_$",
@@ -3724,7 +3724,7 @@
           },
           {
             "baseFunctions": [
-              2816
+              2832
             ],
             "body": {
               "id": 296,
@@ -3813,7 +3813,7 @@
           },
           {
             "baseFunctions": [
-              2821
+              2837
             ],
             "body": {
               "id": 305,
@@ -3903,7 +3903,7 @@
           },
           {
             "baseFunctions": [
-              2826
+              2842
             ],
             "body": {
               "id": 314,
@@ -3993,7 +3993,7 @@
           },
           {
             "baseFunctions": [
-              2831
+              2847
             ],
             "body": {
               "id": 323,
@@ -4083,7 +4083,7 @@
           },
           {
             "baseFunctions": [
-              2836
+              2852
             ],
             "body": {
               "id": 332,
@@ -4173,7 +4173,7 @@
           },
           {
             "baseFunctions": [
-              2839
+              2855
             ],
             "body": {
               "id": 363,
@@ -4660,12 +4660,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x7Dae91f511548aF19A63f7374275E052742c984c",
-      "transactionHash": "0x8e3aed0b6d506b096ee7e2411bb5729f44495ca0caa25cd2cdcf15e5adc2a310"
+      "address": "0x4dE42773c0b8bD2C3b51C1379871A22062dfF990",
+      "transactionHash": "0x30db9733b80ce106e085bb43440b70d143bfcf6076bd7162163328437b2de7c4"
     }
   },
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-08-02T04:22:07.862Z",
+  "updatedAt": "2022-08-02T05:11:13.306Z",
   "networkType": "ethereum",
   "devdoc": {
     "author": "Ibekason Alexander Onyebuchi",

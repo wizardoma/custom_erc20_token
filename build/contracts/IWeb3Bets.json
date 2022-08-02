@@ -2,7 +2,13 @@
   "contractName": "IWeb3Bets",
   "abi": [
     {
-      "inputs": [],
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "eventOwner",
+          "type": "address"
+        }
+      ],
       "name": "shareBetEarnings",
       "outputs": [],
       "stateMutability": "payable",
@@ -41,7 +47,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.13+commit.abaa5c0e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"getVigPercentage\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_owner\",\"type\":\"address\"}],\"name\":\"isEventOwner\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"shareBetEarnings\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interface/IWeb3Bets.sol\":\"IWeb3Bets\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interface/IWeb3Bets.sol\":{\"keccak256\":\"0xccc56f95f02f270e287c3dcb8845565cf697c2722d00bef4de165a70ab2c1a06\",\"urls\":[\"bzz-raw://18f2fe9ff8abc5880dd1b775876241eefc24136939dec154343ef0802900d76c\",\"dweb:/ipfs/QmYBLNvamPtZTk61mwq839ubEUB12C1yotn4zSsj1XZXzF\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.13+commit.abaa5c0e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"getVigPercentage\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_owner\",\"type\":\"address\"}],\"name\":\"isEventOwner\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"eventOwner\",\"type\":\"address\"}],\"name\":\"shareBetEarnings\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interface/IWeb3Bets.sol\":\"IWeb3Bets\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interface/IWeb3Bets.sol\":{\"keccak256\":\"0x4357c4c89b6d62d6adc1cdbe22e704db6d461240b0ee1846cd0159522d7870ea\",\"urls\":[\"bzz-raw://a7dd3f15d6d7fdf8a1880ae2c8233c713f561488d7d12e212f7c0d8e213e2328\",\"dweb:/ipfs/QmWAEi9asdyQfBQkJgRjuKijzJ55CvNChMjRy3wikQUYYa\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -49,20 +55,20 @@
   "deployedGeneratedSources": [],
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "pragma solidity ^0.8.4;\n\ninterface IWeb3Bets{\n\n    function shareBetEarnings() payable external;\n\n    function getVigPercentage() external returns(uint);\n\n    function isEventOwner(address _owner) external returns (bool);\n}",
+  "source": "pragma solidity ^0.8.4;\n\ninterface IWeb3Bets{\n\n    function shareBetEarnings(address eventOwner) payable external;\n\n    function getVigPercentage() external returns(uint);\n\n    function isEventOwner(address _owner) external returns (bool);\n}",
   "sourcePath": "/Users/wizardom/projects/crypto/web3bets_smartcontract/contracts/interface/IWeb3Bets.sol",
   "ast": {
     "absolutePath": "project:/contracts/interface/IWeb3Bets.sol",
     "exportedSymbols": {
       "IWeb3Bets": [
-        2808
+        2824
       ]
     },
-    "id": 2809,
+    "id": 2825,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2792,
+        "id": 2806,
         "literals": [
           "solidity",
           "^",
@@ -79,17 +85,17 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 2808,
+        "id": 2824,
         "linearizedBaseContracts": [
-          2808
+          2824
         ],
         "name": "IWeb3Bets",
         "nameLocation": "35:9:11",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
-            "functionSelector": "4d161324",
-            "id": 2795,
+            "functionSelector": "1b7e427a",
+            "id": 2811,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -97,100 +103,18 @@
             "nameLocation": "60:16:11",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2793,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "76:2:11"
-            },
-            "returnParameters": {
-              "id": 2794,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "95:0:11"
-            },
-            "scope": 2808,
-            "src": "51:45:11",
-            "stateMutability": "payable",
-            "virtual": false,
-            "visibility": "external"
-          },
-          {
-            "functionSelector": "2004b3e5",
-            "id": 2800,
-            "implemented": false,
-            "kind": "function",
-            "modifiers": [],
-            "name": "getVigPercentage",
-            "nameLocation": "111:16:11",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 2796,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "127:2:11"
-            },
-            "returnParameters": {
-              "id": 2799,
+              "id": 2809,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2798,
+                  "id": 2808,
                   "mutability": "mutable",
-                  "name": "",
-                  "nameLocation": "-1:-1:-1",
+                  "name": "eventOwner",
+                  "nameLocation": "85:10:11",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2800,
-                  "src": "147:4:11",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 2797,
-                    "name": "uint",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "147:4:11",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "146:6:11"
-            },
-            "scope": 2808,
-            "src": "102:51:11",
-            "stateMutability": "nonpayable",
-            "virtual": false,
-            "visibility": "external"
-          },
-          {
-            "functionSelector": "eb803584",
-            "id": 2807,
-            "implemented": false,
-            "kind": "function",
-            "modifiers": [],
-            "name": "isEventOwner",
-            "nameLocation": "168:12:11",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 2803,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 2802,
-                  "mutability": "mutable",
-                  "name": "_owner",
-                  "nameLocation": "189:6:11",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 2807,
-                  "src": "181:14:11",
+                  "scope": 2811,
+                  "src": "77:18:11",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -198,10 +122,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2801,
+                    "id": 2807,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "181:7:11",
+                    "src": "77:7:11",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -211,21 +135,132 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "180:16:11"
+              "src": "76:20:11"
             },
             "returnParameters": {
-              "id": 2806,
+              "id": 2810,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "113:0:11"
+            },
+            "scope": 2824,
+            "src": "51:63:11",
+            "stateMutability": "payable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "2004b3e5",
+            "id": 2816,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getVigPercentage",
+            "nameLocation": "129:16:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2812,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "145:2:11"
+            },
+            "returnParameters": {
+              "id": 2815,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2805,
+                  "id": 2814,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2807,
-                  "src": "215:4:11",
+                  "scope": 2816,
+                  "src": "165:4:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2813,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "165:4:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "164:6:11"
+            },
+            "scope": 2824,
+            "src": "120:51:11",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "eb803584",
+            "id": 2823,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isEventOwner",
+            "nameLocation": "186:12:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2819,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2818,
+                  "mutability": "mutable",
+                  "name": "_owner",
+                  "nameLocation": "207:6:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2823,
+                  "src": "199:14:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2817,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "199:7:11",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "198:16:11"
+            },
+            "returnParameters": {
+              "id": 2822,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2821,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2823,
+                  "src": "233:4:11",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -233,10 +268,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 2804,
+                    "id": 2820,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "215:4:11",
+                    "src": "233:4:11",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -245,21 +280,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "214:6:11"
+              "src": "232:6:11"
             },
-            "scope": 2808,
-            "src": "159:62:11",
+            "scope": 2824,
+            "src": "177:62:11",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 2809,
-        "src": "25:198:11",
+        "scope": 2825,
+        "src": "25:216:11",
         "usedErrors": []
       }
     ],
-    "src": "0:223:11"
+    "src": "0:241:11"
   },
   "compiler": {
     "name": "solc",
@@ -267,7 +302,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-08-02T04:21:39.154Z",
+  "updatedAt": "2022-08-02T05:10:40.987Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
