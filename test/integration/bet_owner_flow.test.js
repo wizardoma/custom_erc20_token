@@ -1,6 +1,7 @@
 const Web3Bets = artifacts.require("Web3Bets");
 const EventFactory = artifacts.require("EventFactory");
 const MarketFactory = artifacts.require("MarketFactory");
+const BetsFactory = artifacts.require("BetsFactory");
 const Events = artifacts.require("Events");
 const Market = artifacts.require("Markets");
 const Pools = artifacts.require("Pools");
@@ -17,11 +18,13 @@ contract("Bet Owner Flow", (accounts) => {
   let thirdBetterAddress = accounts[60];
   let fourthBetterAddress = accounts[61];
   let web3bets;
+  let betFactory;
   let eventFactory;
 
   beforeEach(async () => {
     web3bets = await Web3Bets.deployed();
     eventFactory = await EventFactory.deployed();
+    betFactory = await BetsFactory.deployed();
   });
 
   it("Confirm better user flow", async function () {
@@ -259,5 +262,11 @@ contract("Bet Owner Flow", (accounts) => {
     firstBetAddressStake = await web3.eth.getBalance(bettersBets[0]);
 
     assert.equal(newBettersBalance > currentBettersBalance, true);
+
+    let betFactoryAddresses = await betFactory.getAllBetsByAddress(betterAddress);
+    console.log("betFactory Address", betFactoryAddresses)
+    console.log("Betters Address", bettersBets)
+
+    assert.equal(betFactoryAddresses.length === bettersBets.length, true);
   });
 });

@@ -4660,12 +4660,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x7426a669932DfD8ED94cF93Ec7eC981571F5407c",
-      "transactionHash": "0xab6fd7f14dd0f14b59496334d90389d0f4a09451865d67e8169c08c6d3387a88"
+      "address": "0x7Dae91f511548aF19A63f7374275E052742c984c",
+      "transactionHash": "0x8e3aed0b6d506b096ee7e2411bb5729f44495ca0caa25cd2cdcf15e5adc2a310"
     }
   },
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-08-01T19:24:24.052Z",
+  "updatedAt": "2022-08-02T04:22:07.862Z",
   "networkType": "ethereum",
   "devdoc": {
     "author": "Ibekason Alexander Onyebuchi",
