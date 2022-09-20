@@ -4,67 +4,43 @@ import "./Events.sol";
 
 
 contract EventFactory {
-    mapping (address => address[]) userEvents;
+    mapping (address => address[]) public userEvents;
 
+    event EventCreated(address eventOwner, string name, address eventAddress);
 
-    event EventCreated(address eventOwner, string name, address, eventAddress);
-
-    struct EventDetail {
-        string name;
-        mapping(string => MarketDetail[]) markets;
-    }
-
-    struct MarketDetail {
-        string name;
-        mapping(string => PoolDetail[]) pool;
-    }
-
-    struct PoolDetail {
-        string name;
-        uint noOfStakes;
-        uint totalStake;
-    }
-
-    address[] private _events;
+    address[] public events;
 
     address public marketFactoryAddress;
 
+    address public web3betsAddress;
+
+    constructor(address _marketFactoryAddress, address _web3betsAddress){
+        marketFactoryAddress = _marketFactoryAddress;
+        web3betsAddress = _web3betsAddress;
+
+    }
+
     function createEvent(
-        string memory _name
+        string memory _name,
+        uint _minimumStake
     ) public returns(address) {
-        Events wEvent = new Events(_name, marketFactoryAddress);
+        IWeb3Bets web3bets = IWeb3Bets(web3betsAddress);
+        bool isEventOwner = web3bets.isEventOwner(msg.sender);
+        require(isEventOwner, "Only event owners can ceeate events");
+        Events wEvent = new Events(_name, marketFactoryAddress, _minimumStake);
         
         userEvents[msg.sender].push(address(wEvent));
-        _events.push[wEvent];
-
-        emit EventCreated(msg.sender, name, _name, address(wEvent));
+        events.push(address(wEvent));
+        
+        emit EventCreated(msg.sender, _name, address(wEvent));
         return address(wEvent);
     }
 
-    function getEventDetails(address eventAddress) public returns(string , string, address) {
-
-        Events singleEvent = Events(eventAddress);
-
-        // TODO: Add fetching single event
-        return ("","",msg.sender);
-    }
-
-
-    function getMarketsByEvent(bytes32 eventAddress)
-        public
-        view
-        returns (Market[] memory markets)
-    {
-        return eventMarkets[eventAddress];
-
-    }
-
-
-    function getEventsByAddress(address userAddress) public returns(address[]){
+    function getEventsByAddress(address userAddress) public view returns(address[] memory){
         return userEvents[userAddress];
     }
 
-    function getAllEvents() public view returns(address[]){
-        return _events;
+    function getAllEvents() public view returns(address[] memory){
+        return events;
     }
 }

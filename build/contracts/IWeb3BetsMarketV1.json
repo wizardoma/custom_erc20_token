@@ -1,0 +1,601 @@
+{
+  "contractName": "IWeb3BetsMarketV1",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "getName",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "name": "createPool",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "poolAddress",
+          "type": "address"
+        }
+      ],
+      "name": "setWinningPool",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getEventAddress",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getEventName",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "isWinningPoolSet",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "pool",
+          "type": "address"
+        }
+      ],
+      "name": "isWinningPool",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "cancelMarket",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"cancelMarket\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"}],\"name\":\"createPool\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getEventAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getEventName\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getName\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"pool\",\"type\":\"address\"}],\"name\":\"isWinningPool\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"isWinningPoolSet\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"poolAddress\",\"type\":\"address\"}],\"name\":\"setWinningPool\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interface/IWeb3BetsMarketV1.sol\":\"IWeb3BetsMarketV1\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interface/IBaseInterface.sol\":{\"keccak256\":\"0x27a5c051a8db4281732c681d135c0f2bcbbcd4433d97a0544ec9f7c00ffe539f\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://69a0d84935c2a60279c5031c00211fed05762dc3b031eb58edfa8dc04c766f23\",\"dweb:/ipfs/Qme3MN8ZW4JUwZm8M8WN7RJxrB7qb1niJE5eiFM8bVXZFF\"]},\"project:/contracts/interface/IWeb3BetsMarketV1.sol\":{\"keccak256\":\"0xa96e08242348c1214f49f901b346161288cbd37d086a546983ac5f9f30fada98\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://1ce59944b27e1f2b18db03e3c9e44f79d64be5686a01c49794afc038b07904ac\",\"dweb:/ipfs/QmNwrQPA49E7onf4A8tYG4gsW8PzNvp5zLmSzREQmbAK13\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\n\npragma solidity ^0.8.4;\nimport \"./IBaseInterface.sol\";\n\ninterface IWeb3BetsMarketV1 is IBaseInterface{\n\n    function createPool(string memory name) external;\n\n// Setting a winning pool marks a market as finished and cannot be undone\n    function setWinningPool(address poolAddress) external;\n\n    function getEventAddress() external returns (address);\n\n    function getEventName() external returns (string memory);\n\n    function isWinningPoolSet() external returns (bool);\n\n    function isWinningPool(address pool) external returns (bool);\n\n    function cancelMarket() external;\n\n}",
+  "sourcePath": "/Users/wizardom/projects/crypto/web3bets_smartcontract/contracts/interface/IWeb3BetsMarketV1.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/interface/IWeb3BetsMarketV1.sol",
+    "exportedSymbols": {
+      "IBaseInterface": [
+        2805
+      ],
+      "IWeb3BetsMarketV1": [
+        2933
+      ]
+    },
+    "id": 2934,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2894,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".4"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:23:14"
+      },
+      {
+        "absolutePath": "project:/contracts/interface/IBaseInterface.sol",
+        "file": "./IBaseInterface.sol",
+        "id": 2895,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 2934,
+        "sourceUnit": 2806,
+        "src": "57:30:14",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 2896,
+              "name": "IBaseInterface",
+              "nameLocations": [
+                "120:14:14"
+              ],
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 2805,
+              "src": "120:14:14"
+            },
+            "id": 2897,
+            "nodeType": "InheritanceSpecifier",
+            "src": "120:14:14"
+          }
+        ],
+        "canonicalName": "IWeb3BetsMarketV1",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 2933,
+        "linearizedBaseContracts": [
+          2933,
+          2805
+        ],
+        "name": "IWeb3BetsMarketV1",
+        "nameLocation": "99:17:14",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "d0d13036",
+            "id": 2902,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "createPool",
+            "nameLocation": "150:10:14",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2900,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2899,
+                  "mutability": "mutable",
+                  "name": "name",
+                  "nameLocation": "175:4:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2902,
+                  "src": "161:18:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 2898,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "161:6:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "160:20:14"
+            },
+            "returnParameters": {
+              "id": 2901,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "189:0:14"
+            },
+            "scope": 2933,
+            "src": "141:49:14",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "352ae596",
+            "id": 2907,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setWinningPool",
+            "nameLocation": "279:14:14",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2905,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2904,
+                  "mutability": "mutable",
+                  "name": "poolAddress",
+                  "nameLocation": "302:11:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2907,
+                  "src": "294:19:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2903,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "294:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "293:21:14"
+            },
+            "returnParameters": {
+              "id": 2906,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "323:0:14"
+            },
+            "scope": 2933,
+            "src": "270:54:14",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "d427ccbf",
+            "id": 2912,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getEventAddress",
+            "nameLocation": "339:15:14",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2908,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "354:2:14"
+            },
+            "returnParameters": {
+              "id": 2911,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2910,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2912,
+                  "src": "375:7:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2909,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "375:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "374:9:14"
+            },
+            "scope": 2933,
+            "src": "330:54:14",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "b81e43fc",
+            "id": 2917,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getEventName",
+            "nameLocation": "399:12:14",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2913,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "411:2:14"
+            },
+            "returnParameters": {
+              "id": 2916,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2915,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2917,
+                  "src": "432:13:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 2914,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "432:6:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "431:15:14"
+            },
+            "scope": 2933,
+            "src": "390:57:14",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "09dd8f87",
+            "id": 2922,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isWinningPoolSet",
+            "nameLocation": "462:16:14",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2918,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "478:2:14"
+            },
+            "returnParameters": {
+              "id": 2921,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2920,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2922,
+                  "src": "499:4:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 2919,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "499:4:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "498:6:14"
+            },
+            "scope": 2933,
+            "src": "453:52:14",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "c084e325",
+            "id": 2929,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isWinningPool",
+            "nameLocation": "520:13:14",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2925,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2924,
+                  "mutability": "mutable",
+                  "name": "pool",
+                  "nameLocation": "542:4:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2929,
+                  "src": "534:12:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2923,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "534:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "533:14:14"
+            },
+            "returnParameters": {
+              "id": 2928,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2927,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2929,
+                  "src": "566:4:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 2926,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "566:4:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "565:6:14"
+            },
+            "scope": 2933,
+            "src": "511:61:14",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "6bfefd6b",
+            "id": 2932,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "cancelMarket",
+            "nameLocation": "587:12:14",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2930,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "599:2:14"
+            },
+            "returnParameters": {
+              "id": 2931,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "610:0:14"
+            },
+            "scope": 2933,
+            "src": "578:33:14",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 2934,
+        "src": "89:525:14",
+        "usedErrors": []
+      }
+    ],
+    "src": "33:581:14"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.17+commit.8df45f5f.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.7",
+  "updatedAt": "2022-09-11T14:55:16.769Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

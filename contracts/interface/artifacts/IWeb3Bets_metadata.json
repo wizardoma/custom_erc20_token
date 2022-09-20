@@ -1,0 +1,65 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "getVigPercentage",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "shareBetEarnings",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"projects/crypto/web3bets_smartcontract/contracts/interface/IWeb3Bets.sol": "IWeb3Bets"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"projects/crypto/web3bets_smartcontract/contracts/interface/IWeb3Bets.sol": {
+			"keccak256": "0x2c83ee5f82eb8092c7c700d65f4a99fc038df1e3c67eafbf60ef5d8a6e198d2e",
+			"urls": [
+				"bzz-raw://2127d4bc97ac6444f5dc7dc3a2862d33c0baf49766d28f8be51fadd3ee8a792c",
+				"dweb:/ipfs/QmU89wWhgzphXbDkXYfqCALm3An8dVrvTSUWomDqFLyR11"
+			]
+		}
+	},
+	"version": 1
+}

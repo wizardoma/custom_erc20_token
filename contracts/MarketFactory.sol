@@ -3,23 +3,34 @@ pragma solidity >0.4.23 <0.9.0;
 import "./Markets.sol";
 
 contract MarketFactory {
-
-    mapping (address => address[]) eventMarkets;
+    mapping (address => address[]) public eventMarkets;
 
     event MarketCreated(address marketAddress, address eventAddress, string marketName);
 
-    address public poolFactoryAddress;
+    address[] private _markets;
 
-    Market[] private _markets;
+    address public web3betsAddress;
+
+    address public poolsFactoryAddress;
+
+    constructor(
+        address _poolsFactoryAddress, address _web3betsAddress
+    ){
+        web3betsAddress = _web3betsAddress;
+        poolsFactoryAddress = _poolsFactoryAddress;
+    }
 
     function createMarket(
         string memory _name, address _eventAddress) public returns(address) {
         
-        Market market = new Market(_name, _eventAddress);
+        Market _market = new Market(_name, _eventAddress, poolsFactoryAddress, web3betsAddress);
 
-        eventMarkets[_eventAddress].push(address(market));
-        emit MarketCreated(address(market), _eventAddress, _name);
-        return address(market);
+        eventMarkets[_eventAddress].push(address(_market));
+
+        _markets.push(address(_market));
+
+        emit MarketCreated(address(_market), _eventAddress, _name);
+        return address(_market);
     }
 
     function getMarketsByEvent(address eventAddress)
@@ -29,6 +40,14 @@ contract MarketFactory {
     {
         return eventMarkets[eventAddress];
 
+    }
+
+    function getTotalMarkets() external view returns (uint) {
+        return _markets.length;
+    }
+
+    function getAllMarkets() external view returns (address[] memory){
+        return _markets;
     }
 
 }

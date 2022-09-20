@@ -18,19 +18,21 @@ contract Pool is IWeb3BetsPoolsV1 {
 
     address public betsFactoryAddress;
 
-    mapping(address => uint256) userStakes;
+    mapping(address => uint256) public userStakes;
 
-    address[] betAddresses;
+    mapping(address => address[]) bettersBets;
+
+    address[] public betAddresses;
 
     address private eventAddress;
 
     address private marketAddress;
 
+    uint256 public minimumStake; 
 
     modifier aboveMinimumStake() {
-        IWeb3BetsEventV1 poolEvent = IWeb3BetsEventV1(eventAddress);
         require(
-            msg.value >= poolEvent.getMinimumStake(),
+            msg.value >= getMinimumStake(),
             "You can not bet below the minimum stake of event"
         );
         _;
@@ -39,27 +41,76 @@ contract Pool is IWeb3BetsPoolsV1 {
     constructor(
         string memory _name,
         address _eventAddress,
-        address _marketAddress
+        address _marketAddress,
+        address _betsFactoryAddress
     ) {
         name = _name;
         eventAddress = _eventAddress;
         marketAddress = _marketAddress;
+        betsFactoryAddress = _betsFactoryAddress;
     }
 
     function bet() public payable override aboveMinimumStake {
+        IWeb3BetsEventV1 eventV1 = IWeb3BetsEventV1(eventAddress);
+        uint256 eventStatus = eventV1.getEventStatus();
+        if (eventStatus != 0) {
+            revert("You can not bet on a started or concluded event");
+        }
+
         BetsFactory betsFactory = BetsFactory(betsFactoryAddress);
         address betAddress = betsFactory.createBet(
             marketAddress,
             eventAddress,
             address(this),
-            msg.value
+            msg.value,
+            msg.sender
         );
+        bettersBets[msg.sender].push(betAddress);
         totalStake += msg.value;
-        userStakes[msg.sender] = msg.value;
+        userStakes[msg.sender] += msg.value;
         betAddresses.push(betAddress);
+        (bool sentBetFundToMarket, ) = marketAddress.call{value: msg.value}("");
+
+        if (!sentBetFundToMarket) {
+            revert("An Error occurred in transaction");
+        }
     }
 
+    fallback() external payable {
+        totalStake += msg.value;
+
+        userStakes[msg.sender] += msg.value;
+    }
+
+    receive() external payable {
+
+    }
     function getName() external view override returns (string memory) {
         return name;
+    }
+
+    function getBalance() external view returns (uint256) {
+        return address(this).balance;
+    }
+
+    function getTotalStake() external view returns (uint256) {
+        return totalStake;
+    }
+
+    function getBets() external view override returns (address[] memory) {
+        return betAddresses;
+    }
+
+    function getUserStake(address user) external view returns (uint256) {
+        return userStakes[user];
+    }
+
+    function getBettersBets(address better) external view returns (address[] memory) {
+        return bettersBets[better];
+    }
+
+    function getMinimumStake() public returns (uint){
+        IWeb3BetsEventV1 event1 = IWeb3BetsEventV1(eventAddress);
+        return event1.getMinimumStake();
     }
 }
