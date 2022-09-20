@@ -67,7 +67,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.13+commit.abaa5c0e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"bet\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBets\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getName\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTotalStake\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"getUserStake\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interface/IWeb3BetsPoolsV1.sol\":\"IWeb3BetsPoolsV1\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interface/IBaseInterface.sol\":{\"keccak256\":\"0x27a5c051a8db4281732c681d135c0f2bcbbcd4433d97a0544ec9f7c00ffe539f\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://69a0d84935c2a60279c5031c00211fed05762dc3b031eb58edfa8dc04c766f23\",\"dweb:/ipfs/Qme3MN8ZW4JUwZm8M8WN7RJxrB7qb1niJE5eiFM8bVXZFF\"]},\"project:/contracts/interface/IWeb3BetsPoolsV1.sol\":{\"keccak256\":\"0xadacdcc55462dd19ad05a8a4efe9cc0e6aebc16c7f3490fcb4c8912e8e4eb39c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://eb1833ee0f03d2f33cfcefe71603847eeb5340679a07ae6048fd7747bd9828c2\",\"dweb:/ipfs/QmaE5gzpyAScbU9XLRg4JspAtYUyCgftcZkyepw5EcAhDU\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"bet\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBets\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getName\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTotalStake\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"getUserStake\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interface/IWeb3BetsPoolsV1.sol\":\"IWeb3BetsPoolsV1\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interface/IBaseInterface.sol\":{\"keccak256\":\"0x27a5c051a8db4281732c681d135c0f2bcbbcd4433d97a0544ec9f7c00ffe539f\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://69a0d84935c2a60279c5031c00211fed05762dc3b031eb58edfa8dc04c766f23\",\"dweb:/ipfs/Qme3MN8ZW4JUwZm8M8WN7RJxrB7qb1niJE5eiFM8bVXZFF\"]},\"project:/contracts/interface/IWeb3BetsPoolsV1.sol\":{\"keccak256\":\"0xadacdcc55462dd19ad05a8a4efe9cc0e6aebc16c7f3490fcb4c8912e8e4eb39c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://eb1833ee0f03d2f33cfcefe71603847eeb5340679a07ae6048fd7747bd9828c2\",\"dweb:/ipfs/QmaE5gzpyAScbU9XLRg4JspAtYUyCgftcZkyepw5EcAhDU\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -81,18 +81,18 @@
     "absolutePath": "project:/contracts/interface/IWeb3BetsPoolsV1.sol",
     "exportedSymbols": {
       "IBaseInterface": [
-        2804
+        2805
       ],
       "IWeb3BetsPoolsV1": [
-        2959
+        2960
       ]
     },
-    "id": 2960,
+    "id": 2961,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2934,
+        "id": 2935,
         "literals": [
           "solidity",
           "^",
@@ -105,11 +105,11 @@
       {
         "absolutePath": "project:/contracts/interface/IBaseInterface.sol",
         "file": "./IBaseInterface.sol",
-        "id": 2935,
+        "id": 2936,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 2960,
-        "sourceUnit": 2805,
+        "scope": 2961,
+        "sourceUnit": 2806,
         "src": "57:30:15",
         "symbolAliases": [],
         "unitAlias": ""
@@ -119,13 +119,16 @@
         "baseContracts": [
           {
             "baseName": {
-              "id": 2936,
+              "id": 2937,
               "name": "IBaseInterface",
+              "nameLocations": [
+                "119:14:15"
+              ],
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 2804,
+              "referencedDeclaration": 2805,
               "src": "119:14:15"
             },
-            "id": 2937,
+            "id": 2938,
             "nodeType": "InheritanceSpecifier",
             "src": "119:14:15"
           }
@@ -134,10 +137,10 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 2959,
+        "id": 2960,
         "linearizedBaseContracts": [
-          2959,
-          2804
+          2960,
+          2805
         ],
         "name": "IWeb3BetsPoolsV1",
         "nameLocation": "99:16:15",
@@ -145,7 +148,7 @@
         "nodes": [
           {
             "functionSelector": "11610c25",
-            "id": 2940,
+            "id": 2941,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -153,18 +156,18 @@
             "nameLocation": "149:3:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2938,
+              "id": 2939,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "152:2:15"
             },
             "returnParameters": {
-              "id": 2939,
+              "id": 2940,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "171:0:15"
             },
-            "scope": 2959,
+            "scope": 2960,
             "src": "140:32:15",
             "stateMutability": "payable",
             "virtual": false,
@@ -172,7 +175,7 @@
           },
           {
             "functionSelector": "7bc74225",
-            "id": 2945,
+            "id": 2946,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -180,23 +183,23 @@
             "nameLocation": "187:13:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2941,
+              "id": 2942,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "200:2:15"
             },
             "returnParameters": {
-              "id": 2944,
+              "id": 2945,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2943,
+                  "id": 2944,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2945,
+                  "scope": 2946,
                   "src": "221:7:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -205,7 +208,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2942,
+                    "id": 2943,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "221:7:15",
@@ -219,7 +222,7 @@
               ],
               "src": "220:9:15"
             },
-            "scope": 2959,
+            "scope": 2960,
             "src": "178:52:15",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -227,7 +230,7 @@
           },
           {
             "functionSelector": "bbadc93a",
-            "id": 2952,
+            "id": 2953,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -235,17 +238,17 @@
             "nameLocation": "245:12:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2948,
+              "id": 2949,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2947,
+                  "id": 2948,
                   "mutability": "mutable",
                   "name": "user",
                   "nameLocation": "266:4:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2952,
+                  "scope": 2953,
                   "src": "258:12:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -254,7 +257,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2946,
+                    "id": 2947,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "258:7:15",
@@ -270,17 +273,17 @@
               "src": "257:14:15"
             },
             "returnParameters": {
-              "id": 2951,
+              "id": 2952,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2950,
+                  "id": 2951,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2952,
+                  "scope": 2953,
                   "src": "290:7:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -289,7 +292,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2949,
+                    "id": 2950,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "290:7:15",
@@ -303,7 +306,7 @@
               ],
               "src": "289:9:15"
             },
-            "scope": 2959,
+            "scope": 2960,
             "src": "236:63:15",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -311,7 +314,7 @@
           },
           {
             "functionSelector": "a6afd5fd",
-            "id": 2958,
+            "id": 2959,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -319,23 +322,23 @@
             "nameLocation": "314:7:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2953,
+              "id": 2954,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "321:2:15"
             },
             "returnParameters": {
-              "id": 2957,
+              "id": 2958,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2956,
+                  "id": 2957,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2958,
+                  "scope": 2959,
                   "src": "342:16:15",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -345,7 +348,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2954,
+                      "id": 2955,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "342:7:15",
@@ -355,7 +358,7 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 2955,
+                    "id": 2956,
                     "nodeType": "ArrayTypeName",
                     "src": "342:9:15",
                     "typeDescriptions": {
@@ -368,14 +371,14 @@
               ],
               "src": "341:18:15"
             },
-            "scope": 2959,
+            "scope": 2960,
             "src": "305:55:15",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 2960,
+        "scope": 2961,
         "src": "89:274:15",
         "usedErrors": []
       }
@@ -384,11 +387,11 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.8.13+commit.abaa5c0e.Emscripten.clang"
+    "version": "0.8.17+commit.8df45f5f.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-08-02T05:10:40.990Z",
+  "updatedAt": "2022-09-11T14:55:16.769Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

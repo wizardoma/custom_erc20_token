@@ -124,7 +124,7 @@ contract Web3Bets is IWeb3Bets {
         return vigPercentage;
     }
 
-    function isEventOwner(address _owner) external view returns (bool) {
+    function isEventOwner(address _owner) external view override returns (bool) {
         return eventOwnersMapping[_owner] != address(0);
     }
 
