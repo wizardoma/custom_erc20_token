@@ -8,8 +8,8 @@ contract Web3Bets is IWeb3Bets {
     address public contractOwner;
     address public ecosystemAddress;
     address public holdersAddress;
-    uint256 public holdersVig = 25;
-    uint256 public ecosystemVig = 50;
+    uint256 public holdersVig = 50;
+    uint256 public ecosystemVig = 25;
     uint256 public eventOwnersVig = 25;
     uint256 public vigPercentage = 10;
     address[] public eventOwnerAddresses;
