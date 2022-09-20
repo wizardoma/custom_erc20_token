@@ -131,10 +131,12 @@ contract Market is IWeb3BetsMarketV1 {
         uint256 vigPercentage = web3Bets.getVigPercentage();
         uint marketBalance = address(this).balance;
         // Get total stake and transfer to market
-        uint256 vigShare = (marketBalance * vigPercentage) / 100;
-
+        
         IWeb3BetsPoolsV1 pool = IWeb3BetsPoolsV1(_poolAddress);
         uint256 poolTotalStake = pool.getTotalStake();
+        
+        uint256 vigShare = ((marketBalance - poolTotalStake) * vigPercentage) / 100;
+
          marketBalance = marketBalance - vigShare;
 
  
